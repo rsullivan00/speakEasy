@@ -24,8 +24,8 @@
     // Fill in with your Facebook application ID:
     // ****************************************************************************
     
-    [Parse setFacebookApplicationId:@"your_fb_application_id"];
-    
+    [PFFacebookUtils initializeWithApplicationId:@"your_fb_application_id"];
+        
     // Override point for customization after application launch.
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -39,12 +39,12 @@
 
 // Pre 4.2 support
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[PFUser facebook] handleOpenURL:url]; 
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 // For 4.2+ support
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[PFUser facebook] handleOpenURL:url]; 
+    return [PFFacebookUtils handleOpenURL:url];
 } 
 
 

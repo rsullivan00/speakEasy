@@ -16,7 +16,7 @@
     [super viewDidLoad];
     [self setTitle:@"Facebook Profile"];
     [[self tableView] setBackgroundColor:[UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0]];
-
+    
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logoutButtonTouchHandler:)];
     [self.navigationItem setLeftBarButtonItem:logoutButton];
@@ -24,7 +24,7 @@
     // Load table header view from nib
     [[NSBundle mainBundle] loadNibNamed:@"TableHeaderView" owner:self options:nil];
     [self.tableView setTableHeaderView:headerView];
-
+    
     // Create array for table row titles
     rowTitleArray = [NSArray arrayWithObjects:@"Location", @"Gender", @"Date of Birth", @"Relationship", nil]; 
     
@@ -33,14 +33,11 @@
     
     
     // Create request for user's facebook data
-    PF_Facebook *facebook = [PFUser facebook];
-    NSString *requestPath = [NSString stringWithFormat:@"%@/?fields=name,location,gender,birthday,relationship_status,picture", [[PFUser currentUser] facebookId]];
-    NSMutableDictionary *requestParameters = [NSMutableDictionary dictionaryWithObject:[[PFUser currentUser] facebookAccessToken] forKey:@"access_token"];
+    NSString *requestPath = @"me/?fields=name,location,gender,birthday,relationship_status,picture";
     
     // Send request to facebook
-    [facebook requestWithGraphPath:requestPath 
-                         andParams:requestParameters 
-                       andDelegate:self];
+    [[PFFacebookUtils facebook] requestWithGraphPath:requestPath 
+                                         andDelegate:self];
 }
 
 
@@ -63,7 +60,7 @@
     if (birthday) [rowDataArray replaceObjectAtIndex:2 withObject:birthday];
     if (relationship) [rowDataArray replaceObjectAtIndex:3 withObject:relationship];
     [self.tableView reloadData]; 
-
+    
     // Set the name in the header view label
     [headerNameLabel setText:name];
     
