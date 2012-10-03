@@ -6,165 +6,166 @@
 
 @implementation UserDetailsViewController
 
-@synthesize headerView, headerImageView, headerNameLabel;
-@synthesize rowTitleArray, rowDataArray, imageData;
 
-#pragma mark - View lifecycle
+#pragma mark - UIViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"Facebook Profile"];
-    [[self tableView] setBackgroundColor:[UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0]];
+    
+    self.title = @"Facebook Profile";
+    self.tableView.backgroundColor = [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
     
     // Add logout navigation bar button
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logoutButtonTouchHandler:)];
-    [self.navigationItem setLeftBarButtonItem:logoutButton];
+    self.navigationItem.leftBarButtonItem = logoutButton;
     
     // Load table header view from nib
     [[NSBundle mainBundle] loadNibNamed:@"TableHeaderView" owner:self options:nil];
-    [self.tableView setTableHeaderView:headerView];
+    self.tableView.tableHeaderView = _headerView;
     
     // Create array for table row titles
-    rowTitleArray = [NSArray arrayWithObjects:@"Location", @"Gender", @"Date of Birth", @"Relationship", nil]; 
+    _rowTitleArray = @[@"Location", @"Gender", @"Date of Birth", @"Relationship"];
     
     // Set default values for the table row data
-    rowDataArray = [NSMutableArray arrayWithObjects:@"N/A", @"N/A", @"N/A", @"N/A", nil];
+    _rowDataArray = [NSMutableArray arrayWithObjects:@"N/A", @"N/A", @"N/A", @"N/A", nil];
     
     
     // Create request for user's facebook data
-    NSString *requestPath = @"me/?fields=name,location,gender,birthday,relationship_status,picture";
+    NSString *requestPath = @"me/?fields=name,location,gender,birthday,relationship_status";
     
-    // Send request to facebook
-    [[PFFacebookUtils facebook] requestWithGraphPath:requestPath 
-                                         andDelegate:self];
+    // Send request to Facebook
+    PF_FBRequest *request = [PF_FBRequest requestForGraphPath:requestPath];
+    [request startWithCompletionHandler:^(PF_FBRequestConnection *connection, id result, NSError *error) {
+        // handle response
+        if (!error) {
+            // Parse the data received
+            NSDictionary *userData = (NSDictionary *)result;
+            NSString *facebookId = userData[@"id"];
+            NSString *name = userData[@"name"];
+            NSString *location = userData[@"location"][@"name"];
+            NSString *gender = userData[@"gender"];
+            NSString *birthday = userData[@"birthday"];
+            NSString *relationship = userData[@"relationship_status"];
+            
+            // Set received values if they are not nil and reload the table
+            if (location) {
+                [_rowDataArray replaceObjectAtIndex:0 withObject:location];
+            }
+
+            if (gender) {
+                [_rowDataArray replaceObjectAtIndex:1 withObject:gender];
+            }
+            
+            if (birthday) {
+                [_rowDataArray replaceObjectAtIndex:2 withObject:birthday];
+            }
+            
+            if (relationship) {
+                [_rowDataArray replaceObjectAtIndex:3 withObject:relationship];
+            }
+            
+            [self.tableView reloadData];
+            
+            // Set the name in the header view label
+            _headerNameLabel.text = name;
+            
+            
+            // Download the user's facebook profile picture
+            _imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
+            
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookId]];
+
+            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                  timeoutInterval:2.0f];
+            // Run network request asynchronously
+            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+            if (!urlConnection) {
+                NSLog(@"Failed to download picture");
+            }
+        } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
+                    isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+            NSLog(@"The facebook session was invalidated");
+            [self logoutButtonTouchHandler:nil];
+        } else {
+            NSLog(@"Some other error: %@", error);
+        }
+    }];
+    
 }
 
 
-#pragma mark - Facebook Request Delegate methods
-
-/* Callback delegate method for a successful graph request */
--(void)request:(PF_FBRequest *)request didLoad:(id)result 
-{    
-    // Parse the data received
-    NSDictionary *userData = (NSDictionary *)result;
-    NSString *name = [userData objectForKey:@"name"];
-    NSString *location = [[userData objectForKey:@"location"] objectForKey:@"name"];
-    NSString *gender = [userData objectForKey:@"gender"];
-    NSString *birthday = [userData objectForKey:@"birthday"];
-    NSString *relationship = [userData objectForKey:@"relationship_status"];
-    
-    // Set received values if they are not nil and reload the table
-    if (location) [rowDataArray replaceObjectAtIndex:0 withObject:location];
-    if (gender) [rowDataArray replaceObjectAtIndex:1 withObject:gender];
-    if (birthday) [rowDataArray replaceObjectAtIndex:2 withObject:birthday];
-    if (relationship) [rowDataArray replaceObjectAtIndex:3 withObject:relationship];
-    [self.tableView reloadData]; 
-    
-    // Set the name in the header view label
-    [headerNameLabel setText:name];
-    
-    
-    // Download the user's facebook profile picture    
-    imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
-    NSString *pictureURL = [userData objectForKey:@"picture"]; // get the url from the received data
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:pictureURL] 
-                                                              cachePolicy:NSURLRequestUseProtocolCachePolicy 
-                                                          timeoutInterval:2];
-    // Run network request asynchronously
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    if (!urlConnection)
-        NSLog(@"Failed to download picture");
-}
-
-/* Callback delegate method for an unsuccessful graph request */
--(void)request:(PF_FBRequest *)request didFailWithError:(NSError *)error 
-{
-    // Since the request failed, we can check if it was due to an invalid session    
-    if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"] isEqualToString: @"OAuthException"]) {
-        NSLog(@"The facebook session was invalidated");
-        [self logoutButtonTouchHandler:nil];
-    } else {
-        NSLog(@"Some other error");
-    }
-}
-
-
-#pragma mark - NSURLConnection delegate methods
+#pragma mark - NSURLConnectionDataDelegate
 
 /* Callback delegate methods used for downloading the user's profile picture */
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
-{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     // As chuncks of the image are received, we build our data file
-    [imageData appendData:data]; 
+    [_imageData appendData:data];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection 
-{
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // All data has been downloaded, now we can set the image in the header image view
-    [headerImageView setImage:[UIImage imageWithData:imageData]];
+    _headerImageView.image = [UIImage imageWithData:_imageData];
+
     // Add a nice corner radius to the image
-    [headerImageView.layer setCornerRadius:8.0f]; 
-    [headerImageView.layer setMasksToBounds:YES];
+    _headerImageView.layer.cornerRadius = 8.0f;
+    _headerImageView.layer.masksToBounds = YES;
 }
 
 
-#pragma mark - Logout method
+#pragma mark - UITableViewDataSource
 
-- (void)logoutButtonTouchHandler:(id)sender 
-{
-    // Logout user, this automatically clears the cache
-    [PFUser logOut];
-    
-    // Return to login view controller
-    [self.navigationController popToRootViewControllerAnimated:YES];    
-}
-
-
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return rowTitleArray.count;
+    return _rowTitleArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
         // Create the cell and add the labels
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 44)];
-        [titleLabel setTag:1]; // We use the tag to set it later
-        [titleLabel setTextAlignment:UITextAlignmentRight];
-        [titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
-        [titleLabel setBackgroundColor:[UIColor clearColor]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake( 0.0f, 0.0f, 120.0f, 44.0f)];
+        titleLabel.tag = 1; // We use the tag to set it later
+        titleLabel.textAlignment = UITextAlignmentRight;
+        titleLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+        titleLabel.backgroundColor = [UIColor clearColor];
         
-        UILabel *dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 0, 165, 44)];
-        [dataLabel setTag:2]; // We use the tag to set it later
-        [dataLabel setFont:[UIFont systemFontOfSize:15]];
-        [dataLabel setBackgroundColor:[UIColor clearColor]];
+        UILabel *dataLabel = [[UILabel alloc] initWithFrame:CGRectMake( 130.0f, 0.0f, 165.0f, 44.0f)];
+        dataLabel.tag = 2; // We use the tag to set it later
+        dataLabel.font = [UIFont systemFontOfSize:15.0f];
+        dataLabel.backgroundColor = [UIColor clearColor];
         
         [cell.contentView addSubview:titleLabel];
         [cell.contentView addSubview:dataLabel];
     }
     
     // Cannot select these cells
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    // Access labels in the cell using the tag # 
+    // Access labels in the cell using the tag #
     UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
     UILabel *dataLabel = (UILabel *)[cell viewWithTag:2];
     
     // Display the data in the table
-    [titleLabel setText:[rowTitleArray objectAtIndex:indexPath.row]];
-    [dataLabel setText:[rowDataArray objectAtIndex:indexPath.row]];
+    titleLabel.text = [_rowTitleArray objectAtIndex:indexPath.row];
+    dataLabel.text = [_rowDataArray objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+
+#pragma mark - ()
+
+- (void)logoutButtonTouchHandler:(id)sender {
+    // Logout user, this automatically clears the cache
+    [PFUser logOut];
+    
+    // Return to login view controller
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
