@@ -1,10 +1,9 @@
 //
 //  Copyright (c) 2012 Parse. All rights reserved.
 
-#import <UIKit/UIKit.h>
-#import "Parse/Parse.h"
+#import <Parse/Parse.h>
 
-@interface UserDetailsViewController : UITableViewController <PF_FBRequestDelegate, NSURLConnectionDelegate>
+@interface UserDetailsViewController : UITableViewController <NSURLConnectionDelegate>
 
 // UITableView header view properties
 @property (nonatomic, strong) IBOutlet UIView *headerView;
@@ -18,6 +17,5 @@
 
 // UINavigationBar button touch handler
 - (void)logoutButtonTouchHandler:(id)sender;
-
 
 @end

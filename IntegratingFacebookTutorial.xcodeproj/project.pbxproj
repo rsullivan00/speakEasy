@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C425016A161BBAE400474BCD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250166161BBAE400474BCD /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C425016B161BBAE400474BCD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250167161BBAE400474BCD /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C425016C161BBAE400474BCD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250168161BBAE400474BCD /* libsqlite3.dylib */; };
+		C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250169161BBAE400474BCD /* StoreKit.framework */; };
+		C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C425016F161BBAEE00474BCD /* libz.dylib */; };
+		C4250172161BBAFC00474BCD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250171161BBAFC00474BCD /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */; };
+		C4BB20D8161BC4FB00A7884A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C4BB20D5161BC4FB00A7884A /* Default.png */; };
+		C4BB20D9161BC4FB00A7884A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4BB20D6161BC4FB00A7884A /* Default@2x.png */; };
+		C4CF27E6161E3BAA008AB8CC /* login-button-small-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E2161E3BAA008AB8CC /* login-button-small-pressed.png */; };
+		C4CF27E7161E3BAA008AB8CC /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E3161E3BAA008AB8CC /* login-button-small-pressed@2x.png */; };
+		C4CF27E8161E3BAA008AB8CC /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E4161E3BAA008AB8CC /* login-button-small.png */; };
+		C4CF27E9161E3BAA008AB8CC /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E5161E3BAA008AB8CC /* login-button-small@2x.png */; };
 		D4DA79EF14D3345A0055F672 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79EE14D3345A0055F672 /* UIKit.framework */; };
 		D4DA79F114D3345A0055F672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79F014D3345A0055F672 /* Foundation.framework */; };
 		D4DA79F314D3345A0055F672 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79F214D3345A0055F672 /* CoreGraphics.framework */; };
@@ -16,12 +29,10 @@
 		D4DA7A0614D334B30055F672 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0514D334B30055F672 /* Parse.framework */; };
 		D4DA7A0E14D334F30055F672 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0714D334F30055F672 /* AudioToolbox.framework */; };
 		D4DA7A0F14D334F30055F672 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0814D334F30055F672 /* CFNetwork.framework */; };
-		D4DA7A1014D334F30055F672 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0914D334F30055F672 /* libz.1.1.3.dylib */; };
 		D4DA7A1114D334F30055F672 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0A14D334F30055F672 /* MobileCoreServices.framework */; };
 		D4DA7A1214D334F30055F672 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0B14D334F30055F672 /* QuartzCore.framework */; };
 		D4DA7A1314D334F30055F672 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0C14D334F30055F672 /* Security.framework */; };
 		D4DA7A1414D334F30055F672 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA7A0D14D334F30055F672 /* SystemConfiguration.framework */; };
-		D4DA7A1E14D3353D0055F672 /* FBConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4DA7A1914D3353D0055F672 /* FBConnect.bundle */; };
 		D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DA7A7214D393DA0055F672 /* LoginViewController.m */; };
 		D4DA7A7514D393DA0055F672 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DA7A7314D393DA0055F672 /* LoginViewController.xib */; };
 		D4DA7AA814D39BCE0055F672 /* UserDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DA7AA614D39BCE0055F672 /* UserDetailsViewController.m */; };
@@ -30,6 +41,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4250166161BBAE400474BCD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C4250167161BBAE400474BCD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		C4250168161BBAE400474BCD /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C4250169161BBAE400474BCD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C425016F161BBAEE00474BCD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C4250171161BBAFC00474BCD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C4BB20D5161BC4FB00A7884A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C4BB20D6161BC4FB00A7884A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C4CF27E2161E3BAA008AB8CC /* login-button-small-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed.png"; sourceTree = "<group>"; };
+		C4CF27E3161E3BAA008AB8CC /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
+		C4CF27E4161E3BAA008AB8CC /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
+		C4CF27E5161E3BAA008AB8CC /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
 		D4DA79EA14D3345A0055F672 /* IntegratingFacebookTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegratingFacebookTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DA79EE14D3345A0055F672 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4DA79F014D3345A0055F672 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,12 +67,10 @@
 		D4DA7A0514D334B30055F672 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D4DA7A0714D334F30055F672 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D4DA7A0814D334F30055F672 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		D4DA7A0914D334F30055F672 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		D4DA7A0A14D334F30055F672 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D4DA7A0B14D334F30055F672 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4DA7A0C14D334F30055F672 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D4DA7A0D14D334F30055F672 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D4DA7A1914D3353D0055F672 /* FBConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBConnect.bundle; sourceTree = "<group>"; };
 		D4DA7A7114D393DA0055F672 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D4DA7A7214D393DA0055F672 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D4DA7A7314D393DA0055F672 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -63,9 +85,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4250172161BBAFC00474BCD /* Social.framework in Frameworks */,
+				C425016A161BBAE400474BCD /* Accounts.framework in Frameworks */,
+				C425016B161BBAE400474BCD /* AdSupport.framework in Frameworks */,
+				C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */,
+				C425016C161BBAE400474BCD /* libsqlite3.dylib in Frameworks */,
+				C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */,
 				D4DA7A0E14D334F30055F672 /* AudioToolbox.framework in Frameworks */,
 				D4DA7A0F14D334F30055F672 /* CFNetwork.framework in Frameworks */,
-				D4DA7A1014D334F30055F672 /* libz.1.1.3.dylib in Frameworks */,
 				D4DA7A1114D334F30055F672 /* MobileCoreServices.framework in Frameworks */,
 				D4DA7A1214D334F30055F672 /* QuartzCore.framework in Frameworks */,
 				D4DA7A1314D334F30055F672 /* Security.framework in Frameworks */,
@@ -100,17 +127,22 @@
 		D4DA79ED14D3345A0055F672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4250166161BBAE400474BCD /* Accounts.framework */,
+				C4250167161BBAE400474BCD /* AdSupport.framework */,
 				D4DA7A0714D334F30055F672 /* AudioToolbox.framework */,
 				D4DA7A0814D334F30055F672 /* CFNetwork.framework */,
-				D4DA7A0914D334F30055F672 /* libz.1.1.3.dylib */,
+				D4DA79F214D3345A0055F672 /* CoreGraphics.framework */,
+				D4DA79F014D3345A0055F672 /* Foundation.framework */,
+				C4250168161BBAE400474BCD /* libsqlite3.dylib */,
+				C425016F161BBAEE00474BCD /* libz.dylib */,
 				D4DA7A0A14D334F30055F672 /* MobileCoreServices.framework */,
+				D4DA7A0514D334B30055F672 /* Parse.framework */,
 				D4DA7A0B14D334F30055F672 /* QuartzCore.framework */,
 				D4DA7A0C14D334F30055F672 /* Security.framework */,
+				C4250171161BBAFC00474BCD /* Social.framework */,
+				C4250169161BBAE400474BCD /* StoreKit.framework */,
 				D4DA7A0D14D334F30055F672 /* SystemConfiguration.framework */,
-				D4DA7A0514D334B30055F672 /* Parse.framework */,
 				D4DA79EE14D3345A0055F672 /* UIKit.framework */,
-				D4DA79F014D3345A0055F672 /* Foundation.framework */,
-				D4DA79F214D3345A0055F672 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,7 +159,6 @@
 				D4DA7AA614D39BCE0055F672 /* UserDetailsViewController.m */,
 				D4DA7AA714D39BCE0055F672 /* UserDetailsViewController.xib */,
 				D4DA7AAE14D4674F0055F672 /* TableHeaderView.xib */,
-				D4DA7A1914D3353D0055F672 /* FBConnect.bundle */,
 				D4DA79F514D3345A0055F672 /* Supporting Files */,
 			);
 			path = IntegratingFacebookTutorial;
@@ -136,6 +167,13 @@
 		D4DA79F514D3345A0055F672 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4CF27E2161E3BAA008AB8CC /* login-button-small-pressed.png */,
+				C4CF27E3161E3BAA008AB8CC /* login-button-small-pressed@2x.png */,
+				C4CF27E4161E3BAA008AB8CC /* login-button-small.png */,
+				C4CF27E5161E3BAA008AB8CC /* login-button-small@2x.png */,
+				C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */,
+				C4BB20D5161BC4FB00A7884A /* Default.png */,
+				C4BB20D6161BC4FB00A7884A /* Default@2x.png */,
 				D4DA79F614D3345A0055F672 /* IntegratingFacebookTutorial-Info.plist */,
 				D4DA79F714D3345A0055F672 /* InfoPlist.strings */,
 				D4DA79FA14D3345A0055F672 /* main.m */,
@@ -195,10 +233,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4DA79F914D3345A0055F672 /* InfoPlist.strings in Resources */,
-				D4DA7A1E14D3353D0055F672 /* FBConnect.bundle in Resources */,
 				D4DA7A7514D393DA0055F672 /* LoginViewController.xib in Resources */,
 				D4DA7AA914D39BCE0055F672 /* UserDetailsViewController.xib in Resources */,
 				D4DA7AAF14D467500055F672 /* TableHeaderView.xib in Resources */,
+				C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */,
+				C4BB20D8161BC4FB00A7884A /* Default.png in Resources */,
+				C4BB20D9161BC4FB00A7884A /* Default@2x.png in Resources */,
+				C4CF27E6161E3BAA008AB8CC /* login-button-small-pressed.png in Resources */,
+				C4CF27E7161E3BAA008AB8CC /* login-button-small-pressed@2x.png in Resources */,
+				C4CF27E8161E3BAA008AB8CC /* login-button-small.png in Resources */,
+				C4CF27E9161E3BAA008AB8CC /* login-button-small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
