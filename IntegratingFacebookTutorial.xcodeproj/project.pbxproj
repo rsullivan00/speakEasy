@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
 		C425016A161BBAE400474BCD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250166161BBAE400474BCD /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C425016B161BBAE400474BCD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250167161BBAE400474BCD /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C425016C161BBAE400474BCD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250168161BBAE400474BCD /* libsqlite3.dylib */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C4250166161BBAE400474BCD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		C4250167161BBAE400474BCD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C4250168161BBAE400474BCD /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */,
 				C4250172161BBAFC00474BCD /* Social.framework in Frameworks */,
 				C425016A161BBAE400474BCD /* Accounts.framework in Frameworks */,
 				C425016B161BBAE400474BCD /* AdSupport.framework in Frameworks */,
@@ -110,6 +113,7 @@
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
+				6D10F48216DD68E000690A0F /* CoreLocation.framework */,
 				D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial */,
 				D4DA79ED14D3345A0055F672 /* Frameworks */,
 				D4DA79EB14D3345A0055F672 /* Products */,
