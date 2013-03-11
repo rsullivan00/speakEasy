@@ -21,6 +21,8 @@
 		C4CF27E7161E3BAA008AB8CC /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E3161E3BAA008AB8CC /* login-button-small-pressed@2x.png */; };
 		C4CF27E8161E3BAA008AB8CC /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E4161E3BAA008AB8CC /* login-button-small.png */; };
 		C4CF27E9161E3BAA008AB8CC /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CF27E5161E3BAA008AB8CC /* login-button-small@2x.png */; };
+		C4DDA8AD16EE8A1900B5C174 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */; };
+		C4DDA8AE16EE8A1900B5C174 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C4DDA8AC16EE8A1900B5C174 /* Icon.png */; };
 		D4DA79EF14D3345A0055F672 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79EE14D3345A0055F672 /* UIKit.framework */; };
 		D4DA79F114D3345A0055F672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79F014D3345A0055F672 /* Foundation.framework */; };
 		D4DA79F314D3345A0055F672 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79F214D3345A0055F672 /* CoreGraphics.framework */; };
@@ -56,6 +58,8 @@
 		C4CF27E3161E3BAA008AB8CC /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
 		C4CF27E4161E3BAA008AB8CC /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
 		C4CF27E5161E3BAA008AB8CC /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
+		C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C4DDA8AC16EE8A1900B5C174 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D4DA79EA14D3345A0055F672 /* IntegratingFacebookTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegratingFacebookTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DA79EE14D3345A0055F672 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4DA79F014D3345A0055F672 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,13 +91,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */,
 				6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */,
 				C4250172161BBAFC00474BCD /* Social.framework in Frameworks */,
 				C425016A161BBAE400474BCD /* Accounts.framework in Frameworks */,
 				C425016B161BBAE400474BCD /* AdSupport.framework in Frameworks */,
 				C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */,
 				C425016C161BBAE400474BCD /* libsqlite3.dylib in Frameworks */,
-				C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */,
 				D4DA7A0E14D334F30055F672 /* AudioToolbox.framework in Frameworks */,
 				D4DA7A0F14D334F30055F672 /* CFNetwork.framework in Frameworks */,
 				D4DA7A1114D334F30055F672 /* MobileCoreServices.framework in Frameworks */,
@@ -113,7 +117,6 @@
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
-				6D10F48216DD68E000690A0F /* CoreLocation.framework */,
 				D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial */,
 				D4DA79ED14D3345A0055F672 /* Frameworks */,
 				D4DA79EB14D3345A0055F672 /* Products */,
@@ -131,6 +134,7 @@
 		D4DA79ED14D3345A0055F672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D10F48216DD68E000690A0F /* CoreLocation.framework */,
 				C4250166161BBAE400474BCD /* Accounts.framework */,
 				C4250167161BBAE400474BCD /* AdSupport.framework */,
 				D4DA7A0714D334F30055F672 /* AudioToolbox.framework */,
@@ -171,6 +175,8 @@
 		D4DA79F514D3345A0055F672 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */,
+				C4DDA8AC16EE8A1900B5C174 /* Icon.png */,
 				C4CF27E2161E3BAA008AB8CC /* login-button-small-pressed.png */,
 				C4CF27E3161E3BAA008AB8CC /* login-button-small-pressed@2x.png */,
 				C4CF27E4161E3BAA008AB8CC /* login-button-small.png */,
@@ -212,7 +218,7 @@
 		D4DA79E114D3345A0055F672 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = D4DA79E414D3345A0055F672 /* Build configuration list for PBXProject "IntegratingFacebookTutorial" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -247,6 +253,8 @@
 				C4CF27E7161E3BAA008AB8CC /* login-button-small-pressed@2x.png in Resources */,
 				C4CF27E8161E3BAA008AB8CC /* login-button-small.png in Resources */,
 				C4CF27E9161E3BAA008AB8CC /* login-button-small@2x.png in Resources */,
+				C4DDA8AD16EE8A1900B5C174 /* Icon@2x.png in Resources */,
+				C4DDA8AE16EE8A1900B5C174 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +292,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -297,6 +309,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
@@ -309,12 +322,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -329,10 +347,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Prefix.pch";
 				INFOPLIST_FILE = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -344,10 +368,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Prefix.pch";
 				INFOPLIST_FILE = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

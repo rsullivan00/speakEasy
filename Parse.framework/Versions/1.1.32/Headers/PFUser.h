@@ -5,10 +5,6 @@
 #import "PFConstants.h"
 #import "PFObject.h"
 
-#if PARSE_IOS_ONLY
-#import "PF_Facebook.h"
-#endif
-
 @class PFQuery;
 
 /*!

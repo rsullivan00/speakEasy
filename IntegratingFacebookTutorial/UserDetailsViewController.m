@@ -1,8 +1,12 @@
 //
-//  Copyright (c) 2012 Parse. All rights reserved.
+//  Copyright (c) 2013 Parse. All rights reserved.
 
 #import "UserDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
+
+@interface UserDetailsViewController()
+@property (nonatomic, strong) NSDictionary *userProfile;
+@end
 
 @implementation UserDetailsViewController
 
@@ -16,7 +20,7 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
     
     // Add logout navigation bar button
-    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logoutButtonTouchHandler:)];
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStyleBordered target:self action:@selector(logoutButtonTouchHandler:)];
     self.navigationItem.leftBarButtonItem = logoutButton;
     
     // Load table header view from nib
@@ -29,60 +33,36 @@
     // Set default values for the table row data
     _rowDataArray = [NSMutableArray arrayWithObjects:@"N/A", @"N/A", @"N/A", @"N/A", nil];
     
-    
-    // Create request for user's facebook data
-    NSString *requestPath = @"me/?fields=name,location,gender,birthday,relationship_status";
+    // If the user is already logged in, display any previously cached values before we get the latest from Facebook.
+    if ([PFUser currentUser]) {
+        self.userProfile = [PFUser currentUser][@"profile"];
+        [self updateProfile];
+    }
     
     // Send request to Facebook
-    PF_FBRequest *request = [PF_FBRequest requestForGraphPath:requestPath];
-    [request startWithCompletionHandler:^(PF_FBRequestConnection *connection, id result, NSError *error) {
+    FBRequest *request = [FBRequest requestForMe];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         // handle response
         if (!error) {
             // Parse the data received
             NSDictionary *userData = (NSDictionary *)result;
-            NSString *facebookId = userData[@"id"];
-            NSString *name = userData[@"name"];
-            NSString *location = userData[@"location"][@"name"];
-            NSString *gender = userData[@"gender"];
-            NSString *birthday = userData[@"birthday"];
-            NSString *relationship = userData[@"relationship_status"];
-            
-            // Set received values if they are not nil and reload the table
-            if (location) {
-                [_rowDataArray replaceObjectAtIndex:0 withObject:location];
-            }
 
-            if (gender) {
-                [_rowDataArray replaceObjectAtIndex:1 withObject:gender];
-            }
+            NSString *facebookID = userData[@"id"];
             
-            if (birthday) {
-                [_rowDataArray replaceObjectAtIndex:2 withObject:birthday];
-            }
-            
-            if (relationship) {
-                [_rowDataArray replaceObjectAtIndex:3 withObject:relationship];
-            }
-            
-            [self.tableView reloadData];
-            
-            // Set the name in the header view label
-            _headerNameLabel.text = name;
-            
-            
-            // Download the user's facebook profile picture
-            _imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
-            
-            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookId]];
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
 
-            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
-                                                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                                  timeoutInterval:2.0f];
-            // Run network request asynchronously
-            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-            if (!urlConnection) {
-                NSLog(@"Failed to download picture");
-            }
+            self.userProfile = @{@"facebookId": facebookID,
+                                 @"name": userData[@"name"],
+                                 @"location": userData[@"location"][@"name"],
+                                 @"gender": userData[@"gender"],
+                                 @"birthday": userData[@"birthday"],
+                                 @"relationship": userData[@"relationship_status"],
+                                 @"pictureURL": [pictureURL absoluteString]};
+            
+            [[PFUser currentUser] setObject:self.userProfile forKey:@"profile"];
+            [[PFUser currentUser] saveInBackground];
+
+            [self updateProfile];
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
             NSLog(@"The facebook session was invalidated");
@@ -163,9 +143,49 @@
 - (void)logoutButtonTouchHandler:(id)sender {
     // Logout user, this automatically clears the cache
     [PFUser logOut];
-    
+
     // Return to login view controller
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+// Set received values if they are not nil and reload the table
+- (void)updateProfile {
+    if (self.userProfile[@"location"]) {
+        [_rowDataArray replaceObjectAtIndex:0 withObject:self.userProfile[@"location"]];
+    }
+    
+    if (self.userProfile[@"gender"]) {
+        [_rowDataArray replaceObjectAtIndex:1 withObject:self.userProfile[@"gender"]];
+    }
+    
+    if (self.userProfile[@"birthday"]) {
+        [_rowDataArray replaceObjectAtIndex:2 withObject:self.userProfile[@"birthday"]];
+    }
+    
+    if (self.userProfile[@"relationship"]) {
+        [_rowDataArray replaceObjectAtIndex:3 withObject:self.userProfile[@"relationship"]];
+    }
+
+    [self.tableView reloadData];
+
+    // Set the name in the header view label
+    _headerNameLabel.text = self.userProfile[@"name"];
+    
+    // Download the user's facebook profile picture
+    _imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
+    
+    if (self.userProfile[@"pictureURL"]) {
+        NSURL *pictureURL = [NSURL URLWithString:self.userProfile[@"pictureURL"]];
+        
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                              timeoutInterval:2.0f];
+        // Run network request asynchronously
+        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+        if (!urlConnection) {
+            NSLog(@"Failed to download picture");
+        }
+    }
 }
 
 @end
