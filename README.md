@@ -8,8 +8,8 @@ How to Run
 
 1. Clone the repository and open the Xcode project.
 2. Add your Parse application id and client key in `AppDelegate.m`
-3. Add you Facebook application key in `AppDelegate.m`
-4. Set your Facebook application key as a URLType Project > Info > URL Types > Untitled > URL Schemes using the format fbYour_App_id (ex. for 12345, enter fb12345)
+3. Add you Facebook application id in `Info.plist`.
+4. Set your Facebook application id as a URLType. Select your target, then click on the Info tab. Add the new URLType with a URL Scheme using the format fbYOUR_APP_ID (ex. for 12345, enter fb12345)
 
 
 Learn More
