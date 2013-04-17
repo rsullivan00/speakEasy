@@ -18,7 +18,7 @@
     // Fill in with your Parse credentials:
     // ****************************************************************************
     // [Parse setApplicationId:@"your_application_id" clientKey:@"your_client_key"];
-    
+
     // ****************************************************************************
     // Your Facebook application id is configured in Info.plist.
     // ****************************************************************************

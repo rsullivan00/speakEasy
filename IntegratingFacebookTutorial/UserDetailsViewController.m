@@ -4,10 +4,6 @@
 #import "UserDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface UserDetailsViewController()
-@property (nonatomic, strong) NSDictionary *userProfile;
-@end
-
 @implementation UserDetailsViewController
 
 
@@ -25,17 +21,16 @@
     
     // Load table header view from nib
     [[NSBundle mainBundle] loadNibNamed:@"TableHeaderView" owner:self options:nil];
-    self.tableView.tableHeaderView = _headerView;
+    self.tableView.tableHeaderView = self.headerView;
     
     // Create array for table row titles
-    _rowTitleArray = @[@"Location", @"Gender", @"Date of Birth", @"Relationship"];
+    self.rowTitleArray = @[@"Location", @"Gender", @"Date of Birth", @"Relationship"];
     
     // Set default values for the table row data
-    _rowDataArray = [NSMutableArray arrayWithObjects:@"N/A", @"N/A", @"N/A", @"N/A", nil];
+    self.rowDataArray = [NSMutableArray arrayWithObjects:@"N/A", @"N/A", @"N/A", @"N/A", nil];
     
     // If the user is already logged in, display any previously cached values before we get the latest from Facebook.
     if ([PFUser currentUser]) {
-        self.userProfile = [PFUser currentUser][@"profile"];
         [self updateProfile];
     }
     
@@ -46,22 +41,45 @@
         if (!error) {
             // Parse the data received
             NSDictionary *userData = (NSDictionary *)result;
-
+            
             NSString *facebookID = userData[@"id"];
             
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-
-            self.userProfile = @{@"facebookId": facebookID,
-                                 @"name": userData[@"name"],
-                                 @"location": userData[@"location"][@"name"],
-                                 @"gender": userData[@"gender"],
-                                 @"birthday": userData[@"birthday"],
-                                 @"relationship": userData[@"relationship_status"],
-                                 @"pictureURL": [pictureURL absoluteString]};
             
-            [[PFUser currentUser] setObject:self.userProfile forKey:@"profile"];
+            
+            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:7];
+            
+            if (facebookID) {
+                userProfile[@"facebookId"] = facebookID;
+            }
+            
+            if (userData[@"name"]) {
+                userProfile[@"name"] = userData[@"name"];
+            }
+            
+            if (userData[@"location"][@"name"]) {
+                userProfile[@"location"] = userData[@"location"][@"name"];
+            }
+            
+            if (userData[@"gender"]) {
+                userProfile[@"gender"] = userData[@"gender"];
+            }
+            
+            if (userData[@"birthday"]) {
+                userProfile[@"birthday"] = userData[@"birthday"];
+            }
+            
+            if (userData[@"relationship_status"]) {
+                userProfile[@"relationship"] = userData[@"relationship_status"];
+            }
+            
+            if ([pictureURL absoluteString]) {
+                userProfile[@"pictureURL"] = [pictureURL absoluteString];
+            }
+            
+            [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];
-
+            
             [self updateProfile];
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
@@ -81,16 +99,16 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     // As chuncks of the image are received, we build our data file
-    [_imageData appendData:data];
+    [self.imageData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // All data has been downloaded, now we can set the image in the header image view
-    _headerImageView.image = [UIImage imageWithData:_imageData];
-
+    self.headerImageView.image = [UIImage imageWithData:self.imageData];
+    
     // Add a nice corner radius to the image
-    _headerImageView.layer.cornerRadius = 8.0f;
-    _headerImageView.layer.masksToBounds = YES;
+    self.headerImageView.layer.cornerRadius = 8.0f;
+    self.headerImageView.layer.masksToBounds = YES;
 }
 
 
@@ -98,7 +116,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return _rowTitleArray.count;
+    return self.rowTitleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,8 +149,8 @@
     UILabel *dataLabel = (UILabel *)[cell viewWithTag:2];
     
     // Display the data in the table
-    titleLabel.text = [_rowTitleArray objectAtIndex:indexPath.row];
-    dataLabel.text = [_rowDataArray objectAtIndex:indexPath.row];
+    titleLabel.text = [self.rowTitleArray objectAtIndex:indexPath.row];
+    dataLabel.text = [self.rowDataArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -143,39 +161,41 @@
 - (void)logoutButtonTouchHandler:(id)sender {
     // Logout user, this automatically clears the cache
     [PFUser logOut];
-
+    
     // Return to login view controller
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 // Set received values if they are not nil and reload the table
 - (void)updateProfile {
-    if (self.userProfile[@"location"]) {
-        [_rowDataArray replaceObjectAtIndex:0 withObject:self.userProfile[@"location"]];
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"location"]) {
+        [self.rowDataArray replaceObjectAtIndex:0 withObject:[[PFUser currentUser] objectForKey:@"profile"][@"location"]];
     }
     
-    if (self.userProfile[@"gender"]) {
-        [_rowDataArray replaceObjectAtIndex:1 withObject:self.userProfile[@"gender"]];
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"gender"]) {
+        [self.rowDataArray replaceObjectAtIndex:1 withObject:[[PFUser currentUser] objectForKey:@"profile"][@"gender"]];
     }
     
-    if (self.userProfile[@"birthday"]) {
-        [_rowDataArray replaceObjectAtIndex:2 withObject:self.userProfile[@"birthday"]];
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"birthday"]) {
+        [self.rowDataArray replaceObjectAtIndex:2 withObject:[[PFUser currentUser] objectForKey:@"profile"][@"birthday"]];
     }
     
-    if (self.userProfile[@"relationship"]) {
-        [_rowDataArray replaceObjectAtIndex:3 withObject:self.userProfile[@"relationship"]];
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"relationship"]) {
+        [self.rowDataArray replaceObjectAtIndex:3 withObject:[[PFUser currentUser] objectForKey:@"profile"][@"relationship"]];
     }
-
+    
     [self.tableView reloadData];
-
+    
     // Set the name in the header view label
-    _headerNameLabel.text = self.userProfile[@"name"];
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"name"]) {
+        self.headerNameLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"name"];
+    }
     
     // Download the user's facebook profile picture
-    _imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
+    self.imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
     
-    if (self.userProfile[@"pictureURL"]) {
-        NSURL *pictureURL = [NSURL URLWithString:self.userProfile[@"pictureURL"]];
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]) {
+        NSURL *pictureURL = [NSURL URLWithString:[[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]];
         
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
