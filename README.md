@@ -1,18 +1,28 @@
-Integrating Facebook Tutorial
-=============================
+# Integrating Facebook Tutorial
 
-This Xcode project teaches you how to create a Facebook profile viewer application using the Parse framework.
+## iOS Setup
 
-How to Run
-----------
+The Xcode project teaches you how to create a Facebook profile viewer application using the Parse framework.
 
-1. Clone the repository and open the Xcode project.
+### How to Run
+
+1. Clone the repository and open the Xcode project at `IntegratingFacebookTutorial-iOS/IntegratingFacebookTutorial.xcodeproj`.
 2. Add your Parse application id and client key in `AppDelegate.m`
-3. Add you Facebook application id in `Info.plist`.
-4. Set your Facebook application id as a URLType. Select your target, then click on the Info tab. Add the new URLType with a URL Scheme using the format fbYOUR_APP_ID (ex. for 12345, enter fb12345)
+3. Set your Facebook application id as a URLType Project > Info > URL Types > Untitled > URL Schemes using the format fbYour_App_id (ex. for 12345, enter fb12345)
+4. Set your Facebook application id in the `FacebookAppID` property in `IntegratingFacebookTutorial-Info.plist`.
 
+### Learn More
 
-Learn More
-----------
+To learn more, take a look at the [Integrating Facebook in iOS](https://www.parse.com/tutorials/integrating-facebook-in-ios) tutorial.
 
-To learn more, take a look at the [Integrating Facebook](https://parse.com/tutorials/integrating-facebook) tutorial.
+## Android Setup
+
+The Android project teaches you how to create a Facebook profile viewer application using the Parse framework.
+
+1. Clone the repository and import the Facebook SDK and sample project by navigating to the `IntegratingFacebookTutorial` folder and selecting the `facebook` and `IntegratingFacebookTutorial-Android` projects.
+2. Add your Parse application id and client key in `IntegratingFacebookTutorialApplication.java`.
+3. Add your Facebook application id in `strings.xml`
+
+### Learn More
+
+To learn more, take a look at the [Integrating Facebook in Android](https://www.parse.com/tutorials/integrating-facebook-in-android) tutorial.
