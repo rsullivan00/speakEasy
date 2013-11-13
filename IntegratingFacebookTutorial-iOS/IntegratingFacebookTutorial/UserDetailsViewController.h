@@ -1,4 +1,5 @@
 //
+//  Copyright (c) 2013 Parse. All rights reserved.
 
 #import <Parse/Parse.h>
 
