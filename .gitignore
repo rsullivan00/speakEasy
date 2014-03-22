@@ -1,9 +1,13 @@
-*~
-.DS_Store
-*.mode1v3
-*.mode2v3
+# Xcode
+*/build/*
 *.pbxuser
-*.perspectivev3
 *.xcworkspace
-*.swp
-xcuserdata
+*xcuserdata
+*.moved-aside
+*.DS_Store
+
+# Unity
+*.csproj
+*.sln
+IntegratingFacebookTutorial-Unity/Library
+IntegratingFacebookTutorial-Unity/Temp
