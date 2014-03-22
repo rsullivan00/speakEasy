@@ -31,7 +31,7 @@ To learn more, take a look at the [Integrating Facebook in Android](https://www.
 
 The Unity project teaches you how to create a Facebook profile viewer application using the Parse framework.
 
-1. Clone the repository and open the Unity project at `IntegratingFacebookTutorial-Unity`.
+1. Clone the repository and open the Unity project at `IntegratingFacebookTutorial-Unity`. Then open the `Menu` scene.
 2. Set your Parse application id and .NET key in the `Parse Initialize Behaviour` script of the `Parse Initialization` GameObject.
 3. Go to Facebook > Edit Settings in the Unity Editor and set the `App Name` and `App id` parameters.
 4. **iOS Deploy Setup:** Go to Edit > Project Settings > Player in the Unity Editor. Set the Bundle Identifier. This should match the settings on your Facebook App Dashboard, iOS settings.
