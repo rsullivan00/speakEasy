@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0ECDC31928327D00DA13A4 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC01928327D00DA13A4 /* Message.m */; };
+		1D0ECDC41928327D00DA13A4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC21928327D00DA13A4 /* User.m */; };
+		1D0ECDC6192833DF00DA13A4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */; };
+		1D0ECDCB192834D100DA13A4 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDCA192834D100DA13A4 /* MainNavigationController.m */; };
 		30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AB1829561000B17666 /* FacebookSDK.framework */; };
 		30C949AE1829561800B17666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AD1829561800B17666 /* Parse.framework */; };
 		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
@@ -41,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D0ECDBF1928327D00DA13A4 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		1D0ECDC01928327D00DA13A4 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		1D0ECDC11928327D00DA13A4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1D0ECDC21928327D00DA13A4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		1D0ECDC9192834D100DA13A4 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		1D0ECDCA192834D100DA13A4 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		30C949AB1829561000B17666 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		30C949AD1829561800B17666 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -55,14 +66,14 @@
 		C4CF27E5161E3BAA008AB8CC /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
 		C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C4DDA8AC16EE8A1900B5C174 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		D4DA79EA14D3345A0055F672 /* IntegratingFacebookTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegratingFacebookTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DA79EA14D3345A0055F672 /* speakEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DA79EE14D3345A0055F672 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4DA79F014D3345A0055F672 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D4DA79F214D3345A0055F672 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D4DA79F614D3345A0055F672 /* IntegratingFacebookTutorial-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IntegratingFacebookTutorial-Info.plist"; sourceTree = "<group>"; };
+		D4DA79F614D3345A0055F672 /* speakEasy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "speakEasy-Info.plist"; sourceTree = "<group>"; };
 		D4DA79F814D3345A0055F672 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D4DA79FA14D3345A0055F672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D4DA79FC14D3345A0055F672 /* IntegratingFacebookTutorial-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntegratingFacebookTutorial-Prefix.pch"; sourceTree = "<group>"; };
+		D4DA79FC14D3345A0055F672 /* speakEasy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "speakEasy-Prefix.pch"; sourceTree = "<group>"; };
 		D4DA79FD14D3345A0055F672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4DA79FE14D3345A0055F672 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D4DA7A0714D334F30055F672 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -105,9 +116,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D0ECDBE1928326400DA13A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D0ECDBF1928327D00DA13A4 /* Message.h */,
+				1D0ECDC01928327D00DA13A4 /* Message.m */,
+				1D0ECDC11928327D00DA13A4 /* User.h */,
+				1D0ECDC21928327D00DA13A4 /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1D0ECDC71928349900DA13A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1D0ECDC9192834D100DA13A4 /* MainNavigationController.h */,
+				1D0ECDCA192834D100DA13A4 /* MainNavigationController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1D0ECDC8192834A000DA13A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
+				1D0ECDC8192834A000DA13A4 /* View */,
+				1D0ECDC71928349900DA13A4 /* Controller */,
+				1D0ECDBE1928326400DA13A4 /* Model */,
 				D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial */,
 				D4DA79ED14D3345A0055F672 /* Frameworks */,
 				D4DA79EB14D3345A0055F672 /* Products */,
@@ -117,7 +159,7 @@
 		D4DA79EB14D3345A0055F672 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4DA79EA14D3345A0055F672 /* IntegratingFacebookTutorial.app */,
+				D4DA79EA14D3345A0055F672 /* speakEasy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,10 +214,10 @@
 				C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */,
 				C4BB20D5161BC4FB00A7884A /* Default.png */,
 				C4BB20D6161BC4FB00A7884A /* Default@2x.png */,
-				D4DA79F614D3345A0055F672 /* IntegratingFacebookTutorial-Info.plist */,
+				D4DA79F614D3345A0055F672 /* speakEasy-Info.plist */,
 				D4DA79F714D3345A0055F672 /* InfoPlist.strings */,
 				D4DA79FA14D3345A0055F672 /* main.m */,
-				D4DA79FC14D3345A0055F672 /* IntegratingFacebookTutorial-Prefix.pch */,
+				D4DA79FC14D3345A0055F672 /* speakEasy-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -183,9 +225,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4DA79E914D3345A0055F672 /* IntegratingFacebookTutorial */ = {
+		D4DA79E914D3345A0055F672 /* speakEasy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4DA7A0214D3345A0055F672 /* Build configuration list for PBXNativeTarget "IntegratingFacebookTutorial" */;
+			buildConfigurationList = D4DA7A0214D3345A0055F672 /* Build configuration list for PBXNativeTarget "speakEasy" */;
 			buildPhases = (
 				D4DA79E614D3345A0055F672 /* Sources */,
 				D4DA79E714D3345A0055F672 /* Frameworks */,
@@ -195,9 +237,9 @@
 			);
 			dependencies = (
 			);
-			name = IntegratingFacebookTutorial;
+			name = speakEasy;
 			productName = IntegratingFacebookTutorial;
-			productReference = D4DA79EA14D3345A0055F672 /* IntegratingFacebookTutorial.app */;
+			productReference = D4DA79EA14D3345A0055F672 /* speakEasy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +250,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = D4DA79E414D3345A0055F672 /* Build configuration list for PBXProject "IntegratingFacebookTutorial" */;
+			buildConfigurationList = D4DA79E414D3345A0055F672 /* Build configuration list for PBXProject "speakEasy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -220,7 +262,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4DA79E914D3345A0055F672 /* IntegratingFacebookTutorial */,
+				D4DA79E914D3345A0055F672 /* speakEasy */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +277,7 @@
 				D4DA7AA914D39BCE0055F672 /* UserDetailsViewController.xib in Resources */,
 				D4DA7AAF14D467500055F672 /* TableHeaderView.xib in Resources */,
 				C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */,
+				1D0ECDC6192833DF00DA13A4 /* Storyboard.storyboard in Resources */,
 				C4BB20D8161BC4FB00A7884A /* Default.png in Resources */,
 				C4BB20D9161BC4FB00A7884A /* Default@2x.png in Resources */,
 				C4CF27E6161E3BAA008AB8CC /* login-button-small-pressed.png in Resources */,
@@ -255,6 +298,9 @@
 			files = (
 				D4DA79FB14D3345A0055F672 /* main.m in Sources */,
 				D4DA79FF14D3345A0055F672 /* AppDelegate.m in Sources */,
+				1D0ECDC41928327D00DA13A4 /* User.m in Sources */,
+				1D0ECDC31928327D00DA13A4 /* Message.m in Sources */,
+				1D0ECDCB192834D100DA13A4 /* MainNavigationController.m in Sources */,
 				D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */,
 				D4DA7AA814D39BCE0055F672 /* UserDetailsViewController.m in Sources */,
 			);
@@ -337,13 +383,13 @@
 					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Prefix.pch";
-				INFOPLIST_FILE = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Info.plist";
+				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/speakEasy-Prefix.pch";
+				INFOPLIST_FILE = "IntegratingFacebookTutorial/speakEasy-Info.plist";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = speakEasy;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -356,13 +402,13 @@
 					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Prefix.pch";
-				INFOPLIST_FILE = "IntegratingFacebookTutorial/IntegratingFacebookTutorial-Info.plist";
+				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/speakEasy-Prefix.pch";
+				INFOPLIST_FILE = "IntegratingFacebookTutorial/speakEasy-Info.plist";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = speakEasy;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -370,7 +416,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4DA79E414D3345A0055F672 /* Build configuration list for PBXProject "IntegratingFacebookTutorial" */ = {
+		D4DA79E414D3345A0055F672 /* Build configuration list for PBXProject "speakEasy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4DA7A0014D3345A0055F672 /* Debug */,
@@ -379,7 +425,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4DA7A0214D3345A0055F672 /* Build configuration list for PBXNativeTarget "IntegratingFacebookTutorial" */ = {
+		D4DA7A0214D3345A0055F672 /* Build configuration list for PBXNativeTarget "speakEasy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4DA7A0314D3345A0055F672 /* Debug */,

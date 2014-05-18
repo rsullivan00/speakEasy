@@ -4,6 +4,7 @@
 #import "LoginViewController.h"
 #import "UserDetailsViewController.h"
 #import <Parse/Parse.h>
+#import "MainNavigationController.h"
 
 @implementation LoginViewController
 
@@ -16,17 +17,26 @@
     
     // Check if user is cached and linked to Facebook, if so, bypass login    
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:NO];
+        [self showMainNavigationController];
     }
 }
 
 
 #pragma mark - Login mehtods
 
+
+- (void)showMainNavigationController
+{
+    NSLog(@"User with facebook signed up and logged in!");
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    MainNavigationController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MainNavigationController"];
+    [[UIApplication sharedApplication].delegate window].rootViewController = vc;
+}
+
 /* Login to facebook method */
 - (IBAction)loginButtonTouchHandler:(id)sender  {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_friends"];
     
     // Login PFUser using facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -44,14 +54,15 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+            [self showMainNavigationController];
         } else {
             NSLog(@"User with facebook logged in!");
-            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+            [self showMainNavigationController];
         }
     }];
     
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished
 }
+
 
 @end

@@ -13,6 +13,7 @@
 // UITableView row data properties
 @property (nonatomic, strong) NSArray *rowTitleArray;
 @property (nonatomic, strong) NSMutableArray *rowDataArray;
+@property (nonatomic, strong) NSMutableArray *friendsArray;
 @property (nonatomic, strong) NSMutableData *imageData;
 
 // UINavigationBar button touch handler
