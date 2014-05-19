@@ -26,11 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getUsers];
+        // Do any additional setup after loading the view.
+}
+-(void)getUsers{
     Firebase* f = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com"];
     [f setValue:@"Do you have data? You'll love Firebase."];
-    Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com/users"];
-    [nameRef setValue:@{@"first": @"Fred", @"last": @"Swanson"}];
-    // Do any additional setup after loading the view.
+    Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseio.com/users"];
+    
+    // And then we write data to his first and last name locations:
+    [[nameRef childByAppendingPath:@"first"] setValue:@"jim"];
+    [[nameRef childByAppendingPath:@"last"] setValue:@"john"];  
+   
+    NSLog(@"Hello");
+
 }
 
 - (void)didReceiveMemoryWarning
