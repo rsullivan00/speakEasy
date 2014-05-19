@@ -12,6 +12,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Firebase* f = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com"];
+    [f setValue:@"Do you have data? You'll love Firebase."];
+    Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com/users"];
+    [nameRef setValue:@{@"first": @"Fred", @"last": @"Swanson"}];
+
     self.title = @"Facebook Profile";
     self.tableView.backgroundColor = [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
     

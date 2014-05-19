@@ -14,6 +14,9 @@
 		30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AB1829561000B17666 /* FacebookSDK.framework */; };
 		30C949AE1829561800B17666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AD1829561800B17666 /* Parse.framework */; };
 		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
+		8F188FE6192A6E210035281F /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE5192A6E210035281F /* Firebase.framework */; };
+		8F188FE8192A6E6F0035281F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE7192A6E6F0035281F /* libicucore.dylib */; };
+		8F188FEA192A6E780035281F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE9192A6E780035281F /* libc++.dylib */; };
 		C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250169161BBAE400474BCD /* StoreKit.framework */; };
 		C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C425016F161BBAEE00474BCD /* libz.dylib */; };
 		C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */; };
@@ -55,6 +58,9 @@
 		30C949AB1829561000B17666 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		30C949AD1829561800B17666 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8F188FE5192A6E210035281F /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		8F188FE7192A6E6F0035281F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		8F188FE9192A6E780035281F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		C4250169161BBAE400474BCD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C425016F161BBAEE00474BCD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -96,16 +102,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DA7A1414D334F30055F672 /* SystemConfiguration.framework in Frameworks */,
+				D4DA7A1314D334F30055F672 /* Security.framework in Frameworks */,
+				D4DA7A0F14D334F30055F672 /* CFNetwork.framework in Frameworks */,
+				8F188FEA192A6E780035281F /* libc++.dylib in Frameworks */,
+				8F188FE8192A6E6F0035281F /* libicucore.dylib in Frameworks */,
 				C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */,
 				6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */,
 				C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */,
 				D4DA7A0E14D334F30055F672 /* AudioToolbox.framework in Frameworks */,
-				D4DA7A0F14D334F30055F672 /* CFNetwork.framework in Frameworks */,
 				D4DA7A1114D334F30055F672 /* MobileCoreServices.framework in Frameworks */,
 				D4DA7A1214D334F30055F672 /* QuartzCore.framework in Frameworks */,
-				D4DA7A1314D334F30055F672 /* Security.framework in Frameworks */,
 				30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */,
-				D4DA7A1414D334F30055F672 /* SystemConfiguration.framework in Frameworks */,
+				8F188FE6192A6E210035281F /* Firebase.framework in Frameworks */,
 				30C949AE1829561800B17666 /* Parse.framework in Frameworks */,
 				D4DA79EF14D3345A0055F672 /* UIKit.framework in Frameworks */,
 				D4DA79F114D3345A0055F672 /* Foundation.framework in Frameworks */,
@@ -167,6 +176,9 @@
 		D4DA79ED14D3345A0055F672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F188FE9192A6E780035281F /* libc++.dylib */,
+				8F188FE7192A6E6F0035281F /* libicucore.dylib */,
+				8F188FE5192A6E210035281F /* Firebase.framework */,
 				30C949AD1829561800B17666 /* Parse.framework */,
 				30C949AB1829561000B17666 /* FacebookSDK.framework */,
 				6D10F48216DD68E000690A0F /* CoreLocation.framework */,
@@ -381,6 +393,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/speakEasy-Prefix.pch";
@@ -400,6 +413,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntegratingFacebookTutorial/speakEasy-Prefix.pch";

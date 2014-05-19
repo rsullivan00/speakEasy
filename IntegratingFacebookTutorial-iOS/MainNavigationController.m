@@ -26,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    Firebase* f = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com"];
+    [f setValue:@"Do you have data? You'll love Firebase."];
+    Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com/users"];
+    [nameRef setValue:@{@"first": @"Fred", @"last": @"Swanson"}];
     // Do any additional setup after loading the view.
 }
 

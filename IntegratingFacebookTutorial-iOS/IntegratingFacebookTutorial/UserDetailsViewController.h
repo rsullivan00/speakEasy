@@ -2,7 +2,7 @@
 //  Copyright (c) 2013 Parse. All rights reserved.
 
 #import <Parse/Parse.h>
-
+#import <Firebase/Firebase.h>
 @interface UserDetailsViewController : UITableViewController <NSURLConnectionDelegate>
 
 // UITableView header view properties
