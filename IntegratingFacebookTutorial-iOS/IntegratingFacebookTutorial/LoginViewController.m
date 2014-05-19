@@ -13,8 +13,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Facebook Profile";
-    
+   // self.title = @"Facebook Profile";
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
     // Check if user is cached and linked to Facebook, if so, bypass login    
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         [self showMainNavigationController];
