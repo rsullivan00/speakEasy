@@ -17,6 +17,6 @@
 @property NSMutableArray *friends;
 
 /* Unique userId corresponding to our DB table */
-@property NSInteger id;
+@property NSInteger userID;
 
 @end

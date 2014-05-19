@@ -7,13 +7,13 @@
 //
 
 #import "MainNavigationController.h"
-
+#import "User.h"
 @interface MainNavigationController ()
 
 @end
+NSString *userID;
 
 @implementation MainNavigationController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,18 +30,52 @@
         // Do any additional setup after loading the view.
 }
 -(void)getUsers{
+    [self getMyUserId];
+    [self getFriends];
+}
+-(void)getMyUserId{
+   
+   // Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseio.com/users"];
+    
+    [[FBRequest requestForMe] startWithCompletionHandler:
+     ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *aUser, NSError *error) {
+         if (!error) {
+             userID = [aUser objectForKey:@"id"];
+             NSLog(@"User id %@",[aUser objectForKey:@"id"]);
+             NSLog(@"the real User id %@",userID);
+             NSLog(@"%@", [NSString stringWithFormat:@"https://speakeasy.firebaseio.com/users/%@/friends", userID]);
+         }
+     }];
+}
+-(void)getFriends{
     Firebase* f = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseapp.com"];
     [f setValue:@"Do you have data? You'll love Firebase."];
-    Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://speakeasy.firebaseio.com/users"];
+    NSString *url = [NSString stringWithFormat:@"https://speakeasy.firebaseio.com/users/hello/friends"];
+    Firebase* nameRef = [[Firebase alloc] initWithUrl:url];
     
-    // And then we write data to his first and last name locations:
-    [[nameRef childByAppendingPath:@"first"] setValue:@"jim"];
-    [[nameRef childByAppendingPath:@"last"] setValue:@"john"];  
-   
-    NSLog(@"Hello");
-
+    
+    FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=id"];
+    [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            NSArray *data = [result objectForKey:@"data"];
+            for (FBGraphObject<FBGraphUser> *friend in data) {
+                int i = 0;
+                NSLog(@"%@", [friend id]);
+                NSString *intro = [NSString stringWithFormat:@"%d", i];
+                [nameRef setValue:@{intro: [friend id]}];
+                i++;
+            }
+            
+            NSArray *facebookFriends = data;
+            [[PFUser currentUser] setObject:facebookFriends forKey:@"facebookFriends"];
+            [[PFUser currentUser] saveInBackground];
+        }
+        else {
+            NSLog(@"Some other error: %@", error);
+        }
+    }];
+    
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -6,6 +6,8 @@
 //
 //
 #import <Firebase/Firebase.h>
+#import <QuartzCore/QuartzCore.h>
+#import <Parse/Parse.h>
 
 #import <UIKit/UIKit.h>
 
