@@ -17,6 +17,8 @@
 		8F188FE8192A6E6F0035281F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE7192A6E6F0035281F /* libicucore.dylib */; };
 		8F188FEA192A6E780035281F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE9192A6E780035281F /* libc++.dylib */; };
 		8F92B981192B06E70046EE87 /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B980192B06E70046EE87 /* userData.plist */; };
+		8F92B98B192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */; };
+		8F92B98E192B23020046EE87 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F92B98D192B23020046EE87 /* SettingsViewController.m */; };
 		8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */; };
 		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
 		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
@@ -63,6 +65,9 @@
 		8F188FE7192A6E6F0035281F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		8F188FE9192A6E780035281F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8F92B980192B06E70046EE87 /* userData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
+		8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Oceanic_Background_by_ka_chankitty.jpg; sourceTree = "<group>"; };
+		8F92B98C192B23020046EE87 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		8F92B98D192B23020046EE87 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableTableViewController.h; sourceTree = "<group>"; };
 		8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableTableViewController.m; sourceTree = "<group>"; };
 		8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostStatusViewController.h; sourceTree = "<group>"; };
@@ -153,22 +158,24 @@
 				8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */,
 				8FB70FDC192AEA3B00E8E18B /* MainViewController.h */,
 				8FB70FDD192AEA3B00E8E18B /* MainViewController.m */,
+				8F92B98C192B23020046EE87 /* SettingsViewController.h */,
+				8F92B98D192B23020046EE87 /* SettingsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		1D0ECDC8192834A000DA13A4 /* View */ = {
+		1D0ECDC8192834A000DA13A4 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */,
 			);
-			name = View;
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
-				1D0ECDC8192834A000DA13A4 /* View */,
+				1D0ECDC8192834A000DA13A4 /* Storyboard */,
 				1D0ECDC71928349900DA13A4 /* Controller */,
 				1D0ECDBE1928326400DA13A4 /* Model */,
 				D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial */,
@@ -229,6 +236,7 @@
 		D4DA79F514D3345A0055F672 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */,
 				C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */,
 				C4DDA8AC16EE8A1900B5C174 /* Icon.png */,
 				C4CF27E2161E3BAA008AB8CC /* login-button-small-pressed.png */,
@@ -304,6 +312,7 @@
 				C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */,
 				1D0ECDC6192833DF00DA13A4 /* Storyboard.storyboard in Resources */,
 				C4BB20D8161BC4FB00A7884A /* Default.png in Resources */,
+				8F92B98B192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg in Resources */,
 				C4BB20D9161BC4FB00A7884A /* Default@2x.png in Resources */,
 				C4CF27E6161E3BAA008AB8CC /* login-button-small-pressed.png in Resources */,
 				C4CF27E7161E3BAA008AB8CC /* login-button-small-pressed@2x.png in Resources */,
@@ -329,6 +338,7 @@
 				1D0ECDC31928327D00DA13A4 /* Message.m in Sources */,
 				8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */,
 				8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */,
+				8F92B98E192B23020046EE87 /* SettingsViewController.m in Sources */,
 				D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */,
 				D4DA7AA814D39BCE0055F672 /* UserDetailsViewController.m in Sources */,
 			);

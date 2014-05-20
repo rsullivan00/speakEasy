@@ -1,19 +1,18 @@
 //
-//  PostStatusViewController.m
+//  SettingsViewController.m
 //  speakEasy
 //
 //  Created by Daljeet Virdi on 5/19/14.
 //
 //
 
-#import "PostStatusViewController.h"
+#import "SettingsViewController.h"
 
-@interface PostStatusViewController ()
+@interface SettingsViewController ()
 
 @end
 
-@implementation PostStatusViewController
-@synthesize textViewValue;
+@implementation SettingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,11 +27,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
-    textViewValue.layer.cornerRadius=8.0f;
-    textViewValue.layer.masksToBounds=YES;
-    textViewValue.layer.borderColor=[[UIColor blueColor]CGColor];
-    textViewValue.layer.borderWidth= 0.1f;
-    textViewValue.alpha = 0.5;
+
+    
     // Do any additional setup after loading the view.
 }
 
@@ -53,10 +49,4 @@
 }
 */
 
-- (IBAction)addMessage:(id)sender {
-    User *hello = [[User alloc] init];
-    NSLog(@"%@", [hello userID]);
-//    Firebase *nameRef = [[Firebase alloc] initWithUrl:url];
-    
-}
 @end

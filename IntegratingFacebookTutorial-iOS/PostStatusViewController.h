@@ -8,6 +8,7 @@
 #import <Firebase/Firebase.h>
 #import "User.h"
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface PostStatusViewController : UIViewController
 - (IBAction)addMessage:(id)sender;

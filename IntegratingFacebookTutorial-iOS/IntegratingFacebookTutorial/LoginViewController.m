@@ -14,6 +14,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    // self.title = @"Facebook Profile";
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
 
     // Check if user is cached and linked to Facebook, if so, bypass login    
