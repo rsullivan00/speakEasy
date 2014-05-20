@@ -10,14 +10,16 @@
 		1D0ECDC31928327D00DA13A4 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC01928327D00DA13A4 /* Message.m */; };
 		1D0ECDC41928327D00DA13A4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC21928327D00DA13A4 /* User.m */; };
 		1D0ECDC6192833DF00DA13A4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */; };
-		1D0ECDCB192834D100DA13A4 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDCA192834D100DA13A4 /* MainNavigationController.m */; };
 		30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AB1829561000B17666 /* FacebookSDK.framework */; };
 		30C949AE1829561800B17666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AD1829561800B17666 /* Parse.framework */; };
 		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
 		8F188FE6192A6E210035281F /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE5192A6E210035281F /* Firebase.framework */; };
 		8F188FE8192A6E6F0035281F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE7192A6E6F0035281F /* libicucore.dylib */; };
 		8F188FEA192A6E780035281F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE9192A6E780035281F /* libc++.dylib */; };
+		8F92B981192B06E70046EE87 /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B980192B06E70046EE87 /* userData.plist */; };
 		8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */; };
+		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
+		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
 		C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250169161BBAE400474BCD /* StoreKit.framework */; };
 		C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C425016F161BBAEE00474BCD /* libz.dylib */; };
 		C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */; };
@@ -54,16 +56,19 @@
 		1D0ECDC11928327D00DA13A4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1D0ECDC21928327D00DA13A4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		1D0ECDC9192834D100DA13A4 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
-		1D0ECDCA192834D100DA13A4 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		30C949AB1829561000B17666 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		30C949AD1829561800B17666 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8F188FE5192A6E210035281F /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		8F188FE7192A6E6F0035281F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		8F188FE9192A6E780035281F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		8F92B980192B06E70046EE87 /* userData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
 		8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableTableViewController.h; sourceTree = "<group>"; };
 		8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableTableViewController.m; sourceTree = "<group>"; };
+		8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostStatusViewController.h; sourceTree = "<group>"; };
+		8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostStatusViewController.m; sourceTree = "<group>"; };
+		8FB70FDC192AEA3B00E8E18B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8FB70FDD192AEA3B00E8E18B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		C4250169161BBAE400474BCD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C425016F161BBAEE00474BCD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C4BB20D4161BC4FB00A7884A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -142,10 +147,12 @@
 		1D0ECDC71928349900DA13A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1D0ECDC9192834D100DA13A4 /* MainNavigationController.h */,
-				1D0ECDCA192834D100DA13A4 /* MainNavigationController.m */,
 				8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */,
 				8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */,
+				8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */,
+				8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */,
+				8FB70FDC192AEA3B00E8E18B /* MainViewController.h */,
+				8FB70FDD192AEA3B00E8E18B /* MainViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 				D4DA79F714D3345A0055F672 /* InfoPlist.strings */,
 				D4DA79FA14D3345A0055F672 /* main.m */,
 				D4DA79FC14D3345A0055F672 /* speakEasy-Prefix.pch */,
+				8F92B980192B06E70046EE87 /* userData.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 				C4CF27E8161E3BAA008AB8CC /* login-button-small.png in Resources */,
 				C4CF27E9161E3BAA008AB8CC /* login-button-small@2x.png in Resources */,
 				C4DDA8AD16EE8A1900B5C174 /* Icon@2x.png in Resources */,
+				8F92B981192B06E70046EE87 /* userData.plist in Resources */,
 				C4DDA8AE16EE8A1900B5C174 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,9 +325,10 @@
 				D4DA79FB14D3345A0055F672 /* main.m in Sources */,
 				D4DA79FF14D3345A0055F672 /* AppDelegate.m in Sources */,
 				1D0ECDC41928327D00DA13A4 /* User.m in Sources */,
+				8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */,
 				1D0ECDC31928327D00DA13A4 /* Message.m in Sources */,
-				1D0ECDCB192834D100DA13A4 /* MainNavigationController.m in Sources */,
 				8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */,
+				8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */,
 				D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */,
 				D4DA7AA814D39BCE0055F672 /* UserDetailsViewController.m in Sources */,
 			);

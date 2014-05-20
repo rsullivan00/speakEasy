@@ -10,13 +10,15 @@
 
 @interface User : NSObject
 
-/* Array of messageIds for the user's messages */
-@property NSMutableArray *messages;
-
-/* Array of userIds of the User's friends */
-@property NSMutableArray *friends;
-
++(User *) information;
 /* Unique userId corresponding to our DB table */
-@property NSInteger userID;
 
+
+@property NSString *userID;
+
+
+-(NSMutableArray *) friends;
+/* Array of messageIds for the user's messages */
+
+-(NSMutableArray *) messages;
 @end

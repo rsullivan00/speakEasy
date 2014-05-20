@@ -9,5 +9,40 @@
 #import "User.h"
 
 @implementation User
-@synthesize userID;
+
+static User *theOneInstance;
+
++ (User *) information
+{
+    @synchronized (self)
+    {
+        if (! theOneInstance)
+        {
+            theOneInstance = [[User alloc] init];
+        }
+    }
+    return theOneInstance;
+}
+
+
+/* Array of userIds of the User's friends */
+
+-(NSMutableArray *) friends{
+    return [[User information] friends];
+}
+/* Array of messageIds for the user's messages */
+
+-(NSMutableArray *) messages{
+    return [[User information] messages];
+}
+
+- (id) init
+{
+    if (self = [super init]) {
+        
+        
+    }
+    return self;
+}
 @end
+

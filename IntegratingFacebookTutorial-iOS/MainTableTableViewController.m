@@ -7,7 +7,7 @@
 //
 
 #import "MainTableTableViewController.h"
-
+#import "PostStatusViewController.h"
 @interface MainTableTableViewController ()
 
 @end
@@ -116,4 +116,10 @@
 }
 */
 
+- (IBAction)goToPostStatusPage:(id)sender {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    PostStatusViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"PostStatusViewController"];
+    [[UIApplication sharedApplication].delegate window].rootViewController = vc;
+
+}
 @end

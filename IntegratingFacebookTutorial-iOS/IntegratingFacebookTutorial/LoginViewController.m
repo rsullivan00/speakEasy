@@ -4,7 +4,7 @@
 #import "LoginViewController.h"
 #import "UserDetailsViewController.h"
 #import <Parse/Parse.h>
-#import "MainNavigationController.h"
+#import "MainViewController.h"
 
 @implementation LoginViewController
 
@@ -30,7 +30,7 @@
 {
     NSLog(@"User with facebook signed up and logged in!");
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    MainNavigationController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MainNavigationController"];
+    MainViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MainViewController"];
     [[UIApplication sharedApplication].delegate window].rootViewController = vc;
 }
 

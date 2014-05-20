@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MainTableTableViewController : UITableViewController
+- (IBAction)goToPostStatusPage:(id)sender;
 
 @end
