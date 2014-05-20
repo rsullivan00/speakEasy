@@ -9,16 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
+/* Singleton instance of User */
++(User *) currentUser;
 
-+(User *) information;
+/* Returns a key for the current User's persistent friend data */
++(NSString *) friendsKey;
+
 /* Unique userId corresponding to our DB table */
-
-
 @property NSString *userID;
+@property NSMutableArray *friends;
+@property NSMutableArray *messagesBy;
+@property NSMutableArray *messagesTo;
 
-
--(NSMutableArray *) friends;
-/* Array of messageIds for the user's messages */
-
--(NSMutableArray *) messages;
+/* Designated initializer */
+- (id) initWithId: (NSString *) userID;
 @end

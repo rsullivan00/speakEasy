@@ -7,13 +7,12 @@
 //
 
 #import "PostStatusViewController.h"
-
-@interface PostStatusViewController ()
-
-@end
+#import "Constants.h"
+#import "Message.h"
 
 @implementation PostStatusViewController
-@synthesize textViewValue;
+
+@synthesize messageTextView, authorTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,9 +47,17 @@
 */
 
 - (IBAction)addMessage:(id)sender {
-    User *hello = [[User alloc] init];
-    NSLog(@"%@", [hello userID]);
-//    Firebase *nameRef = [[Firebase alloc] initWithUrl:url];
+    User *currentUser = [User currentUser];
+    NSLog(@"%@", [currentUser userID]);
     
+    NSString *text = messageTextView.text;
+    NSString *authorName = authorTextView.text;
+    
+    Message *newMessage = [[Message alloc] initWithText:text authorName:authorName];
+    [[User currentUser].messagesBy addObject:newMessage];
+
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/messages/%@", FIREBASE_PREFIX, newMessage.messageID];
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    [firebase setValue:@{newMessage.messageID: @{@"text":newMessage.text }}];
 }
 @end

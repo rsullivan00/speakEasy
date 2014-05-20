@@ -10,38 +10,34 @@
 
 @implementation User
 
-static User *theOneInstance;
+@synthesize userID, friends, messagesBy, messagesTo;
 
-+ (User *) information
+/* Singleton User for the currently logged-in User */
+static User *currentUser;
+
++ (User *) currentUser
 {
     @synchronized (self)
     {
-        if (! theOneInstance)
+        if (!currentUser)
         {
-            theOneInstance = [[User alloc] init];
+            currentUser = [[User alloc] init];
         }
     }
-    return theOneInstance;
+    return currentUser;
 }
 
-
-/* Array of userIds of the User's friends */
-
--(NSMutableArray *) friends{
-    return [[User information] friends];
-}
-/* Array of messageIds for the user's messages */
-
--(NSMutableArray *) messages{
-    return [[User information] messages];
++(NSString *) friendsKey
+{
+    return [NSString stringWithFormat:@"facebookFriends%@", currentUser.userID];
 }
 
-- (id) init
+- (id) initWithId: (NSString *) userID
 {
     if (self = [super init]) {
-        
-        
+        self.userID = userID;
     }
+    
     return self;
 }
 @end

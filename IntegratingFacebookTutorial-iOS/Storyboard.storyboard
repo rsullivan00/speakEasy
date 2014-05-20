@@ -40,7 +40,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Post" id="hjN-cz-evu"/>
                     <connections>
-                        <outlet property="textViewValue" destination="uH0-wt-xmz" id="IG1-z6-X2E"/>
+                        <outlet property="messageTextView" destination="uH0-wt-xmz" id="5N5-cT-aNJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0T-Fz-5zf" userLabel="First Responder" sceneMemberID="firstResponder"/>

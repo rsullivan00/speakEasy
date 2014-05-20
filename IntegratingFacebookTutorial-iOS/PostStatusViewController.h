@@ -10,7 +10,10 @@
 #import <UIKit/UIKit.h>
 
 @interface PostStatusViewController : UIViewController
+
 - (IBAction)addMessage:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *textViewValue;
+
+@property (weak, nonatomic) IBOutlet UITextView *messageTextView;
+@property (weak, nonatomic) IBOutlet UITextView *authorTextView;
 
 @end

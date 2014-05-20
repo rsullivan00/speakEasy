@@ -18,7 +18,7 @@
 
     // Check if user is cached and linked to Facebook, if so, bypass login    
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        [self showMainNavigationController];
+        [self showMainViewController];
     }
 }
 
@@ -26,7 +26,7 @@
 #pragma mark - Login mehtods
 
 
-- (void)showMainNavigationController
+- (void)showMainViewController
 {
     NSLog(@"User with facebook signed up and logged in!");
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
@@ -37,7 +37,7 @@
 /* Login to facebook method */
 - (IBAction)loginButtonTouchHandler:(id)sender  {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_friends"];
+    NSArray *permissionsArray = @[@"user_friends"];
     
     // Login PFUser using facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -55,10 +55,10 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-            [self showMainNavigationController];
+            [self showMainViewController];
         } else {
             NSLog(@"User with facebook logged in!");
-            [self showMainNavigationController];
+            [self showMainViewController];
         }
     }];
     

@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "User.h"
+#import "Constants.h"
+
 @interface MainViewController ()
 
 @end
@@ -29,56 +31,48 @@
     [self getUsers];
     // Do any additional setup after loading the view.
 }
--(void)getUsers{
-    
-    [self getMyUserIdAndMyFriends];
-    
-    
+-(void)getUsers
+{
+    [self initializeCurrentUser];
 }
--(void)getMyUserIdAndMyFriends{
-    
-    
-    __block NSString *url = nil;
-    
- 
-    
+
+-(void)initializeCurrentUser
+{
+    /* Populate currentUser singleton instance with appropriate data */
     [[FBRequest requestForMe] startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *aUser, NSError *error) {
         if (!error) {
-            NSLog(@"User id %@",[aUser objectForKey:@"id"]);
-            NSString *user = [NSString stringWithFormat:@"%@", [aUser objectForKey:@"id"]];
+            NSString *userID = [NSString stringWithFormat:@"%@", [aUser objectForKey:@"id"]];
+            User *currentUser = [User currentUser];
+            currentUser.userID = userID;
             
+            NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, userID];
             
-            
-            NSLog(@"The hyperlink is: %@", [NSString stringWithFormat:@"https://speakeasy.firebaseio.com/users/%@/friends", [aUser objectForKey:@"id"]]);
-            url = [NSString stringWithFormat:@"https://speakeasy.firebaseio.com/users/%@/friends", [aUser objectForKey:@"id"]];
-            
-            NSLog(@"The url is %@", url);
-            NSLog(@"The url issss %@", url);
-            
-            
-            
-            User *hello = [[User alloc] init];
-            
-            [[hello userID] isEqualToString:[NSString stringWithFormat:@"%@", [aUser objectForKey:@"id"]]];
-            
-            Firebase *nameRef = [[Firebase alloc] initWithUrl:url];
+            Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+            /* Make Facebook request for all friends' user IDs */
             FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=id"];
             [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSArray *data = [result objectForKey:@"data"];
+                    int i = 0;
+                    NSMutableArray *idArray = [[NSMutableArray alloc] init];
                     for (FBGraphObject<FBGraphUser> *friend in data) {
-                        int i = 0;
-                        NSLog(@"%@", [friend id]);
-                        NSString *intro = [NSString stringWithFormat:@"%d", i];
-                        [nameRef setValue:@{intro: [friend id]}];
+                        NSLog(@"%@", friend.id);
+                        NSString *friendIndex = [NSString stringWithFormat:@"%d", i];
+                        /* Add friend id to User's friends array on Firebase */
+                        [firebase setValue:@{friendIndex: friend.id}];
+                        [idArray addObject:friend.id];
                         i++;
                     }
                     
-                    NSArray *facebookFriends = data;
-                    [[PFUser currentUser] setObject:facebookFriends forKey:@"facebookFriends"];
+                    /* Add friend ids to currentUser singleton */
+                    currentUser.friends = idArray;
+                    
+                    /* Store updated user in Parse cloud */
+                    /*
+                    [[PFUser currentUser] setObject:currentUser.friends forKey:@"friends"];
                     [[PFUser currentUser] saveInBackground];
-                }
-                else {
+                     */
+                } else {
                     NSLog(@"Some other error: %@", error);
                 }
             }];
