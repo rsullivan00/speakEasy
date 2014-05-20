@@ -1,6 +1,8 @@
+//  speakEasy
 //
-//  Copyright (c) 2013 Parse. All rights reserved.
-
+//  Created by Daljeet Virdi on 5/19/14.
+//
+//
 #import <Parse/Parse.h>
 #import <Firebase/Firebase.h>
 @interface UserDetailsViewController : UITableViewController <NSURLConnectionDelegate>

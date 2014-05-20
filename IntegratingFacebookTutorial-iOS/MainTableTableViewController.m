@@ -1,5 +1,3 @@
-//
-//  MainTableTableViewController.m
 //  speakEasy
 //
 //  Created by Daljeet Virdi on 5/19/14.
