@@ -58,6 +58,6 @@
 
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/messages/%@", FIREBASE_PREFIX, newMessage.messageID];
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-    [firebase setValue:@{newMessage.messageID: @{@"text":newMessage.text }}];
+    [firebase setValue:@{newMessage.messageID: @{@"text":newMessage.text, @"authorID":newMessage.authorID, @"authorName":newMessage.authorName, @"date":newMessage.date, @"score":[NSString stringWithFormat:@"%d", newMessage.score]}}];
 }
 @end
