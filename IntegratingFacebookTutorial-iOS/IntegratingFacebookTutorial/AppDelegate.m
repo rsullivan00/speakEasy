@@ -27,8 +27,7 @@
     // Override point for customization after application launch.
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
-    [[UITabBar appearance] setTintColor:[[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:0.2]];
-
+   
     [self.window makeKeyAndVisible];
     return YES;
 }

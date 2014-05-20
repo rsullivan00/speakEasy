@@ -26,7 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tabBarController.tabBar setTranslucent:YES];
     [self getUsers];
+    
     // Do any additional setup after loading the view.
 }
 -(void)getUsers{

@@ -19,6 +19,7 @@
 		8F92B981192B06E70046EE87 /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B980192B06E70046EE87 /* userData.plist */; };
 		8F92B98B192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */; };
 		8F92B98E192B23020046EE87 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F92B98D192B23020046EE87 /* SettingsViewController.m */; };
+		8F92B990192B29EB0046EE87 /* riesling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B98F192B29EB0046EE87 /* riesling.ttf */; };
 		8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */; };
 		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
 		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
@@ -68,6 +69,7 @@
 		8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Oceanic_Background_by_ka_chankitty.jpg; sourceTree = "<group>"; };
 		8F92B98C192B23020046EE87 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8F92B98D192B23020046EE87 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		8F92B98F192B29EB0046EE87 /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = riesling.ttf; sourceTree = "<group>"; };
 		8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableTableViewController.h; sourceTree = "<group>"; };
 		8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableTableViewController.m; sourceTree = "<group>"; };
 		8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostStatusViewController.h; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		D4DA79F514D3345A0055F672 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8F92B98F192B29EB0046EE87 /* riesling.ttf */,
 				8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */,
 				C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */,
 				C4DDA8AC16EE8A1900B5C174 /* Icon.png */,
@@ -307,6 +310,7 @@
 			files = (
 				D4DA79F914D3345A0055F672 /* InfoPlist.strings in Resources */,
 				D4DA7A7514D393DA0055F672 /* LoginViewController.xib in Resources */,
+				8F92B990192B29EB0046EE87 /* riesling.ttf in Resources */,
 				D4DA7AA914D39BCE0055F672 /* UserDetailsViewController.xib in Resources */,
 				D4DA7AAF14D467500055F672 /* TableHeaderView.xib in Resources */,
 				C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */,
