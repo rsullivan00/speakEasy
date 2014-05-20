@@ -1,8 +1,6 @@
+//  speakEasy
 //
-//  Message.h
-//  AnonChat
-//
-//  Created by Rick Sullivan on 5/11/14.
+//  Created by Daljeet Virdi on 5/19/14.
 //
 //
 

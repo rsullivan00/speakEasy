@@ -1,5 +1,3 @@
-//
-//  MainViewController.m
 //  speakEasy
 //
 //  Created by Daljeet Virdi on 5/19/14.
@@ -28,7 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tabBarController.tabBar setTranslucent:YES];
     [self getUsers];
+    
     // Do any additional setup after loading the view.
 }
 -(void)getUsers

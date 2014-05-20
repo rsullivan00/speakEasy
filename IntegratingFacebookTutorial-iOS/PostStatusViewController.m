@@ -1,5 +1,3 @@
-//
-//  PostStatusViewController.m
 //  speakEasy
 //
 //  Created by Daljeet Virdi on 5/19/14.
@@ -26,7 +24,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+    textViewValue.layer.cornerRadius=8.0f;
+    textViewValue.layer.masksToBounds=YES;
+    textViewValue.layer.borderColor=[[UIColor blueColor]CGColor];
+    textViewValue.layer.borderWidth= 0.1f;
+    [UIFont fontWithName:@"riesling" size:64.0];
+    
+       // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

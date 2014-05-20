@@ -18,6 +18,9 @@
 		8F188FE8192A6E6F0035281F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE7192A6E6F0035281F /* libicucore.dylib */; };
 		8F188FEA192A6E780035281F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE9192A6E780035281F /* libc++.dylib */; };
 		8F92B981192B06E70046EE87 /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B980192B06E70046EE87 /* userData.plist */; };
+		8F92B98B192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */; };
+		8F92B98E192B23020046EE87 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F92B98D192B23020046EE87 /* SettingsViewController.m */; };
+		8F92B990192B29EB0046EE87 /* riesling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F92B98F192B29EB0046EE87 /* riesling.ttf */; };
 		8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */; };
 		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
 		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
@@ -66,6 +69,10 @@
 		8F188FE7192A6E6F0035281F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		8F188FE9192A6E780035281F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8F92B980192B06E70046EE87 /* userData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
+		8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Oceanic_Background_by_ka_chankitty.jpg; sourceTree = "<group>"; };
+		8F92B98C192B23020046EE87 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		8F92B98D192B23020046EE87 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		8F92B98F192B29EB0046EE87 /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = riesling.ttf; sourceTree = "<group>"; };
 		8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableTableViewController.h; sourceTree = "<group>"; };
 		8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableTableViewController.m; sourceTree = "<group>"; };
 		8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostStatusViewController.h; sourceTree = "<group>"; };
@@ -91,17 +98,17 @@
 		D4DA79F814D3345A0055F672 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D4DA79FA14D3345A0055F672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4DA79FC14D3345A0055F672 /* speakEasy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "speakEasy-Prefix.pch"; sourceTree = "<group>"; };
-		D4DA79FD14D3345A0055F672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D4DA79FE14D3345A0055F672 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D4DA79FD14D3345A0055F672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = IntegratingFacebookTutorial/AppDelegate.h; sourceTree = "<group>"; };
+		D4DA79FE14D3345A0055F672 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = IntegratingFacebookTutorial/AppDelegate.m; sourceTree = "<group>"; };
 		D4DA7A0714D334F30055F672 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D4DA7A0814D334F30055F672 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D4DA7A0A14D334F30055F672 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D4DA7A0B14D334F30055F672 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4DA7A0C14D334F30055F672 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D4DA7A0D14D334F30055F672 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D4DA7A7114D393DA0055F672 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		D4DA7A7214D393DA0055F672 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		D4DA7A7314D393DA0055F672 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D4DA7A7114D393DA0055F672 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = IntegratingFacebookTutorial/LoginViewController.h; sourceTree = "<group>"; };
+		D4DA7A7214D393DA0055F672 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = IntegratingFacebookTutorial/LoginViewController.m; sourceTree = "<group>"; };
+		D4DA7A7314D393DA0055F672 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = IntegratingFacebookTutorial/LoginViewController.xib; sourceTree = "<group>"; };
 		D4DA7AA514D39BCE0055F672 /* UserDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsViewController.h; sourceTree = "<group>"; };
 		D4DA7AA614D39BCE0055F672 /* UserDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsViewController.m; sourceTree = "<group>"; };
 		D4DA7AA714D39BCE0055F672 /* UserDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailsViewController.xib; sourceTree = "<group>"; };
@@ -150,6 +157,9 @@
 		1D0ECDC71928349900DA13A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D4DA7A7114D393DA0055F672 /* LoginViewController.h */,
+				D4DA7A7214D393DA0055F672 /* LoginViewController.m */,
+				D4DA7A7314D393DA0055F672 /* LoginViewController.xib */,
 				8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */,
 				8FA4D3C6192AA2B60015F443 /* MainTableTableViewController.m */,
 				8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */,
@@ -162,21 +172,31 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		1D0ECDC8192834A000DA13A4 /* View */ = {
+		1D0ECDC8192834A000DA13A4 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */,
 			);
-			name = View;
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		8F92B991192B2B0F0046EE87 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D4DA79FD14D3345A0055F672 /* AppDelegate.h */,
+				D4DA79FE14D3345A0055F672 /* AppDelegate.m */,
+			);
+			name = "App Delegate";
 			sourceTree = "<group>";
 		};
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
-				1D0ECDC8192834A000DA13A4 /* View */,
+				8F92B991192B2B0F0046EE87 /* App Delegate */,
+				1D0ECDC8192834A000DA13A4 /* Storyboard */,
 				1D0ECDC71928349900DA13A4 /* Controller */,
 				1D0ECDBE1928326400DA13A4 /* Model */,
-				D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial */,
+				D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial - needs to be deleted */,
 				D4DA79ED14D3345A0055F672 /* Frameworks */,
 				D4DA79EB14D3345A0055F672 /* Products */,
 			);
@@ -214,26 +234,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial */ = {
+		D4DA79F414D3345A0055F672 /* IntegratingFacebookTutorial - needs to be deleted */ = {
 			isa = PBXGroup;
 			children = (
-				D4DA79FD14D3345A0055F672 /* AppDelegate.h */,
-				D4DA79FE14D3345A0055F672 /* AppDelegate.m */,
-				D4DA7A7114D393DA0055F672 /* LoginViewController.h */,
-				D4DA7A7214D393DA0055F672 /* LoginViewController.m */,
-				D4DA7A7314D393DA0055F672 /* LoginViewController.xib */,
 				D4DA7AA514D39BCE0055F672 /* UserDetailsViewController.h */,
 				D4DA7AA614D39BCE0055F672 /* UserDetailsViewController.m */,
 				D4DA7AA714D39BCE0055F672 /* UserDetailsViewController.xib */,
 				D4DA7AAE14D4674F0055F672 /* TableHeaderView.xib */,
 				D4DA79F514D3345A0055F672 /* Supporting Files */,
 			);
+			name = "IntegratingFacebookTutorial - needs to be deleted";
 			path = IntegratingFacebookTutorial;
 			sourceTree = "<group>";
 		};
 		D4DA79F514D3345A0055F672 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8F92B98F192B29EB0046EE87 /* riesling.ttf */,
+				8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */,
 				C4DDA8AB16EE8A1900B5C174 /* Icon@2x.png */,
 				C4DDA8AC16EE8A1900B5C174 /* Icon.png */,
 				C4CF27E2161E3BAA008AB8CC /* login-button-small-pressed.png */,
@@ -304,11 +322,13 @@
 			files = (
 				D4DA79F914D3345A0055F672 /* InfoPlist.strings in Resources */,
 				D4DA7A7514D393DA0055F672 /* LoginViewController.xib in Resources */,
+				8F92B990192B29EB0046EE87 /* riesling.ttf in Resources */,
 				D4DA7AA914D39BCE0055F672 /* UserDetailsViewController.xib in Resources */,
 				D4DA7AAF14D467500055F672 /* TableHeaderView.xib in Resources */,
 				C4BB20D7161BC4FB00A7884A /* Default-568h@2x.png in Resources */,
 				1D0ECDC6192833DF00DA13A4 /* Storyboard.storyboard in Resources */,
 				C4BB20D8161BC4FB00A7884A /* Default.png in Resources */,
+				8F92B98B192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg in Resources */,
 				C4BB20D9161BC4FB00A7884A /* Default@2x.png in Resources */,
 				C4CF27E6161E3BAA008AB8CC /* login-button-small-pressed.png in Resources */,
 				C4CF27E7161E3BAA008AB8CC /* login-button-small-pressed@2x.png in Resources */,
@@ -335,6 +355,7 @@
 				1D33C87F192B2D4100A187C4 /* Constants.m in Sources */,
 				8FA4D3C7192AA2B60015F443 /* MainTableTableViewController.m in Sources */,
 				8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */,
+				8F92B98E192B23020046EE87 /* SettingsViewController.m in Sources */,
 				D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */,
 				D4DA7AA814D39BCE0055F672 /* UserDetailsViewController.m in Sources */,
 			);

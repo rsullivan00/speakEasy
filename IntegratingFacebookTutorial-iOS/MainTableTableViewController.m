@@ -1,5 +1,3 @@
-//
-//  MainTableTableViewController.m
 //  speakEasy
 //
 //  Created by Daljeet Virdi on 5/19/14.
@@ -26,7 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

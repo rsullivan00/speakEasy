@@ -1,6 +1,8 @@
+//  speakEasy
 //
-//  Copyright (c) 2013 Parse. All rights reserved.
-
+//  Created by Daljeet Virdi on 5/19/14.
+//
+//
 #import "AppDelegate.h"
 
 #import <Parse/Parse.h>
@@ -27,6 +29,7 @@
     // Override point for customization after application launch.
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
+   
     [self.window makeKeyAndVisible];
     return YES;
 }
