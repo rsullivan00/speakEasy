@@ -44,11 +44,6 @@
     [self initializeCurrentUser];
 }
 
--(void)firstTimeLogin
-{
-    
-}
-
 -(void)initializeCurrentUser
 {
     /* Populate currentUser singleton instance with appropriate data */

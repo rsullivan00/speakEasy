@@ -30,7 +30,6 @@
 		1DB2E7B9192C8AB0004BE0DB /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B0192C8AB0004BE0DB /* userData.plist */; };
 		1DB2E7BA192C8AB0004BE0DB /* UserDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B2192C8AB0004BE0DB /* UserDetailsViewController.m */; };
 		1DB2E7BB192C8AB0004BE0DB /* UserDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B3192C8AB0004BE0DB /* UserDetailsViewController.xib */; };
-		1DCDCA46192D42D600766AC1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDCA45192D42D600766AC1 /* SettingsViewController.m */; };
 		30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AB1829561000B17666 /* FacebookSDK.framework */; };
 		30C949AE1829561800B17666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AD1829561800B17666 /* Parse.framework */; };
 		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
@@ -87,8 +86,6 @@
 		1DB2E7B1192C8AB0004BE0DB /* UserDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailsViewController.h; path = IntegratingFacebookTutorial/UserDetailsViewController.h; sourceTree = "<group>"; };
 		1DB2E7B2192C8AB0004BE0DB /* UserDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailsViewController.m; path = IntegratingFacebookTutorial/UserDetailsViewController.m; sourceTree = "<group>"; };
 		1DB2E7B3192C8AB0004BE0DB /* UserDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailsViewController.xib; path = IntegratingFacebookTutorial/UserDetailsViewController.xib; sourceTree = "<group>"; };
-		1DCDCA44192D42D600766AC1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		1DCDCA45192D42D600766AC1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		30C949AB1829561000B17666 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		30C949AD1829561800B17666 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -163,8 +160,6 @@
 		1D0ECDC71928349900DA13A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1DCDCA44192D42D600766AC1 /* SettingsViewController.h */,
-				1DCDCA45192D42D600766AC1 /* SettingsViewController.m */,
 				D4DA7A7114D393DA0055F672 /* LoginViewController.h */,
 				D4DA7A7214D393DA0055F672 /* LoginViewController.m */,
 				D4DA7A7314D393DA0055F672 /* LoginViewController.xib */,
@@ -378,7 +373,6 @@
 				1DB2E7B4192C8AB0004BE0DB /* main.m in Sources */,
 				1DB2E7BA192C8AB0004BE0DB /* UserDetailsViewController.m in Sources */,
 				D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */,
-				1DCDCA46192D42D600766AC1 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

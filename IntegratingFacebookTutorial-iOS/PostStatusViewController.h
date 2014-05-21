@@ -15,5 +15,6 @@
 - (IBAction) screenTouch;
 
 @property (weak, nonatomic) IBOutlet MPTextView *messageTextView;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation PostStatusViewController
 
-@synthesize messageTextView;
+@synthesize messageTextView, submitButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,17 +24,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /* Initialize UI styling */
     self.view.backgroundColor = [UIColor clearColor];
     
+    submitButton.layer.cornerRadius = 8.0f;
+    submitButton.layer.borderWidth = 1;
+    submitButton.layer.borderColor = [UIColor grayColor].CGColor;
+    submitButton.layer.backgroundColor=[[UIColor grayColor] CGColor];
+
     messageTextView.layer.cornerRadius=8.0f;
     messageTextView.layer.masksToBounds=YES;
     messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
     messageTextView.layer.borderWidth= 0.1f;
     messageTextView.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.5] CGColor];
     messageTextView.placeholderText = TEXTVIEW_PLACEHOLDER;
-    [UIFont fontWithName:@"riesling" size:64.0];
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

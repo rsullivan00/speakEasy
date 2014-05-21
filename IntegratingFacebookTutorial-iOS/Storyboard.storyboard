@@ -26,12 +26,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKP-DU-Xbw">
-                                <rect key="frame" x="113" y="206" width="95" height="43"/>
+                                <rect key="frame" x="81" y="209" width="158" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="speakEasy">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="addMessage:" destination="GzR-My-tba" eventType="touchUpInside" id="fsy-yK-uZC"/>
@@ -46,6 +45,7 @@
                     <tabBarItem key="tabBarItem" title="Post" id="hjN-cz-evu"/>
                     <connections>
                         <outlet property="messageTextView" destination="uH0-wt-xmz" id="5N5-cT-aNJ"/>
+                        <outlet property="submitButton" destination="rKP-DU-Xbw" id="97e-ku-oDU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0T-Fz-5zf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,7 +75,7 @@
         <!--Settings View Controller - Settings-->
         <scene sceneID="n3f-sA-KqH">
             <objects>
-                <viewController restorationIdentifier="SettingsViewController" storyboardIdentifier="SettingsViewController" id="MRu-4y-tBB" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MRu-4y-tBB" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zpd-Wd-wai"/>
                         <viewControllerLayoutGuide type="bottom" id="JvJ-A5-VQG"/>
