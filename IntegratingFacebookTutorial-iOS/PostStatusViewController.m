@@ -10,7 +10,7 @@
 
 @implementation PostStatusViewController
 
-@synthesize messageTextView, authorTextView;
+@synthesize messageTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,10 +25,10 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
-    textViewValue.layer.cornerRadius=8.0f;
-    textViewValue.layer.masksToBounds=YES;
-    textViewValue.layer.borderColor=[[UIColor blueColor]CGColor];
-    textViewValue.layer.borderWidth= 0.1f;
+    messageTextView.layer.cornerRadius=8.0f;
+    messageTextView.layer.masksToBounds=YES;
+    messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
+    messageTextView.layer.borderWidth= 0.1f;
     [UIFont fontWithName:@"riesling" size:64.0];
     
        // Do any additional setup after loading the view.
@@ -54,15 +54,24 @@
 - (IBAction)addMessage:(id)sender {
     User *currentUser = [User currentUser];
     NSLog(@"%@", [currentUser userID]);
+
     
     NSString *text = messageTextView.text;
-    NSString *authorName = authorTextView.text;
-    
-    Message *newMessage = [[Message alloc] initWithText:text authorName:authorName];
-    [[User currentUser].messagesBy addObject:newMessage];
+    NSLog(@"%@", messageTextView.text);
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
 
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/messages/%@", FIREBASE_PREFIX, newMessage.messageID];
+    
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-    [firebase setValue:@{newMessage.messageID: @{@"text":newMessage.text, @"authorID":newMessage.authorID, @"authorName":newMessage.authorName, @"date":newMessage.date, @"score":[NSString stringWithFormat:@"%d", newMessage.score]}}];
+    
+    Firebase *firebaseLocation = [firebase childByAutoId];
+    NSLog(@"%@", firebaseLocation);
+
+    
+    [firebaseLocation setValue:text];
+    
+    
+    
+    //Post message to each of his friends.
+
 }
 @end
