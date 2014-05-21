@@ -65,10 +65,22 @@
     
     Firebase *firebaseLocation = [firebase childByAutoId];
     NSLog(@"%@", firebaseLocation);
-
-    
     [firebaseLocation setValue:text];
     
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    //NSString *firstName = [snapshot valueInExportFormat];
+    
+    
+    //NSLog(@"%@", firstName);
     
     
     //Post message to each of his friends.
