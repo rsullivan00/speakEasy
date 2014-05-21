@@ -6,6 +6,11 @@
 
 #import "MainTableTableViewController.h"
 #import "PostStatusViewController.h"
+#import "Constants.h"
+#import "User.h"
+#import "Message.h"
+
+
 @interface MainTableTableViewController ()
 
 @end
@@ -24,9 +29,65 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
-   
-    // Uncomment the following line to preserve selection between presentations.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+    User *currentUser = [User currentUser];
+    NSLog(@"%@", [currentUser userID]);
+
+    
+    
+    
+    
+    
+    
+    
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, [currentUser userID]];
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+
+    
+    [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no friends");
+        } else {
+            NSString* listOfFriends = snapshot.value;
+            // NSString* lastName = snapshot.value[@"name"][@"last"];
+            NSLog(@"%@", listOfFriends);
+            
+            //WHAT DO WE DO WITH LIST OF FRIENDS???
+            //WE GO through each of the friends for and get the messages of those friends.
+            //first we have to get the ids of each of the friends.
+
+            //which we did above with listOFfriends.
+            
+            
+            //NOW Below we are getting the messages of each of the friends
+            
+            //******** WE NEED TO MAKE THIS WORK FOR A USER THAT HAS MORE THAN ONE FRIEND *******
+            
+            NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
+            Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+            
+            [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+                if(snapshot.value == [NSNull null]) {
+                    NSLog(@"this user has no friends");
+                } else {
+                    NSString* listOfMessagesFromFriend = snapshot.value;
+                    NSLog(@"the list is %@", listOfMessagesFromFriend);
+                    
+                    
+                   // NSArray *components = [listOfMessagesFromFriend componentsSeparatedByString:@"="];
+                    //NSString *query = [components lastObject];
+
+                   // NSArray *hello = [listOfMessagesFromFriend componentsSeparatedByString:@"="];
+                    //NSLog(@"This is the array %@", hello );
+                    
+                }
+            }];
+        }
+        
+       
+        
+    }];
+                                 // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -38,6 +99,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+                                 
 
 #pragma mark - Table view data source
 

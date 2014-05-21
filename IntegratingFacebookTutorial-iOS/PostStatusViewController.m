@@ -10,7 +10,7 @@
 
 @implementation PostStatusViewController
 
-@synthesize messageTextView, authorTextView;
+@synthesize messageTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,15 +54,36 @@
 - (IBAction)addMessage:(id)sender {
     User *currentUser = [User currentUser];
     NSLog(@"%@", [currentUser userID]);
+
     
     NSString *text = messageTextView.text;
-    NSString *authorName = authorTextView.text;
-    
-    Message *newMessage = [[Message alloc] initWithText:text authorName:authorName];
-    [[User currentUser].messagesBy addObject:newMessage];
+    NSLog(@"%@", messageTextView.text);
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
 
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/messages/%@", FIREBASE_PREFIX, newMessage.messageID];
+    
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-    [firebase setValue:@{newMessage.messageID: @{@"text":newMessage.text, @"authorID":newMessage.authorID, @"authorName":newMessage.authorName, @"date":newMessage.date, @"score":[NSString stringWithFormat:@"%d", newMessage.score]}}];
+    
+    Firebase *firebaseLocation = [firebase childByAutoId];
+    NSLog(@"%@", firebaseLocation);
+    [firebaseLocation setValue:text];
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    //NSString *firstName = [snapshot valueInExportFormat];
+    
+    
+    //NSLog(@"%@", firstName);
+    
+    
+    //Post message to each of his friends.
+
 }
 @end

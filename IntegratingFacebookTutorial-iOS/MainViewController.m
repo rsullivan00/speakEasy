@@ -29,7 +29,7 @@
     [self.tabBarController.tabBar setTranslucent:YES];
     [self getUsers];
     
-    // Do any additional setup after loading the view.
+   
 }
 -(void)getUsers
 {
@@ -81,6 +81,7 @@
     }];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
