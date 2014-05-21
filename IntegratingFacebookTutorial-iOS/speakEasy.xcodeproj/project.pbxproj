@@ -30,6 +30,7 @@
 		1DB2E7B9192C8AB0004BE0DB /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B0192C8AB0004BE0DB /* userData.plist */; };
 		1DB2E7BA192C8AB0004BE0DB /* UserDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B2192C8AB0004BE0DB /* UserDetailsViewController.m */; };
 		1DB2E7BB192C8AB0004BE0DB /* UserDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B3192C8AB0004BE0DB /* UserDetailsViewController.xib */; };
+		1DCDCA46192D42D600766AC1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDCA45192D42D600766AC1 /* SettingsViewController.m */; };
 		30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AB1829561000B17666 /* FacebookSDK.framework */; };
 		30C949AE1829561800B17666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AD1829561800B17666 /* Parse.framework */; };
 		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
@@ -86,6 +87,8 @@
 		1DB2E7B1192C8AB0004BE0DB /* UserDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailsViewController.h; path = IntegratingFacebookTutorial/UserDetailsViewController.h; sourceTree = "<group>"; };
 		1DB2E7B2192C8AB0004BE0DB /* UserDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailsViewController.m; path = IntegratingFacebookTutorial/UserDetailsViewController.m; sourceTree = "<group>"; };
 		1DB2E7B3192C8AB0004BE0DB /* UserDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailsViewController.xib; path = IntegratingFacebookTutorial/UserDetailsViewController.xib; sourceTree = "<group>"; };
+		1DCDCA44192D42D600766AC1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1DCDCA45192D42D600766AC1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		30C949AB1829561000B17666 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		30C949AD1829561800B17666 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -160,6 +163,8 @@
 		1D0ECDC71928349900DA13A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1DCDCA44192D42D600766AC1 /* SettingsViewController.h */,
+				1DCDCA45192D42D600766AC1 /* SettingsViewController.m */,
 				D4DA7A7114D393DA0055F672 /* LoginViewController.h */,
 				D4DA7A7214D393DA0055F672 /* LoginViewController.m */,
 				D4DA7A7314D393DA0055F672 /* LoginViewController.xib */,
@@ -192,7 +197,7 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		1DB2E793192C8A46004BE0DB /* IntegratingFacebookTutorial */ = {
+		1DB2E793192C8A46004BE0DB /* FacebookIntegration */ = {
 			isa = PBXGroup;
 			children = (
 				1DB2E7AA192C8AB0004BE0DB /* main.m */,
@@ -216,7 +221,7 @@
 				1DB2E79E192C8A70004BE0DB /* login-button-small.png */,
 				1DB2E79F192C8A70004BE0DB /* login-button-small@2x.png */,
 			);
-			name = IntegratingFacebookTutorial;
+			name = FacebookIntegration;
 			sourceTree = "<group>";
 		};
 		1DB2E797192C8A70004BE0DB /* en.lproj */ = {
@@ -240,7 +245,7 @@
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
-				1DB2E793192C8A46004BE0DB /* IntegratingFacebookTutorial */,
+				1DB2E793192C8A46004BE0DB /* FacebookIntegration */,
 				1DB2E746192C7373004BE0DB /* View */,
 				8F92B991192B2B0F0046EE87 /* App Delegate */,
 				1D0ECDC8192834A000DA13A4 /* Storyboard */,
@@ -373,6 +378,7 @@
 				1DB2E7B4192C8AB0004BE0DB /* main.m in Sources */,
 				1DB2E7BA192C8AB0004BE0DB /* UserDetailsViewController.m in Sources */,
 				D4DA7A7414D393DA0055F672 /* LoginViewController.m in Sources */,
+				1DCDCA46192D42D600766AC1 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

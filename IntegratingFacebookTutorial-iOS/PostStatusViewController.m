@@ -34,7 +34,7 @@
     messageTextView.placeholderText = TEXTVIEW_PLACEHOLDER;
     [UIFont fontWithName:@"riesling" size:64.0];
     
-       // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,20 +51,8 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)addMessage:(id)sender {
     User *currentUser = [User currentUser];
-    NSLog(@"%@", [currentUser userID]);
     
     NSString *text = messageTextView.text;
     Message *message = [[Message alloc] initWithText:text];
@@ -74,7 +62,11 @@
 
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
-    Firebase *firebaseLocation = [firebase childByAppendingPath:message.messageID];
+    Firebase *firebaseLocation = [firebase childByAutoId];
     [firebaseLocation setValue:text];
+    
+    /* Clear the text field and close the keyboard */
+    messageTextView.text = @"";
+    [messageTextView resignFirstResponder];
 }
 @end

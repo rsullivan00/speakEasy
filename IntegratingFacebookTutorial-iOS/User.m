@@ -91,7 +91,7 @@ static User *currentUser;
 /* Gets all friend messages and appends to message attribute using the given friendID */
 - (void) getFriendMessages: (NSString*) friendID
 {
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, friendID];
     
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
@@ -100,8 +100,8 @@ static User *currentUser;
             NSLog(@"this user has no friends");
         } else {
             NSDictionary* data = snapshot.value;
-            for (NSString *messageID in data) {
-                Message *message = [[Message alloc] initWithID:messageID authorID:nil text:[data objectForKey:messageID]];
+            for (NSString *text in data) {
+                Message *message = [[Message alloc] initWithText:text];
                 [self.messagesTo addObject:message];
             }
         }
