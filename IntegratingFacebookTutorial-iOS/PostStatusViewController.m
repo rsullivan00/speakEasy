@@ -29,6 +29,8 @@
     messageTextView.layer.masksToBounds=YES;
     messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
     messageTextView.layer.borderWidth= 0.1f;
+    messageTextView.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.5] CGColor];
+    messageTextView.placeholderText = TEXTVIEW_PLACEHOLDER;
     [UIFont fontWithName:@"riesling" size:64.0];
     
        // Do any additional setup after loading the view.
@@ -38,6 +40,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/* Whenever the background is touched, we want to check if the keyboard is open and close it if so. */
+-(IBAction) screenTouch
+{
+    if (messageTextView.isFirstResponder) {
+        [messageTextView resignFirstResponder];
+    }
 }
 
 /*

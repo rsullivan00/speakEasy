@@ -11,6 +11,7 @@
 		1D0ECDC41928327D00DA13A4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC21928327D00DA13A4 /* User.m */; };
 		1D0ECDC6192833DF00DA13A4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */; };
 		1D33C87F192B2D4100A187C4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33C87E192B2D4100A187C4 /* Constants.m */; };
+		1DB2E74C192C76D0004BE0DB /* MPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E74B192C76D0004BE0DB /* MPTextView.m */; };
 		30C949AC1829561000B17666 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AB1829561000B17666 /* FacebookSDK.framework */; };
 		30C949AE1829561800B17666 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C949AD1829561800B17666 /* Parse.framework */; };
 		6D10F48316DD68E000690A0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D10F48216DD68E000690A0F /* CoreLocation.framework */; };
@@ -62,6 +63,8 @@
 		1D0ECDC5192833DF00DA13A4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		1D33C87D192B2D4100A187C4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1D33C87E192B2D4100A187C4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		1DB2E74A192C76D0004BE0DB /* MPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTextView.h; sourceTree = "<group>"; };
+		1DB2E74B192C76D0004BE0DB /* MPTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTextView.m; sourceTree = "<group>"; };
 		30C949AB1829561000B17666 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		30C949AD1829561800B17666 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6D10F48216DD68E000690A0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -70,7 +73,6 @@
 		8F188FE9192A6E780035281F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8F92B980192B06E70046EE87 /* userData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
 		8F92B98A192B22140046EE87 /* Oceanic_Background_by_ka_chankitty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Oceanic_Background_by_ka_chankitty.jpg; sourceTree = "<group>"; };
-		8F92B98C192B23020046EE87 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8F92B98D192B23020046EE87 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		8F92B98F192B29EB0046EE87 /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = riesling.ttf; sourceTree = "<group>"; };
 		8FA4D3C5192AA2B60015F443 /* MainTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableTableViewController.h; sourceTree = "<group>"; };
@@ -180,6 +182,15 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		1DB2E746192C7373004BE0DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1DB2E74A192C76D0004BE0DB /* MPTextView.h */,
+				1DB2E74B192C76D0004BE0DB /* MPTextView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		8F92B991192B2B0F0046EE87 /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +203,7 @@
 		D4DA79DF14D3345A0055F672 = {
 			isa = PBXGroup;
 			children = (
+				1DB2E746192C7373004BE0DB /* View */,
 				8F92B991192B2B0F0046EE87 /* App Delegate */,
 				1D0ECDC8192834A000DA13A4 /* Storyboard */,
 				1D0ECDC71928349900DA13A4 /* Controller */,
@@ -348,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4DA79FB14D3345A0055F672 /* main.m in Sources */,
+				1DB2E74C192C76D0004BE0DB /* MPTextView.m in Sources */,
 				D4DA79FF14D3345A0055F672 /* AppDelegate.m in Sources */,
 				1D0ECDC41928327D00DA13A4 /* User.m in Sources */,
 				8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */,

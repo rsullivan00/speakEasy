@@ -11,5 +11,6 @@
 @interface Constants : NSObject
 
 extern NSString *FIREBASE_PREFIX;
+extern NSString *TEXTVIEW_PLACEHOLDER;
 
 @end

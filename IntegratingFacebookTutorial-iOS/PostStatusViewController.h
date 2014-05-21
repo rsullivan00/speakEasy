@@ -5,13 +5,15 @@
 //
 #import <Firebase/Firebase.h>
 #import "User.h"
+#import "MPTextView.h"
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface PostStatusViewController : UIViewController
 
 - (IBAction)addMessage:(id)sender;
+- (IBAction) screenTouch;
 
-@property (weak, nonatomic) IBOutlet UITextView *messageTextView;
+@property (weak, nonatomic) IBOutlet MPTextView *messageTextView;
 
 @end

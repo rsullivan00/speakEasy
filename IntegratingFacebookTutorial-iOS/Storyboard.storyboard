@@ -12,11 +12,11 @@
                         <viewControllerLayoutGuide type="top" id="yoR-1u-YDe"/>
                         <viewControllerLayoutGuide type="bottom" id="4Rq-wm-sWS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vKC-wS-LP9">
+                    <view key="view" contentMode="scaleToFill" id="vKC-wS-LP9" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" text="speakEasy - post your unfiltered thoughts to your facebook friends." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uH0-wt-xmz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uH0-wt-xmz" customClass="MPTextView">
                                 <rect key="frame" x="20" y="38" width="280" height="144"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -39,6 +39,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="screenTouch" destination="GzR-My-tba" eventType="touchUpInside" id="S2f-P0-vZs"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Post" id="hjN-cz-evu"/>
                     <connections>
