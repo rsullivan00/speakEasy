@@ -25,10 +25,10 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
-    textViewValue.layer.cornerRadius=8.0f;
-    textViewValue.layer.masksToBounds=YES;
-    textViewValue.layer.borderColor=[[UIColor blueColor]CGColor];
-    textViewValue.layer.borderWidth= 0.1f;
+    messageTextView.layer.cornerRadius=8.0f;
+    messageTextView.layer.masksToBounds=YES;
+    messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
+    messageTextView.layer.borderWidth= 0.1f;
     [UIFont fontWithName:@"riesling" size:64.0];
     
        // Do any additional setup after loading the view.
