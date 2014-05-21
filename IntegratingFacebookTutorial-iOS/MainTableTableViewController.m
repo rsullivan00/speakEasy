@@ -11,7 +11,9 @@
 #import "Message.h"
 
 
-@interface MainTableTableViewController ()
+@interface MainTableTableViewController (){
+    NSArray *_listOfMessages;
+}
 
 @end
 
@@ -42,7 +44,6 @@
     
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, [currentUser userID]];
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-
     
     [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         if(snapshot.value == [NSNull null]) {
@@ -70,9 +71,14 @@
                 if(snapshot.value == [NSNull null]) {
                     NSLog(@"this user has no friends");
                 } else {
-                    NSString* listOfMessagesFromFriend = snapshot.value;
-                    NSLog(@"the list is %@", listOfMessagesFromFriend);
-                    
+                    if ([snapshot.value isKindOfClass:[NSDictionary class]]) {
+                        _listOfMessages = [snapshot.value allValues];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.tableView reloadData];
+                        });
+                        NSLog(@"the list is %@", _listOfMessages);
+
+                    }
                     
                    // NSArray *components = [listOfMessagesFromFriend componentsSeparatedByString:@"="];
                     //NSString *query = [components lastObject];
@@ -107,26 +113,32 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
+    if (_listOfMessages) {
+        return _listOfMessages.count;
+    }
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
     
+    UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
+    
+    label.text = [_listOfMessages objectAtIndex:indexPath.item];
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
