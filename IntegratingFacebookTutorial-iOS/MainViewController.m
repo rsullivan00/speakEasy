@@ -26,7 +26,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [self.tabBarController.tabBar setTranslucent:YES];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+    [[self view] addSubview:imageView];
+    [[self view] sendSubviewToBack:imageView];
+    [[self view] setOpaque:NO];
+    [[self view] setBackgroundColor:[UIColor clearColor]];
+    
     [self getUsers];
     
    

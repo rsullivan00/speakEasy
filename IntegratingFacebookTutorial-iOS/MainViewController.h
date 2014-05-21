@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UITabBarController
+
 @property (nonatomic, strong) NSMutableArray *friendsArray;
 
 @end

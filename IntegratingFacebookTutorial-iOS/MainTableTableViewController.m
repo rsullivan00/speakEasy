@@ -31,16 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+    self.view.backgroundColor = [UIColor clearColor];
+
     User *currentUser = [User currentUser];
     NSLog(@"%@", [currentUser userID]);
-
-    
-    
-    
-    
-    
-    
     
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, [currentUser userID]];
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
@@ -130,7 +124,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
-    
+    cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
     
     label.text = [_listOfMessages objectAtIndex:indexPath.item];

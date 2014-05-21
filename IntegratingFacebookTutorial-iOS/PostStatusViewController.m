@@ -24,7 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+    self.view.backgroundColor = [UIColor clearColor];
+    
     messageTextView.layer.cornerRadius=8.0f;
     messageTextView.layer.masksToBounds=YES;
     messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
