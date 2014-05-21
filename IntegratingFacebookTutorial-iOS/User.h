@@ -8,6 +8,7 @@
 @interface User : NSObject
 /* Singleton instance of User */
 +(User *) currentUser;
++ (User *) newCurrentUser: (NSString *) userID;
 
 /* Returns a key for the current User's persistent friend data */
 +(NSString *) friendsKey;
@@ -20,4 +21,9 @@
 
 /* Designated initializer */
 - (id) initWithId: (NSString *) userID;
+
+- (void) getFriendMessages: (NSString*) friendID;
+- (void) populateFriendsFromFirebase;
+- (void) updateFireBaseFriends: (NSArray *) friendIDs;
+
 @end

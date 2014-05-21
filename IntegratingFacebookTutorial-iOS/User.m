@@ -5,6 +5,9 @@
 //
 
 #import "User.h"
+#import "Message.h"
+#import "Constants.h"
+#import <Firebase/Firebase.h>
 
 @implementation User
 
@@ -19,9 +22,20 @@ static User *currentUser;
     {
         if (!currentUser)
         {
-            currentUser = [[User alloc] init];
+            NSLog(@"Error, there is no logged in user");
+            /* Go to login view */
         }
     }
+    return currentUser;
+}
+
++ (User *) newCurrentUser: (NSString *) userID
+{
+    @synchronized (self)
+    {
+        currentUser = [[User alloc] initWithId:userID];
+    }
+    
     return currentUser;
 }
 
@@ -34,9 +48,64 @@ static User *currentUser;
 {
     if (self = [super init]) {
         self.userID = userID;
+        self.friends = [[NSMutableArray alloc] init];
+        self.messagesTo = [[NSMutableArray alloc] init];
+        self.messagesBy = [[NSMutableArray alloc] init];
     }
     
     return self;
+}
+
+/* Populates the friends array with Friend objects using the data on Firebase */
+- (void) populateFriendsFromFirebase
+{
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, userID];
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        /* This block will be triggered whenever the user's friends change on firebase */
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no friends with the app");
+        } else {
+            NSDictionary* data = snapshot.value;
+            for (NSString *friendID in data) {
+                User *friend = [[User alloc] initWithId:friendID];
+                [friends addObject:friend];
+            }
+        }
+    }];
+}
+
+/* Rewrites the friend array on firebase for this user using the friendIDs array */
+- (void) updateFireBaseFriends: (NSArray *) friendIDs
+{
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, userID];
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    for (int i = 0; i < friendIDs.count; i++) {
+        NSString *friendID = friendIDs[i];
+        [firebase setValue:friendID forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+}
+
+/* Gets all friend messages and appends to message attribute using the given friendID */
+- (void) getFriendMessages: (NSString*) friendID
+{
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
+    
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no friends");
+        } else {
+            NSDictionary* data = snapshot.value;
+            for (NSString *messageID in data) {
+                Message *message = [[Message alloc] initWithID:messageID authorID:nil text:[data objectForKey:messageID]];
+                [self.messagesTo addObject:message];
+            }
+        }
+    }];
 }
 @end
 

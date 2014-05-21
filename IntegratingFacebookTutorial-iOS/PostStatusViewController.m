@@ -65,36 +65,16 @@
 - (IBAction)addMessage:(id)sender {
     User *currentUser = [User currentUser];
     NSLog(@"%@", [currentUser userID]);
-
     
     NSString *text = messageTextView.text;
-    NSLog(@"%@", messageTextView.text);
+    Message *message = [[Message alloc] initWithText:text];
+    [currentUser.messagesBy addObject:message];
+    
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
 
-    
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
-    Firebase *firebaseLocation = [firebase childByAutoId];
-    NSLog(@"%@", firebaseLocation);
+    Firebase *firebaseLocation = [firebase childByAppendingPath:message.messageID];
     [firebaseLocation setValue:text];
-    
-    
-    
-    
-    
-
-    
-
-    
-    
-    
-    //NSString *firstName = [snapshot valueInExportFormat];
-    
-    
-    //NSLog(@"%@", firstName);
-    
-    
-    //Post message to each of his friends.
-
 }
 @end

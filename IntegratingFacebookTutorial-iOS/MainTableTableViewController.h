@@ -10,5 +10,8 @@
 @interface MainTableTableViewController : UITableViewController
 
 - (IBAction)goToPostStatusPage:(id)sender;
+- (void)reloadTableData;
+
+@property(strong) NSArray *messageList;
 
 @end

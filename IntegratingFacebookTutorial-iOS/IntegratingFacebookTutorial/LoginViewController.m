@@ -6,6 +6,7 @@
 #import "LoginViewController.h"
 #import "UserDetailsViewController.h"
 #import <Parse/Parse.h>
+#import "User.h"
 #import "MainViewController.h"
 
 @implementation LoginViewController
@@ -44,7 +45,6 @@
     // Login PFUser using facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         [_activityIndicator stopAnimating]; // Hide loading indicator
-        
         if (!user) {
             if (!error) {
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
