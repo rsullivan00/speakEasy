@@ -6,6 +6,7 @@
 
 #import "MainTableTableViewController.h"
 #import "PostStatusViewController.h"
+#import "FriendPickerViewController.h"
 #import "Constants.h"
 #import "User.h"
 #import "Message.h"
@@ -78,11 +79,21 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
+
+    /* Configure label with message text */
+    Message *message = [[[User currentUser] messagesTo] objectAtIndex:indexPath.row];
+    cell.textLabel.text = message.text;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
-    Message *message = [[[User currentUser] messagesTo] objectAtIndex:indexPath.item];
-    label.text = message.text;
-    // Configure the cell...
+    /* Configure guess button */
+    UIButton *guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    guessButton.frame = CGRectMake(cell.contentView.frame.origin.x + 20, cell.contentView.frame.origin.y + 50, 41, 30);
+    guessButton.tag = indexPath.row;
+    [guessButton setTitle:@"guess" forState:UIControlStateNormal];
+    [guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
+    guessButton.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:guessButton];
     
     return cell;
 }
@@ -92,10 +103,22 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)goToPostStatusPage:(id)sender {
+- (IBAction)goToPostStatusView:(id)sender
+{
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     PostStatusViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"PostStatusViewController"];
     [[UIApplication sharedApplication].delegate window].rootViewController = vc;
-
 }
+
+- (void)goToFriendPickerView:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    FriendPickerViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"FriendPickerViewController"];
+    UIButton *button = (UIButton *)sender;
+    vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
+    [self presentViewController:vc animated:YES completion:nil];
+    //[[UIApplication sharedApplication].delegate window].rootViewController = vc;
+}
+
+
 @end

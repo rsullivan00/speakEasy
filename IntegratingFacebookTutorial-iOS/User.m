@@ -114,7 +114,7 @@ static User *currentUser;
         } else {
             NSDictionary* data = snapshot.value;
             for (NSString *text in data) {
-                Message *message = [[Message alloc] initWithText:text];
+                Message *message = [[Message alloc] initWithText:[data valueForKey:text]];
                 [self.messagesTo addObject:message];
             }
         }

@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0T-Fz-5zf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-33" y="432"/>
+            <point key="canvasLocation" x="-9" y="431"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="I0p-CD-Lwh">
@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="-567" y="835"/>
         </scene>
-        <!--Friend Table View Controller - Friends-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="I15-CW-mu3">
             <objects>
-                <tableViewController storyboardIdentifier="FriendTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9O3-zo-SQC" customClass="FriendTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9O3-zo-SQC" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dL7-7k-eBX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
                             <outlet property="delegate" destination="9O3-zo-SQC" id="3sv-Tv-1MS"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Friends" id="C2I-QR-oar"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="C2I-QR-oar"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFg-JZ-EuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,24 +119,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a61-j5-u7c">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK4-RZ-DAV">
                                             <rect key="frame" x="-59" y="50" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50g-28-cJ3">
-                                            <rect key="frame" x="20" y="50" width="34" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="echo">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -168,7 +154,7 @@
                                 </state>
                             </button>
                             <connections>
-                                <action selector="goToPostStatusPage:" destination="szG-Vd-CXR" id="T9b-oU-ZZs"/>
+                                <action selector="goToPostStatusView:" destination="szG-Vd-CXR" id="tEf-3q-XVF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="OVn-E6-9FP">
@@ -185,7 +171,80 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMD-Ms-mJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10" y="-282"/>
+            <point key="canvasLocation" x="-9" y="-282"/>
+        </scene>
+        <!--Friend Picker View Controller-->
+        <scene sceneID="pNn-X7-3QQ">
+            <objects>
+                <viewController storyboardIdentifier="FriendPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Uw-eO-Mch" customClass="FriendPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C7N-ck-RZM"/>
+                        <viewControllerLayoutGuide type="bottom" id="UXA-7x-FXS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e4F-No-WpI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18V-t2-eHZ">
+                                <rect key="frame" x="0.0" y="182" width="320" height="386"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="2PA-IS-ZGC" kind="embed" id="s5S-bh-2D3"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which friend wrote this?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6k-9T-fQo">
+                                <rect key="frame" x="20" y="29" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AKK-Rw-nCL">
+                                <rect key="frame" x="20" y="58" width="280" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="AKK-Rw-nCL" id="VOG-5d-RGw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krN-i2-f5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="-282"/>
+        </scene>
+        <!--Friend Table View Controller - Friends-->
+        <scene sceneID="ei9-Ha-FU3">
+            <objects>
+                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="2PA-IS-ZGC" customClass="FriendTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7ED-nc-5gx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="386"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" id="KQu-6h-9u7">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KQu-6h-9u7" id="Yu5-Gx-XMF">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2PA-IS-ZGC" id="W8u-Db-4Vh"/>
+                            <outlet property="delegate" destination="2PA-IS-ZGC" id="tMV-X2-haO"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Friends" id="vIa-Lg-iIT"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LK-0t-REH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="-95"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

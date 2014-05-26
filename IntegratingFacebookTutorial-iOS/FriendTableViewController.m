@@ -9,11 +9,8 @@
 #import "FriendTableViewController.h"
 #import "User.h"
 
-@interface FriendTableViewController ()
-
-@end
-
 @implementation FriendTableViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

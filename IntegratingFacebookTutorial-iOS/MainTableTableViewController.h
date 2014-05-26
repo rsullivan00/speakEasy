@@ -9,7 +9,8 @@
 
 @interface MainTableTableViewController : UITableViewController
 
-- (IBAction)goToPostStatusPage:(id)sender;
+- (IBAction)goToPostStatusView:(id)sender;
+- (IBAction)goToFriendPickerView:(id)sender;
 - (void)reloadTableData;
 
 @property(strong) NSArray *messageList;

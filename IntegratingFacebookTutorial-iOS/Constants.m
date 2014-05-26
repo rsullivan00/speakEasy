@@ -12,4 +12,5 @@
 
 NSString *FIREBASE_PREFIX = @"https://speakeasy.firebaseio.com";
 NSString *TEXTVIEW_PLACEHOLDER = @"speakEasy - post your unfiltered thoughts to your facebook friends.";
+
 @end

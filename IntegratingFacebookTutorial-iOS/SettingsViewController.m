@@ -20,9 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
-
-    
+    self.view.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
 }
 

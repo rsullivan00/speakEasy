@@ -6,6 +6,7 @@
 
 #import "Message.h"
 #import "User.h"
+#import "FriendPickerViewController.h"
 
 @implementation Message
 

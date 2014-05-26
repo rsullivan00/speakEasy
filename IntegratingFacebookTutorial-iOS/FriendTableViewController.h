@@ -10,4 +10,5 @@
 
 @interface FriendTableViewController : UITableViewController
 
+
 @end
