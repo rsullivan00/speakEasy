@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="szG-Vd-CXR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ein-7A-YEw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -64,8 +64,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="GzR-My-tba" kind="relationship" relationship="viewControllers" id="hEA-Wd-eDB"/>
-                        <segue destination="szG-Vd-CXR" kind="relationship" relationship="viewControllers" id="VdN-zu-EwK"/>
-                        <segue destination="9O3-zo-SQC" kind="relationship" relationship="viewControllers" id="mUN-kM-2wZ"/>
+                        <segue destination="Ein-7A-YEw" kind="relationship" relationship="viewControllers" id="yWu-kW-ZS2"/>
+                        <segue destination="9O3-zo-SQC" kind="relationship" relationship="viewControllers" id="aJc-bT-tjk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgJ-7J-sFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,6 +101,22 @@
             </objects>
             <point key="canvasLocation" x="-9" y="1126"/>
         </scene>
+        <!--Navigation Controller - Messages-->
+        <scene sceneID="aDn-ji-n7V">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Ein-7A-YEw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" id="JNa-JC-NRc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lVJ-2j-nCj">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="szG-Vd-CXR" kind="relationship" relationship="rootViewController" id="Jm5-l3-1oh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2vU-Qp-R5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="-234"/>
+        </scene>
         <!--Main Table Table View Controller - messages-->
         <scene sceneID="Tnq-WI-cv6">
             <objects>
@@ -113,7 +129,7 @@
                         <color key="sectionIndexColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoCell" rowHeight="80" id="Tk3-J0-sNL">
-                                <rect key="frame" x="0.0" y="22" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tk3-J0-sNL" id="9qT-zJ-fWo">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
@@ -144,36 +160,14 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Messages" id="DG8-iS-wQA"/>
                     <navigationItem key="navigationItem" title="speakEasy" id="foc-0b-WJL" colorLabel="IBBuiltInLabel-Orange">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="dvR-D4-9fc">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9RV-X8-nK2">
-                                <rect key="frame" x="16" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Post">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <connections>
-                                <action selector="goToPostStatusView:" destination="szG-Vd-CXR" id="tEf-3q-XVF"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="OVn-E6-9FP">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4b3-Wb-rG7">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="back" id="G16-Kb-Ic1"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMD-Ms-mJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9" y="-282"/>
+            <point key="canvasLocation" x="395" y="-234"/>
         </scene>
-        <!--Friend Picker View Controller-->
+        <!--Friend Picker View Controller - speakEasy-->
         <scene sceneID="pNn-X7-3QQ">
             <objects>
                 <viewController storyboardIdentifier="FriendPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Uw-eO-Mch" customClass="FriendPickerViewController" sceneMemberID="viewController">
@@ -194,14 +188,14 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which friend wrote this?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6k-9T-fQo">
-                                <rect key="frame" x="20" y="29" width="280" height="21"/>
+                                <rect key="frame" x="20" y="79" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AKK-Rw-nCL">
-                                <rect key="frame" x="20" y="58" width="280" height="116"/>
+                                <rect key="frame" x="20" y="108" width="280" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -209,13 +203,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="speakEasy" id="iRL-UJ-8fI">
+                        <barButtonItem key="backBarButtonItem" title="back" id="1gZ-k2-aAV"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="AKK-Rw-nCL" id="VOG-5d-RGw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krN-i2-f5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="-282"/>
+            <point key="canvasLocation" x="773" y="-234"/>
         </scene>
         <!--Friend Table View Controller - Friends-->
         <scene sceneID="ei9-Ha-FU3">
@@ -244,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LK-0t-REH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-95"/>
+            <point key="canvasLocation" x="1147" y="-52"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

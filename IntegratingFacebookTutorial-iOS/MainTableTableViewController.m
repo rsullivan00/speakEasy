@@ -116,7 +116,7 @@
     FriendPickerViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"FriendPickerViewController"];
     UIButton *button = (UIButton *)sender;
     vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
     //[[UIApplication sharedApplication].delegate window].rootViewController = vc;
 }
 
