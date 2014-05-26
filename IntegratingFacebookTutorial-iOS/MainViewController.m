@@ -53,16 +53,18 @@
             User *currentUser = [User newCurrentUser:userID];
             
             /* Make Facebook request for all friends' user IDs */
-            FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=id"];
+            FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=id,name,picture"];
             [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSArray *data = [result objectForKey:@"data"];
-                    int i = 0;
                     NSMutableArray *idArray = [[NSMutableArray alloc] init];
                     for (FBGraphObject<FBGraphUser> *friend in data) {
+                        
+                        User *newFriend = [[User alloc] initWithId:friend.id name:friend.name];
                         [idArray addObject:friend.id];
-                        i++;
+
                         [currentUser getFriendMessages:friend.id];
+                        [currentUser.friends addObject:newFriend];
                     }
                     
                     /* Update friends on firebase */

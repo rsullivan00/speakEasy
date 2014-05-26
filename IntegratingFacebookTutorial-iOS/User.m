@@ -11,7 +11,7 @@
 
 @implementation User
 
-@synthesize userID, friends, messagesBy, messagesTo;
+@synthesize userID, name, friends, messagesBy, messagesTo;
 
 /* Singleton User for the currently logged-in User */
 static User *currentUser;
@@ -46,8 +46,14 @@ static User *currentUser;
 
 - (id) initWithId: (NSString *) userID
 {
+    return [self initWithId:userID name:nil];
+}
+
+- (id) initWithId:(NSString *)userID name:(NSString *)name
+{
     if (self = [super init]) {
         self.userID = userID;
+        self.name = name;
         self.friends = [[NSMutableArray alloc] init];
         self.messagesTo = [[NSMutableArray alloc] init];
         self.messagesBy = [[NSMutableArray alloc] init];
@@ -55,6 +61,13 @@ static User *currentUser;
     
     return self;
 }
+
+/* Returns the URL of a thumbnail image for the user */
+- (NSString *) imageURL
+{
+    return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=square", self.userID];
+}
+
 
 /* Populates the friends array with Friend objects using the data on Firebase */
 - (void) populateFriendsFromFirebase
