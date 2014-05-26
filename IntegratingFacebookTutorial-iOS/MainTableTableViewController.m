@@ -103,13 +103,6 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)goToPostStatusView:(id)sender
-{
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    PostStatusViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"PostStatusViewController"];
-    [[UIApplication sharedApplication].delegate window].rootViewController = vc;
-}
-
 - (void)goToFriendPickerView:(id)sender
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
@@ -117,7 +110,6 @@
     UIButton *button = (UIButton *)sender;
     vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
     [self.navigationController pushViewController:vc animated:YES];
-    //[[UIApplication sharedApplication].delegate window].rootViewController = vc;
 }
 
 

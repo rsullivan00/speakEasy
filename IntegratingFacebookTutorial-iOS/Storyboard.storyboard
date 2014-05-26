@@ -182,9 +182,8 @@
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18V-t2-eHZ">
                                 <rect key="frame" x="0.0" y="182" width="320" height="386"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="2PA-IS-ZGC" kind="embed" id="s5S-bh-2D3"/>
+                                    <segue destination="2PA-IS-ZGC" kind="embed" identifier="Embed" id="s5S-bh-2D3"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which friend wrote this?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6k-9T-fQo">
@@ -234,7 +233,7 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="2PA-IS-ZGC" id="W8u-Db-4Vh"/>
-                            <outlet property="delegate" destination="2PA-IS-ZGC" id="tMV-X2-haO"/>
+                            <outlet property="delegate" destination="2PA-IS-ZGC" id="6E1-NC-LZ1"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Friends" id="vIa-Lg-iIT"/>

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Message.h"
+#import "FriendTableViewController.h"
 
-@interface FriendPickerViewController : UIViewController
+@interface FriendPickerViewController : UIViewController <FriendTableDelegate>
 
 @property IBOutlet UILabel *messageLabel;
 @property Message *message;
