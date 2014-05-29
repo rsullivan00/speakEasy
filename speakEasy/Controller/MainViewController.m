@@ -28,6 +28,8 @@
     [super viewDidLoad];
 
     [self.tabBarController.tabBar setTranslucent:YES];
+    [self.tabBarController setSelectedIndex: 2];
+
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
     [[self view] addSubview:imageView];
@@ -37,7 +39,6 @@
     
     [self getUsers];
     
-   
 }
 -(void)getUsers
 {

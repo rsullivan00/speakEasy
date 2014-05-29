@@ -9,6 +9,9 @@
 #import "FriendPickerViewController.h"
 #import "User.h"
 
+#include <Firebase/Firebase.h>
+#include "Constants.h"
+
 @implementation FriendPickerViewController
 
 @synthesize messageLabel, message;
@@ -39,12 +42,30 @@
 
 - (void)handleFriendSelection:(User *)friend
 {
-    if (message.authorID == friend.userID) {
+    message.hasGuessed = YES;
+    if ([message.authorID isEqualToString:friend.userID]) {
+        NSLog(@"Correct");
+        NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
+        Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+        
+        __block FirebaseHandle handle = [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            [firebase removeObserverWithHandle:handle];
+            if(snapshot.value == [NSNull null]) {
+                NSLog(@"this user has no score");
+                [firebase setValue:@(1)];
+            } else {
+                NSNumber* data = snapshot.value;
+                [firebase setValue:@(data.integerValue + 1)];
+            }
+        }];
+        
         /* Give current user points and let them know they were correct */
     } else {
+        NSLog(@"Wrong");
         /* Tell them they were wrong */
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DidUpdateUserInfo" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

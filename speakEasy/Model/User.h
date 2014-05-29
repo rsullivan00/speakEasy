@@ -15,6 +15,7 @@
 
 /* Unique userId corresponding to our DB table */
 @property NSString *userID;
+@property (readwrite, assign) int score;
 @property NSString *name;
 @property NSMutableArray *friends;
 @property NSMutableArray *messagesBy;
@@ -28,5 +29,6 @@
 - (void) getFriendMessages:(NSString*) friendID;
 - (void) populateFriendsFromFirebase;
 - (void) updateFireBaseFriends:(NSArray *) friendIDs;
+-(void) addOneToScore;
 
 @end

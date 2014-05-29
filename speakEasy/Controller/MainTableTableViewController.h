@@ -10,6 +10,8 @@
 @interface MainTableTableViewController : UITableViewController
 
 - (void)goToFriendPickerView:(id)sender;
+- (void)likeMessage:(id)sender;
+
 - (void)reloadTableData;
 
 @property(strong) NSArray *messageList;

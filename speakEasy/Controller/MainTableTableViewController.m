@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:@"DidUpdateUserInfo" object:nil];
 
     User *currentUser = [User currentUser];
     [self reloadTableData];
@@ -93,7 +95,20 @@
     [guessButton setTitle:@"guess" forState:UIControlStateNormal];
     [guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
     guessButton.backgroundColor = [UIColor clearColor];
+    if (!message.hasGuessed) {
+        guessButton.hidden = NO;
+    }else{
+        guessButton.hidden = YES;
+    }
     [cell.contentView addSubview:guessButton];
+    
+    UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 80, cell.contentView.frame.origin.y + 50, 41, 30);
+    likeButton.tag = indexPath.row;
+    [likeButton setTitle:@"like" forState:UIControlStateNormal];
+    [likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
+    likeButton.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:likeButton];
     
     return cell;
 }
@@ -102,15 +117,30 @@
 {
     [self.tableView reloadData];
 }
+-(void)likeMessage:(id)sender
+{
+  //  NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
+    
+  //  Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+ //   Firebase *firebaseLocation = [firebase childByAutoId];
+ //  [firebaseLocation setValue:text];
 
+}
 - (void)goToFriendPickerView:(id)sender
 {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    FriendPickerViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"FriendPickerViewController"];
     UIButton *button = (UIButton *)sender;
-    vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([(Message *)[[[User currentUser] messagesTo] objectAtIndex:button.tag] hasGuessed]) {
+        UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Guessed" message:@"You have already guessed this one" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [a show];
+    }else{
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        FriendPickerViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"FriendPickerViewController"];
+        vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
+
 
 
 @end

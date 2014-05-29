@@ -33,6 +33,8 @@
     NSLog(@"User with facebook signed up and logged in!");
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     MainViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.tabBarController setSelectedIndex: 2];
+
     [[UIApplication sharedApplication].delegate window].rootViewController = vc;
 }
 

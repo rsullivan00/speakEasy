@@ -11,7 +11,7 @@
 
 @implementation User
 
-@synthesize userID = _userID, name = _name, friends = _friends, messagesBy = _messagesBy, messagesTo = _messagesTo;
+@synthesize userID = _userID, name = _name, friends = _friends, messagesBy = _messagesBy, messagesTo = _messagesTo, score = _score;
 
 /* Singleton User for the currently logged-in User */
 static User *currentUser;
@@ -69,6 +69,8 @@ static User *currentUser;
 }
 
 
+
+
 /* Populates the friends array with Friend objects using the data on Firebase */
 - (void) populateFriendsFromFirebase
 {
@@ -117,8 +119,18 @@ static User *currentUser;
                 Message *message = [[Message alloc] initWithText:[data valueForKey:text]];
                 [self.messagesTo addObject:message];
             }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidUpdateUserInfo" object:nil];
         }
     }];
 }
+
+-(void) addOneToScore{
+    _score = _score + 1;
+}
+
+
+
+
+
 @end
 
