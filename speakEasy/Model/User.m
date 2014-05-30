@@ -68,9 +68,6 @@ static User *currentUser;
     return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=square", self.userID];
 }
 
-
-
-
 /* Populates the friends array with Friend objects using the data on Firebase */
 - (void) populateFriendsFromFirebase
 {
@@ -117,6 +114,7 @@ static User *currentUser;
             NSDictionary* data = snapshot.value;
             for (NSString *text in data) {
                 Message *message = [[Message alloc] initWithText:[data valueForKey:text]];
+                message.authorID = friendID;
                 [self.messagesTo addObject:message];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DidUpdateUserInfo" object:nil];
