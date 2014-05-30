@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import <Firebase/Firebase.h>
 
-@interface MainTableTableViewController : UITableViewController
+@interface MainTableViewController : UITableViewController
 
 - (void)goToFriendPickerView:(id)sender;
 - (void)likeMessage:(id)sender;
@@ -15,5 +15,6 @@
 - (void)reloadTableData;
 
 @property(strong) NSArray *messageList;
+@property(weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

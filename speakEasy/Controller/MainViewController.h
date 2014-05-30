@@ -11,6 +11,4 @@
 
 @interface MainViewController : UITabBarController
 
-@property (nonatomic, strong) NSMutableArray *friendsArray;
-
 @end

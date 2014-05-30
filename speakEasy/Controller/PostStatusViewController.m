@@ -67,7 +67,8 @@
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
     Firebase *firebaseLocation = [firebase childByAutoId];
-    [firebaseLocation setValue:text];
+    [firebaseLocation setValue:text forKey:@"text"];
+    [firebaseLocation setValue:[NSString stringWithFormat:@"%d", message.score] forKey:@"score"];
     
     /* Clear the text field and close the keyboard */
     messageTextView.text = @"";

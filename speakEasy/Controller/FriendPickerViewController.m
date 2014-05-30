@@ -65,12 +65,13 @@
         /* Tell them they were wrong */
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"DidUpdateUserInfo" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    /* Set delegate of FriendTableViewController when it is embedded in this VC */
     if ([segue.identifier isEqualToString:@"Embed"])
     {
         FriendTableViewController *vc = segue.destinationViewController;

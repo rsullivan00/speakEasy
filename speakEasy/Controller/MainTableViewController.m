@@ -4,22 +4,21 @@
 //
 //
 
-#import "MainTableTableViewController.h"
+#import "MainTableViewController.h"
 #import "PostStatusViewController.h"
 #import "FriendPickerViewController.h"
 #import "Constants.h"
 #import "User.h"
 #import "Message.h"
 
-@implementation MainTableTableViewController
+@implementation MainTableViewController
 
-@synthesize messageList;
+@synthesize messageList = _messageList, spinner = _spinner;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -29,23 +28,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:@"DidUpdateUserInfo" object:nil];
-
-    User *currentUser = [User currentUser];
-    [self reloadTableData];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:USER_INFO_UPDATE object:nil];
     
-    if (!currentUser) {
-        /* Error, user should be logged in. Redirect to login view */
-    } else if (!currentUser.friends.count) {
-        /* Request friends */
-        [currentUser populateFriendsFromFirebase];
-        /* Iterate through friends and update messages */
-    } else {
-        /* currentUser has friends */
-    }
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.separatorColor = [UIColor lightGrayColor];
+    
+    /* Start spinner until data is loaded */
+    [_spinner setHidesWhenStopped:YES];
+    [_spinner startAnimating];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -79,14 +68,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    User *currentUser = [User currentUser];
+    if (currentUser == nil)
+        return nil;
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    cell.backgroundColor = [UIColor clearColor];
 
     /* Configure label with message text */
-    Message *message = [[[User currentUser] messagesTo] objectAtIndex:indexPath.row];
+    Message *message = [currentUser.messagesTo objectAtIndex:indexPath.row];
     cell.textLabel.text = message.text;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.textColor = [UIColor lightTextColor];
     
     /* Configure guess button */
     UIButton *guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -102,8 +96,17 @@
     }
     [cell.contentView addSubview:guessButton];
     
+    /* Configure score label */
+    UILabel *scoreLabel = [[UILabel alloc] init];
+    scoreLabel.frame = CGRectMake(cell.contentView.frame.origin.x + 250, cell.contentView.frame.origin.y + 50, 41, 30);
+    scoreLabel.tag = indexPath.row;
+    scoreLabel.text = [NSString stringWithFormat:@"%d", message.score];
+    scoreLabel.textColor = [UIColor lightTextColor];
+    [cell.contentView addSubview:scoreLabel];
+    
+    /* Configure like button */
     UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 80, cell.contentView.frame.origin.y + 50, 41, 30);
+    likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 270, cell.contentView.frame.origin.y + 50, 41, 30);
     likeButton.tag = indexPath.row;
     [likeButton setTitle:@"like" forState:UIControlStateNormal];
     [likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
@@ -116,17 +119,23 @@
 - (void)reloadTableData
 {
     [self.tableView reloadData];
+    if ([self.tableView numberOfRowsInSection:0] > 0) {
+        [_spinner stopAnimating];
+    }
 }
+
 -(void)likeMessage:(id)sender
 {
-  //  NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
+    UIButton *button = (UIButton *)sender;
+    Message *message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
+    message.score++;
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@", FIREBASE_PREFIX, message.authorID,message.messageID];
     
-  //  Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
- //   Firebase *firebaseLocation = [firebase childByAutoId];
- //  [firebaseLocation setValue:text];
-
+    [firebase setValue:[NSString stringWithFormat:@"%d", message.score] forKey:@"score"];
 }
+
 - (void)goToFriendPickerView:(id)sender
 {
     UIButton *button = (UIButton *)sender;

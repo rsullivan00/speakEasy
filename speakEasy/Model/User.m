@@ -109,26 +109,24 @@ static User *currentUser;
     
     [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         if(snapshot.value == [NSNull null]) {
-            NSLog(@"this user has no friends");
+            NSLog(@"this user has no messages");
         } else {
             NSDictionary* data = snapshot.value;
-            for (NSString *text in data) {
-                Message *message = [[Message alloc] initWithText:[data valueForKey:text]];
+            for (NSString *key in data) {
+                Message *message = [[Message alloc] initWithText:[key valueForKey:@"text"]];
+                message.score = [[key valueForKey:@"score"] intValue];
                 message.authorID = friendID;
+                message.messageID = key;
                 [self.messagesTo addObject:message];
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidUpdateUserInfo" object:nil];
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     }];
 }
 
 -(void) addOneToScore{
     _score = _score + 1;
 }
-
-
-
-
 
 @end
 

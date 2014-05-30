@@ -37,12 +37,8 @@
     [[self view] setOpaque:NO];
     [[self view] setBackgroundColor:[UIColor clearColor]];
     
-    [self getUsers];
-    
-}
--(void)getUsers
-{
     [self initializeCurrentUser];
+    
 }
 
 -(void)initializeCurrentUser
@@ -75,7 +71,6 @@
                 }
             }];
         }
-        
     }];
     
 }

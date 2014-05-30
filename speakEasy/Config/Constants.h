@@ -12,5 +12,6 @@
 
 extern NSString *FIREBASE_PREFIX;
 extern NSString *TEXTVIEW_PLACEHOLDER;
+extern NSString *USER_INFO_UPDATE;
 
 @end
