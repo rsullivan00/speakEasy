@@ -11,7 +11,7 @@
 
 @interface Guess : NSObject
 
-@property Message *message;
+@property (strong) Message *message;
 
 /* Designated initializer */
 - (id) initWithMessage: (Message *)message;
