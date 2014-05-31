@@ -138,20 +138,30 @@
 -(void)likeMessage:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    Message *message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
-
-    if ([[User currentUser] hasLikedMessage:message]) {
+    User *currentUser = [User currentUser];
+    Message *message = [currentUser.messagesTo objectAtIndex:button.tag];
+    
+    if ([currentUser hasLikedMessage:message]) {
         UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Liked" message:@"You have already liked this one" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [a show];
     } else {
+        /* Update message */
         message.score++;
-        Like *like = [[Like alloc] initWithMessage:message];
-        [[User currentUser].likes addObject:like];
-        NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@/", FIREBASE_PREFIX, message.authorID,message.messageID];
+        NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@/", FIREBASE_PREFIX, message.authorID, message.messageID];
         
         Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
         
         [firebase updateChildValues:@{@"score":[NSNumber numberWithInt:message.score]}];
+        
+        /* Add Like to current User */
+        Like *like = [[Like alloc] initWithMessage:message];
+        [currentUser.likes addObject:like];
+        
+        firebaseURL = [NSString stringWithFormat:@"%@/users/%@/likes", FIREBASE_PREFIX, currentUser.userID];
+        
+        firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+        
+        [[firebase childByAutoId] setValue:@{@"authorID":like.message.authorID, @"messageID":like.message.messageID}];
     }
 }
 

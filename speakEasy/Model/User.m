@@ -155,10 +155,10 @@ static User *currentUser;
                 message.messageID = [NSString stringWithFormat:@"%d", i];
                 
                 /* If message is new, add it to current user */
-                if ([friend.messagesBy count] <= i)
+                if ([friend.messagesBy count] <= i) {
                     [self.messagesTo addObject:message];
-                /* Update friend reference */
-                [friend.messagesBy setObject:message atIndexedSubscript:i];
+                    [friend.messagesBy addObject:message];
+                }
                 i++;
             }
         }
@@ -179,13 +179,13 @@ static User *currentUser;
             NSDictionary* data = snapshot.value;
             int i = 0;
             for (NSDictionary *key in data) {
-                Guess *guess = [[Guess alloc] initWithAuthorID:[key valueForKey:@"authorID"] messageID: [key valueForKey:@"messageID"]];
+                NSDictionary *guessDictionary = (NSDictionary *)[data valueForKey:key];
+                Guess *guess = [[Guess alloc] initWithAuthorID:[guessDictionary valueForKey:@"authorID"] messageID: [guessDictionary valueForKey:@"messageID"]];
                 /* Add new message or replace old version of new message */
                 [self.guesses setObject:guess atIndexedSubscript:i];
                 i++;
             }
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     }];
 }
 
@@ -201,14 +201,14 @@ static User *currentUser;
         } else {
             NSDictionary* data = snapshot.value;
             int i = 0;
-            for (NSDictionary *key in data) {
-                Like *like = [[Like alloc] initWithAuthorID:[key valueForKey:@"authorID"] messageID: [key valueForKey:@"messageID"]];
+            for (NSString *key in data) {
+                NSDictionary *likeDictionary = (NSDictionary *)[data valueForKey:key];
+                Like *like = [[Like alloc] initWithAuthorID:[likeDictionary valueForKey:@"authorID"] messageID: [likeDictionary valueForKey:@"messageID"]];
                 /* Add new message or replace old version of new message */
                 [self.likes setObject:like atIndexedSubscript:i];
                 i++;
             }
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     }];
 }
 

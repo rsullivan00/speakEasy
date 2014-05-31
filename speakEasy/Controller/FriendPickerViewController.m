@@ -46,21 +46,25 @@
     [[User currentUser].guesses addObject:guess];
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");
-        NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
-        Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+        NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
+        Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
         
-        __block FirebaseHandle handle = [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            [firebase removeObserverWithHandle:handle];
+        __block FirebaseHandle handle = [scoreFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            [scoreFirebase removeObserverWithHandle:handle];
             if(snapshot.value == [NSNull null]) {
                 NSLog(@"this user has no score");
-                [firebase setValue:@(1)];
+                [scoreFirebase setValue:@(1)];
             } else {
                 NSNumber* data = snapshot.value;
-                [firebase setValue:@(data.integerValue + 1)];
+                [scoreFirebase setValue:@(data.integerValue + 1)];
             }
         }];
         
-        /* Give current user points and let them know they were correct */
+        /* Persist Guess to DB */
+        NSString *guessURL = [NSString stringWithFormat:@"%@/users/%@/guesses", FIREBASE_PREFIX, [[User currentUser] userID]];
+        Firebase *guessFirebase = [[Firebase alloc] initWithUrl:guessURL];
+        [[guessFirebase childByAutoId] setValue:@{@"authorID":guess.message.authorID, @"messageID":guess.message.messageID}];
+        
     } else {
         NSLog(@"Wrong");
         /* Tell them they were wrong */

@@ -64,8 +64,10 @@
                         [currentUser.friends addObject:newFriend];
                     }
                     
+                    [currentUser getLikes];
+                    [currentUser getGuesses];
                     /* Update friends on firebase */
-                    [currentUser updateFireBaseFriends: idArray];
+                    //[currentUser updateFireBaseFriends: idArray];
                 } else {
                     NSLog(@"Some other error: %@", error);
                 }

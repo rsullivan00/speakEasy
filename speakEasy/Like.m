@@ -27,9 +27,9 @@
 {
     User *currrentUser = [User currentUser];
     for (User *friend in currrentUser.friends) {
-        if (friend.userID == authorID) {
+        if ([friend.userID isEqual:authorID]) {
             for (Message *message in friend.messagesBy) {
-                if (message.messageID == messageID) {
+                if ([message.messageID isEqual:messageID]) {
                     return [self initWithMessage:message];
                 }
             }

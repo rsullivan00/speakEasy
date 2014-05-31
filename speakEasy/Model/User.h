@@ -15,14 +15,14 @@
 +(NSString *) friendsKey;
 
 /* Unique userId corresponding to our DB table */
-@property NSString *userID;
+@property (strong) NSString *userID;
 @property (readwrite, assign) int score;
-@property NSString *name;
-@property NSMutableArray *friends;
-@property NSMutableArray *messagesBy;
-@property NSMutableArray *messagesTo;
-@property NSMutableArray *guesses;
-@property NSMutableArray *likes;
+@property (copy) NSString *name;
+@property (strong) NSMutableArray *friends;
+@property (strong) NSMutableArray *messagesBy;
+@property (strong) NSMutableArray *messagesTo;
+@property (strong) NSMutableArray *guesses;
+@property (strong) NSMutableArray *likes;
 
 /* Designated initializer */
 - (id) initWithId:(NSString *)userID name:(NSString *)name;
@@ -32,6 +32,8 @@
 - (BOOL) hasLikedMessage: (Message *)message;
 - (NSString *) imageURL;
 - (void) getFriendMessages:(User *) friend;
+- (void) getLikes;
+- (void) getGuesses;
 - (void) populateFriendsFromFirebase;
 - (void) updateFireBaseFriends:(NSArray *) friendIDs;
 -(void) addOneToScore;

@@ -40,16 +40,26 @@
 
 - (id) initWithID:(NSString *)messageID authorName:(NSString *)authorName authorID:(NSString *)authorID text:(NSString *)text
 {
+    return [self initWithID:messageID authorName:authorName authorID:authorID text:text date:[NSDate date]];
+}
+
+- (id) initWithID:(NSString *)messageID authorName:(NSString *)authorName authorID:(NSString *)authorID text:(NSString *)text date:(NSDate *)date
+{
     if (self = [super init]) {
         self.messageID = messageID;
         self.authorName = authorName;
         self.authorID = authorID;
         self.text = text;
         self.score = 0;
-        self.date = [NSDate date];
+        self.date = date;
     }
     
     return self;
+}
+
+- (id) initWithMessage:(Message *)message
+{
+    return [self initWithID:message.messageID authorName:message.authorName authorID:message.authorID text:message.text date:message.date];
 }
 
 
