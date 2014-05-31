@@ -4,6 +4,7 @@
 //
 //
 #import <Foundation/Foundation.h>
+#import "Message.h"
 
 @interface User : NSObject
 /* Singleton instance of User */
@@ -20,13 +21,15 @@
 @property NSMutableArray *friends;
 @property NSMutableArray *messagesBy;
 @property NSMutableArray *messagesTo;
+@property NSMutableArray *guesses;
 
 /* Designated initializer */
 - (id) initWithId:(NSString *)userID name:(NSString *)name;
 - (id) initWithId:(NSString *) userID;
 
+- (BOOL) hasGuessedOnMessage: (Message *)message;
 - (NSString *) imageURL;
-- (void) getFriendMessages:(NSString*) friendID;
+- (void) getFriendMessages:(User *) friend;
 - (void) populateFriendsFromFirebase;
 - (void) updateFireBaseFriends:(NSArray *) friendIDs;
 -(void) addOneToScore;

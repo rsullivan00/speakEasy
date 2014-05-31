@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "User.h"
 #import "Message.h"
+#import "MessageTableViewCell.h"
 
 @implementation MainTableViewController
 
@@ -72,7 +73,7 @@
     if (currentUser == nil)
         return nil;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
+    MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
 
     /* Configure label with message text */
@@ -83,35 +84,44 @@
     cell.textLabel.textColor = [UIColor lightTextColor];
     
     /* Configure guess button */
-    UIButton *guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    guessButton.frame = CGRectMake(cell.contentView.frame.origin.x + 20, cell.contentView.frame.origin.y + 50, 41, 30);
-    guessButton.tag = indexPath.row;
-    [guessButton setTitle:@"guess" forState:UIControlStateNormal];
-    [guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
-    guessButton.backgroundColor = [UIColor clearColor];
-    if (!message.hasGuessed) {
-        guessButton.hidden = NO;
-    }else{
-        guessButton.hidden = YES;
+    if (cell.guessButton == nil) {
+        cell.guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        cell.guessButton.frame = CGRectMake(cell.contentView.frame.origin.x + 20, cell.contentView.frame.origin.y + 50, 41, 30);
+        [cell.guessButton setTitle:@"guess" forState:UIControlStateNormal];
+        [cell.guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
+        cell.guessButton.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:cell.guessButton];
     }
-    [cell.contentView addSubview:guessButton];
+    cell.guessButton.tag = indexPath.row;
+    
+    if (!message.hasGuessed) {
+        cell.guessButton.hidden = NO;
+    } else {
+        cell.guessButton.hidden = YES;
+    }
+
     
     /* Configure score label */
-    UILabel *scoreLabel = [[UILabel alloc] init];
-    scoreLabel.frame = CGRectMake(cell.contentView.frame.origin.x + 250, cell.contentView.frame.origin.y + 50, 41, 30);
-    scoreLabel.tag = indexPath.row;
-    scoreLabel.text = [NSString stringWithFormat:@"%d", message.score];
-    scoreLabel.textColor = [UIColor lightTextColor];
-    [cell.contentView addSubview:scoreLabel];
+    if (cell.scoreLabel == nil) {
+        cell.scoreLabel = [[UILabel alloc] init];
+        cell.scoreLabel.frame = CGRectMake(cell.contentView.frame.origin.x + 240, cell.contentView.frame.origin.y + 50, 41, 30);
+        cell.scoreLabel.textColor = [UIColor lightTextColor];
+        cell.scoreLabel.textAlignment = NSTextAlignmentCenter;
+        [cell.contentView addSubview:cell.scoreLabel];
+    }
+    cell.scoreLabel.tag = indexPath.row;
+    cell.scoreLabel.text = [NSString stringWithFormat:@"%d", message.score];
     
     /* Configure like button */
-    UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 270, cell.contentView.frame.origin.y + 50, 41, 30);
-    likeButton.tag = indexPath.row;
-    [likeButton setTitle:@"like" forState:UIControlStateNormal];
-    [likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
-    likeButton.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:likeButton];
+    if (cell.likeButton == nil) {
+        cell.likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        cell.likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 270, cell.contentView.frame.origin.y + 50, 41, 30);
+        [cell.likeButton setTitle:@"like" forState:UIControlStateNormal];
+        [cell.likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
+        cell.likeButton.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:cell.likeButton];
+    }
+    cell.likeButton.tag = indexPath.row;
     
     return cell;
 }
@@ -129,27 +139,26 @@
     UIButton *button = (UIButton *)sender;
     Message *message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
     message.score++;
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@", FIREBASE_PREFIX, message.authorID,message.messageID];
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@/score/", FIREBASE_PREFIX, message.authorID,message.messageID];
     
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
-    [firebase setValue:[NSString stringWithFormat:@"%d", message.score] forKey:@"score"];
+    [firebase setValue:[NSNumber numberWithInt:message.score]];
 }
 
 - (void)goToFriendPickerView:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    if ([(Message *)[[[User currentUser] messagesTo] objectAtIndex:button.tag] hasGuessed]) {
+    Message *message = (Message *)[[[User currentUser] messagesTo] objectAtIndex:button.tag];
+    if ([[User currentUser] hasGuessedOnMessage:message]) {
         UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Guessed" message:@"You have already guessed this one" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [a show];
-    }else{
+    } else {
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
         FriendPickerViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"FriendPickerViewController"];
         vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
-
 
 @end

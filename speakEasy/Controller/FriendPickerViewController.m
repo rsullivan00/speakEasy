@@ -8,7 +8,7 @@
 
 #import "FriendPickerViewController.h"
 #import "User.h"
-
+#import "Guess.h"
 #include <Firebase/Firebase.h>
 #include "Constants.h"
 
@@ -42,7 +42,8 @@
 
 - (void)handleFriendSelection:(User *)friend
 {
-    message.hasGuessed = YES;
+    Guess *guess = [[Guess alloc] initWithAuthorID:friend.userID messageID:message.messageID];
+    [[User currentUser].guesses addObject:guess];
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");
         NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];

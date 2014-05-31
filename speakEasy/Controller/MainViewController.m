@@ -60,7 +60,7 @@
                         User *newFriend = [[User alloc] initWithId:friend.id name:friend.name];
                         [idArray addObject:friend.id];
 
-                        [currentUser getFriendMessages:friend.id];
+                        [currentUser getFriendMessages:newFriend];
                         [currentUser.friends addObject:newFriend];
                     }
                     
@@ -72,7 +72,6 @@
             }];
         }
     }];
-    
 }
 
 
