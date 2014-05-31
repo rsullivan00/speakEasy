@@ -178,7 +178,7 @@ static User *currentUser;
         } else {
             NSDictionary* data = snapshot.value;
             int i = 0;
-            for (NSDictionary *key in data) {
+            for (NSString *key in data) {
                 NSDictionary *guessDictionary = (NSDictionary *)[data valueForKey:key];
                 Guess *guess = [[Guess alloc] initWithAuthorID:[guessDictionary valueForKey:@"authorID"] messageID: [guessDictionary valueForKey:@"messageID"]];
                 /* Add new message or replace old version of new message */
