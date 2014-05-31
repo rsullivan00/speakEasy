@@ -1,15 +1,15 @@
 //
-//  Guess.m
+//  Like.m
 //  speakEasy
 //
 //  Created by Rick Sullivan on 5/30/14.
 //
 //
 
-#import "Guess.h"
+#import "Like.h"
 #import "User.h"
 
-@implementation Guess
+@implementation Like
 
 @synthesize message = _message;
 

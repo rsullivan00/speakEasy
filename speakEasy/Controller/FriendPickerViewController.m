@@ -42,7 +42,7 @@
 
 - (void)handleFriendSelection:(User *)friend
 {
-    Guess *guess = [[Guess alloc] initWithAuthorID:friend.userID messageID:message.messageID];
+    Guess *guess = [[Guess alloc] initWithMessage:message];
     [[User currentUser].guesses addObject:guess];
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");

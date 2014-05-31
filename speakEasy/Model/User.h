@@ -22,12 +22,14 @@
 @property NSMutableArray *messagesBy;
 @property NSMutableArray *messagesTo;
 @property NSMutableArray *guesses;
+@property NSMutableArray *likes;
 
 /* Designated initializer */
 - (id) initWithId:(NSString *)userID name:(NSString *)name;
 - (id) initWithId:(NSString *) userID;
 
 - (BOOL) hasGuessedOnMessage: (Message *)message;
+- (BOOL) hasLikedMessage: (Message *)message;
 - (NSString *) imageURL;
 - (void) getFriendMessages:(User *) friend;
 - (void) populateFriendsFromFirebase;

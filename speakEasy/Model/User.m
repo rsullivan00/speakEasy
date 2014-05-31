@@ -9,10 +9,18 @@
 #import "Constants.h"
 #import <Firebase/Firebase.h>
 #import "Guess.h"
+#import "Like.h"
 
 @implementation User
 
-@synthesize userID = _userID, name = _name, friends = _friends, messagesBy = _messagesBy, messagesTo = _messagesTo, score = _score;
+@synthesize userID = _userID,
+    name = _name,
+    friends = _friends,
+    messagesBy = _messagesBy,
+    messagesTo = _messagesTo,
+    score = _score,
+    guesses = _guesses,
+    likes = _likes;
 
 /* Singleton User for the currently logged-in User */
 static User *currentUser;
@@ -59,6 +67,7 @@ static User *currentUser;
         self.messagesTo = [[NSMutableArray alloc] init];
         self.messagesBy = [[NSMutableArray alloc] init];
         self.guesses = [[NSMutableArray alloc] init];
+        self.likes = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -69,6 +78,18 @@ static User *currentUser;
     for (Guess *guess in _guesses)
     {
         Message *m = guess.message;
+        if (m == message)
+            return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL) hasLikedMessage: (Message *)message
+{
+    for (Like *like in _likes)
+    {
+        Message *m = like.message;
         if (m == message)
             return YES;
     }
@@ -125,14 +146,6 @@ static User *currentUser;
         if(snapshot.value == [NSNull null]) {
             NSLog(@"this user has no messages");
         } else {
-            /* Remove any previously existing messages by this friend */
-            friend.messagesBy = [[NSMutableArray alloc] init];
-            for (Message *message in self.messagesTo) {
-                if (message.authorID == friend.userID) {
-                    [self.messagesTo removeObject:message];
-                }
-            }
-            
             NSDictionary* data = snapshot.value;
             int i = 0;
             for (NSDictionary *key in data) {
@@ -140,9 +153,12 @@ static User *currentUser;
                 message.score = [[key valueForKey:@"score"] intValue];
                 message.authorID = friend.userID;
                 message.messageID = [NSString stringWithFormat:@"%d", i];
-                /* Add new message */
-                [self.messagesTo addObject:message];
-                [friend.messagesBy addObject:message];
+                
+                /* If message is new, add it to current user */
+                if ([friend.messagesBy count] <= i)
+                    [self.messagesTo addObject:message];
+                /* Update friend reference */
+                [friend.messagesBy setObject:message atIndexedSubscript:i];
                 i++;
             }
         }
@@ -166,6 +182,29 @@ static User *currentUser;
                 Guess *guess = [[Guess alloc] initWithAuthorID:[key valueForKey:@"authorID"] messageID: [key valueForKey:@"messageID"]];
                 /* Add new message or replace old version of new message */
                 [self.guesses setObject:guess atIndexedSubscript:i];
+                i++;
+            }
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
+    }];
+}
+
+- (void) getLikes
+{
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/likes", FIREBASE_PREFIX, [User currentUser].userID];
+    
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no likes");
+        } else {
+            NSDictionary* data = snapshot.value;
+            int i = 0;
+            for (NSDictionary *key in data) {
+                Like *like = [[Like alloc] initWithAuthorID:[key valueForKey:@"authorID"] messageID: [key valueForKey:@"messageID"]];
+                /* Add new message or replace old version of new message */
+                [self.likes setObject:like atIndexedSubscript:i];
                 i++;
             }
         }

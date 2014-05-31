@@ -13,6 +13,7 @@
 		1D376677192D574E0063EB9E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D376676192D574E0063EB9E /* SettingsViewController.m */; };
 		1DAF6E7A1939632A004DF863 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF6E791939632A004DF863 /* MessageTableViewCell.m */; };
 		1DAF6E7D1939682C004DF863 /* Guess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF6E7C1939682C004DF863 /* Guess.m */; };
+		1DAF6E801939786D004DF863 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF6E7F1939786D004DF863 /* Like.m */; };
 		1DAFA8971933BA7E00256110 /* FriendPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAFA8961933BA7E00256110 /* FriendPickerViewController.m */; };
 		1DB2E74C192C76D0004BE0DB /* MPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E74B192C76D0004BE0DB /* MPTextView.m */; };
 		1DB2E7A4192C8A71004BE0DB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E79A192C8A70004BE0DB /* Icon.png */; };
@@ -69,6 +70,8 @@
 		1DAF6E791939632A004DF863 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		1DAF6E7B1939682C004DF863 /* Guess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guess.h; sourceTree = "<group>"; };
 		1DAF6E7C1939682C004DF863 /* Guess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guess.m; sourceTree = "<group>"; };
+		1DAF6E7E1939786D004DF863 /* Like.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Like.h; sourceTree = "<group>"; };
+		1DAF6E7F1939786D004DF863 /* Like.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Like.m; sourceTree = "<group>"; };
 		1DAFA8951933BA7E00256110 /* FriendPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendPickerViewController.h; path = Controller/FriendPickerViewController.h; sourceTree = SOURCE_ROOT; };
 		1DAFA8961933BA7E00256110 /* FriendPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendPickerViewController.m; path = Controller/FriendPickerViewController.m; sourceTree = SOURCE_ROOT; };
 		1DB2E74A192C76D0004BE0DB /* MPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPTextView.h; path = View/MPTextView.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				1D0ECDC21928327D00DA13A4 /* User.m */,
 				1DAF6E7B1939682C004DF863 /* Guess.h */,
 				1DAF6E7C1939682C004DF863 /* Guess.m */,
+				1DAF6E7E1939786D004DF863 /* Like.h */,
+				1DAF6E7F1939786D004DF863 /* Like.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */,
 				1D0ECDC31928327D00DA13A4 /* Message.m in Sources */,
 				1D33C87F192B2D4100A187C4 /* Constants.m in Sources */,
+				1DAF6E801939786D004DF863 /* Like.m in Sources */,
 				1DB8EA4F193308E3005A5243 /* FriendTableViewController.m in Sources */,
 				8FA4D3C7192AA2B60015F443 /* MainTableViewController.m in Sources */,
 				8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */,

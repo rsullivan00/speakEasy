@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Message.h"
 #import "MessageTableViewCell.h"
+#import "Like.h"
 
 @implementation MainTableViewController
 
@@ -138,12 +139,20 @@
 {
     UIButton *button = (UIButton *)sender;
     Message *message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
-    message.score++;
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@/score/", FIREBASE_PREFIX, message.authorID,message.messageID];
-    
-    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-    
-    [firebase setValue:[NSNumber numberWithInt:message.score]];
+
+    if ([[User currentUser] hasLikedMessage:message]) {
+        UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Liked" message:@"You have already liked this one" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [a show];
+    } else {
+        message.score++;
+        Like *like = [[Like alloc] initWithMessage:message];
+        [[User currentUser].likes addObject:like];
+        NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/%@/", FIREBASE_PREFIX, message.authorID,message.messageID];
+        
+        Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+        
+        [firebase updateChildValues:@{@"score":[NSNumber numberWithInt:message.score]}];
+    }
 }
 
 - (void)goToFriendPickerView:(id)sender
