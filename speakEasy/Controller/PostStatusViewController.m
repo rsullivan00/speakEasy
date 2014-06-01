@@ -59,6 +59,11 @@
     User *currentUser = [User currentUser];
     
     NSString *text = messageTextView.text;
+    if ([text isEqualToString:@""]) {
+        UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Empty message" message:@"Mr. T says \"Enter some text, foo!\"" delegate:nil cancelButtonTitle:@"OK Mr. T..." otherButtonTitles: nil];
+        [a show];
+        return;
+    }
     Message *message = [[Message alloc] initWithText:text];
     [currentUser.messagesBy addObject:message];
     
