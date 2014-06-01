@@ -29,6 +29,7 @@
 		1DB3BDC3193ACC120011027F /* MyMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */; };
 		1DB3BDC5193AD2300011027F /* Background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC4193AD2300011027F /* Background-568h@2x.png */; };
 		1DB3BDC7193AD56A0011027F /* DarkerBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC6193AD56A0011027F /* DarkerBackground-568h@2x.png */; };
+		1DB3BDCA193AD65F0011027F /* LikedMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC9193AD65F0011027F /* LikedMessagesTableViewController.m */; };
 		1DB3FB3C19342366006D54C2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3FB3A19342366006D54C2 /* LoginViewController.m */; };
 		1DB3FB3D19342366006D54C2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB3FB3B19342366006D54C2 /* LoginViewController.xib */; };
 		1DB3FB4019342379006D54C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3FB3F19342379006D54C2 /* AppDelegate.m */; };
@@ -96,6 +97,8 @@
 		1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessagesTableViewController.m; sourceTree = "<group>"; };
 		1DB3BDC4193AD2300011027F /* Background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-568h@2x.png"; sourceTree = "<group>"; };
 		1DB3BDC6193AD56A0011027F /* DarkerBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkerBackground-568h@2x.png"; sourceTree = "<group>"; };
+		1DB3BDC8193AD65F0011027F /* LikedMessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikedMessagesTableViewController.h; sourceTree = "<group>"; };
+		1DB3BDC9193AD65F0011027F /* LikedMessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikedMessagesTableViewController.m; sourceTree = "<group>"; };
 		1DB3FB3919342366006D54C2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		1DB3FB3A19342366006D54C2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		1DB3FB3B19342366006D54C2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -197,6 +200,8 @@
 				1DAFA8961933BA7E00256110 /* FriendPickerViewController.m */,
 				1DB3BDC1193ACC120011027F /* MyMessagesTableViewController.h */,
 				1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */,
+				1DB3BDC8193AD65F0011027F /* LikedMessagesTableViewController.h */,
+				1DB3BDC9193AD65F0011027F /* LikedMessagesTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 				8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */,
 				1DB2E7B4192C8AB0004BE0DB /* main.m in Sources */,
 				1DAF6E7A1939632A004DF863 /* MessageTableViewCell.m in Sources */,
+				1DB3BDCA193AD65F0011027F /* LikedMessagesTableViewController.m in Sources */,
 				1DAFA8971933BA7E00256110 /* FriendPickerViewController.m in Sources */,
 				1D376677192D574E0063EB9E /* SettingsViewController.m in Sources */,
 				1DB3FB3C19342366006D54C2 /* LoginViewController.m in Sources */,
