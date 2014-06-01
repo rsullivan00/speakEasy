@@ -58,6 +58,7 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
+            
             [self showMainViewController];
         } else {
             NSLog(@"User with facebook logged in!");

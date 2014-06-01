@@ -149,8 +149,9 @@ static User *currentUser;
             NSDictionary* data = snapshot.value;
             int i = 0;
             for (NSDictionary *key in data) {
-                Message *message = [[Message alloc] initWithText:[key valueForKey:@"text"]];
-                message.score = [[key valueForKey:@"score"] intValue];
+                NSDictionary *messageDictionary = [data valueForKey:key];
+                Message *message = [[Message alloc] initWithText:[messageDictionary valueForKey:@"text"]];
+                message.score = [[messageDictionary valueForKey:@"score"] intValue];
                 message.authorID = friend.userID;
                 message.messageID = [NSString stringWithFormat:@"%d", i];
                 
