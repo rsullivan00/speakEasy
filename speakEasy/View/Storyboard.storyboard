@@ -52,6 +52,41 @@
             </objects>
             <point key="canvasLocation" x="-9" y="431"/>
         </scene>
+        <!--My Messages Table View Controller-->
+        <scene sceneID="Z57-NC-CVv">
+            <objects>
+                <tableViewController storyboardIdentifier="MyMessagesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w66-dP-kjr" customClass="MyMessagesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7YU-Si-gsN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="GY9-to-WdY">
+                            <rect key="frame" x="0.0" y="66" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="MessageTableViewCell" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myMessageCell" id="tuJ-y9-BOV" customClass="MessageTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tuJ-y9-BOV" id="olI-YV-BA0">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w66-dP-kjr" id="1sp-8G-fpj"/>
+                            <outlet property="delegate" destination="w66-dP-kjr" id="CoV-xF-dKc"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="spinner" destination="GY9-to-WdY" id="XlK-pe-edk"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k8a-sA-vNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="429"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="I0p-CD-Lwh">
             <objects>
@@ -159,6 +194,19 @@
                     <tabBarItem key="tabBarItem" title="Messages" id="DG8-iS-wQA"/>
                     <navigationItem key="navigationItem" title="speakEasy" id="foc-0b-WJL" colorLabel="IBBuiltInLabel-Orange">
                         <barButtonItem key="backBarButtonItem" title="back" id="G16-Kb-Ic1"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="At8-a4-9RM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3H2-yJ-qwy">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="My Posts">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="myMessagesButtonSelected:" destination="szG-Vd-CXR" eventType="touchUpInside" id="JhK-H3-hwi"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="spinner" destination="O5N-HO-YSe" id="YQN-Cf-rMU"/>
@@ -166,7 +214,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMD-Ms-mJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="-234"/>
+            <point key="canvasLocation" x="397" y="-234"/>
         </scene>
         <!--Friend Picker View Controller - speakEasy-->
         <scene sceneID="pNn-X7-3QQ">
@@ -212,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krN-i2-f5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773" y="-234"/>
+            <point key="canvasLocation" x="775" y="-234"/>
         </scene>
         <!--Friend Table View Controller - Friends-->
         <scene sceneID="ei9-Ha-FU3">
@@ -241,7 +289,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LK-0t-REH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1147" y="-52"/>
+            <point key="canvasLocation" x="1149" y="-52"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

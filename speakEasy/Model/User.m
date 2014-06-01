@@ -166,6 +166,37 @@ static User *currentUser;
     }];
 }
 
+/* Gets all of the User's messages and populates the messagesBy array */
+- (void) getMyMessages
+{
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, _userID];
+    
+    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no messages");
+        } else {
+            NSDictionary* data = snapshot.value;
+            int i = 0;
+            for (NSString *key in data) {
+                NSDictionary *messageDictionary = [data valueForKey:key];
+                Message *message = [[Message alloc] initWithText:[messageDictionary valueForKey:@"text"]];
+                message.score = [[messageDictionary valueForKey:@"score"] intValue];
+                message.authorID = _userID;
+                message.messageID = [NSString stringWithFormat:@"%d", i];
+                
+                /* If message is new, add it to user */
+                if ([_messagesBy count] <= i) {
+                    [_messagesBy addObject:message];
+                }
+                i++;
+            }
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
+    }];
+}
+
 - (void) getGuesses
 {
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/guesses", FIREBASE_PREFIX, [User currentUser].userID];

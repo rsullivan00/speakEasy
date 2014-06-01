@@ -26,6 +26,9 @@
 		1DB2E7B5192C8AB0004BE0DB /* Oceanic_Background_by_ka_chankitty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7AB192C8AB0004BE0DB /* Oceanic_Background_by_ka_chankitty.jpg */; };
 		1DB2E7B8192C8AB0004BE0DB /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7AF192C8AB0004BE0DB /* TableHeaderView.xib */; };
 		1DB2E7B9192C8AB0004BE0DB /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DB2E7B0192C8AB0004BE0DB /* userData.plist */; };
+		1DB3BDC3193ACC120011027F /* MyMessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */; };
+		1DB3BDC5193AD2300011027F /* Background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC4193AD2300011027F /* Background-568h@2x.png */; };
+		1DB3BDC7193AD56A0011027F /* DarkerBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DB3BDC6193AD56A0011027F /* DarkerBackground-568h@2x.png */; };
 		1DB3FB3C19342366006D54C2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3FB3A19342366006D54C2 /* LoginViewController.m */; };
 		1DB3FB3D19342366006D54C2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB3FB3B19342366006D54C2 /* LoginViewController.xib */; };
 		1DB3FB4019342379006D54C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3FB3F19342379006D54C2 /* AppDelegate.m */; };
@@ -89,6 +92,10 @@
 		1DB2E7AE192C8AB0004BE0DB /* speakEasy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "speakEasy-Prefix.pch"; path = "Application/speakEasy-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		1DB2E7AF192C8AB0004BE0DB /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
 		1DB2E7B0192C8AB0004BE0DB /* userData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
+		1DB3BDC1193ACC120011027F /* MyMessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessagesTableViewController.h; sourceTree = "<group>"; };
+		1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessagesTableViewController.m; sourceTree = "<group>"; };
+		1DB3BDC4193AD2300011027F /* Background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-568h@2x.png"; sourceTree = "<group>"; };
+		1DB3BDC6193AD56A0011027F /* DarkerBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkerBackground-568h@2x.png"; sourceTree = "<group>"; };
 		1DB3FB3919342366006D54C2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		1DB3FB3A19342366006D54C2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		1DB3FB3B19342366006D54C2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -188,6 +195,8 @@
 				1DB8EA4E193308E3005A5243 /* FriendTableViewController.m */,
 				1DAFA8951933BA7E00256110 /* FriendPickerViewController.h */,
 				1DAFA8961933BA7E00256110 /* FriendPickerViewController.m */,
+				1DB3BDC1193ACC120011027F /* MyMessagesTableViewController.h */,
+				1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -234,6 +243,8 @@
 		1DB3FB47193441FF006D54C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1DB3BDC6193AD56A0011027F /* DarkerBackground-568h@2x.png */,
+				1DB3BDC4193AD2300011027F /* Background-568h@2x.png */,
 				1DB3FB481934422F006D54C2 /* Default-568h@2x.png */,
 				1DB3FB491934422F006D54C2 /* Default.png */,
 				1DB3FB4A1934422F006D54C2 /* Default@2x.png */,
@@ -351,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DB2E7B8192C8AB0004BE0DB /* TableHeaderView.xib in Resources */,
+				1DB3BDC7193AD56A0011027F /* DarkerBackground-568h@2x.png in Resources */,
 				1DB3FB431934277D006D54C2 /* InfoPlist.strings in Resources */,
 				1DB2E7A5192C8A71004BE0DB /* Icon@2x.png in Resources */,
 				1DB3FB3D19342366006D54C2 /* LoginViewController.xib in Resources */,
@@ -361,6 +373,7 @@
 				1DB2E7B9192C8AB0004BE0DB /* userData.plist in Resources */,
 				1DB3FB4B1934422F006D54C2 /* Default-568h@2x.png in Resources */,
 				1DB2E7A6192C8A71004BE0DB /* login-button-small-pressed.png in Resources */,
+				1DB3BDC5193AD2300011027F /* Background-568h@2x.png in Resources */,
 				1DB3FB4C1934422F006D54C2 /* Default.png in Resources */,
 				1DB3FB4D1934422F006D54C2 /* Default@2x.png in Resources */,
 				1DB2E7A8192C8A71004BE0DB /* login-button-small.png in Resources */,
@@ -381,6 +394,7 @@
 				8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */,
 				1D0ECDC31928327D00DA13A4 /* Message.m in Sources */,
 				1D33C87F192B2D4100A187C4 /* Constants.m in Sources */,
+				1DB3BDC3193ACC120011027F /* MyMessagesTableViewController.m in Sources */,
 				1DAF6E801939786D004DF863 /* Like.m in Sources */,
 				1DB8EA4F193308E3005A5243 /* FriendTableViewController.m in Sources */,
 				8FA4D3C7192AA2B60015F443 /* MainTableViewController.m in Sources */,

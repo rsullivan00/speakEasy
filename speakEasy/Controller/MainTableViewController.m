@@ -12,6 +12,7 @@
 #import "Message.h"
 #import "MessageTableViewCell.h"
 #import "Like.h"
+#import "MyMessagesTableViewController.h"
 
 @implementation MainTableViewController
 
@@ -33,7 +34,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:USER_INFO_UPDATE object:nil];
     
     self.tableView.separatorColor = [UIColor lightGrayColor];
-    
+    self.tableView.rowHeight = 80;
     /* Start spinner until data is loaded */
     [_spinner setHidesWhenStopped:YES];
     [_spinner startAnimating];
@@ -178,6 +179,13 @@
         vc.message = [[[User currentUser] messagesTo] objectAtIndex:button.tag];
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (IBAction) myMessagesButtonSelected:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    MyMessagesTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MyMessagesTableViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

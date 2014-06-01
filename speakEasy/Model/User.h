@@ -32,6 +32,7 @@
 - (BOOL) hasLikedMessage: (Message *)message;
 - (NSString *) imageURL;
 - (void) getFriendMessages:(User *) friend;
+- (void) getMyMessages;
 - (void) getLikes;
 - (void) getGuesses;
 - (void) populateFriendsFromFirebase;

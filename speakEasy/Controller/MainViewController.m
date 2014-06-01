@@ -29,9 +29,8 @@
 
     [self.tabBarController.tabBar setTranslucent:YES];
     [self.tabBarController setSelectedIndex: 2];
-
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Oceanic_Background_by_ka_chankitty.jpg"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DarkerBackground-568h@2x.png"]];
     [[self view] addSubview:imageView];
     [[self view] sendSubviewToBack:imageView];
     [[self view] setOpaque:NO];
@@ -64,6 +63,7 @@
                         [currentUser.friends addObject:newFriend];
                     }
                     
+                    [currentUser getMyMessages];
                     [currentUser getLikes];
                     [currentUser getGuesses];
                     /* Update friends on firebase */

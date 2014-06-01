@@ -62,13 +62,12 @@
     Message *message = [[Message alloc] initWithText:text];
     [currentUser.messagesBy addObject:message];
     
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, [currentUser userID]];
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/", FIREBASE_PREFIX, [currentUser userID]];
 
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
     Firebase *firebaseLocation = [firebase childByAutoId];
-    [firebaseLocation setValue:text forKey:@"text"];
-    [firebaseLocation setValue:[NSString stringWithFormat:@"%d", message.score] forKey:@"score"];
+    [firebaseLocation setValue:@{@"text":text, @"score":[NSNumber numberWithInt:message.score]}];
     
     /* Clear the text field and close the keyboard */
     messageTextView.text = @"";
