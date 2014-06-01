@@ -148,12 +148,12 @@ static User *currentUser;
         } else {
             NSDictionary* data = snapshot.value;
             int i = 0;
-            for (NSDictionary *key in data) {
+            for (NSString *key in data) {
                 NSDictionary *messageDictionary = [data valueForKey:key];
                 Message *message = [[Message alloc] initWithText:[messageDictionary valueForKey:@"text"]];
                 message.score = [[messageDictionary valueForKey:@"score"] intValue];
                 message.authorID = friend.userID;
-                message.messageID = [NSString stringWithFormat:@"%d", i];
+                message.messageID = key;
                 
                 /* If message is new, add it to current user */
                 if ([friend.messagesBy count] <= i) {
@@ -185,7 +185,7 @@ static User *currentUser;
                 Message *message = [[Message alloc] initWithText:[messageDictionary valueForKey:@"text"]];
                 message.score = [[messageDictionary valueForKey:@"score"] intValue];
                 message.authorID = _userID;
-                message.messageID = [NSString stringWithFormat:@"%d", i];
+                message.messageID = key;
                 
                 /* If message is new, add it to user */
                 if ([_messagesBy count] <= i) {

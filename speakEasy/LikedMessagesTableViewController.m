@@ -75,7 +75,7 @@
     if (currentUser == nil)
         return nil;
     
-    MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
+    MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"likedMessageCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     
     /* Configure label with message text */
