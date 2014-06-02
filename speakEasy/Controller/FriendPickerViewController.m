@@ -90,7 +90,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
 
-//    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)moveImage:(UIImageView *)image duration:(NSTimeInterval)duration

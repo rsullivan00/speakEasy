@@ -16,7 +16,7 @@
 
 /* Unique userId corresponding to our DB table */
 @property (strong) NSString *userID;
-@property (readwrite, assign) int score;
+@property (readwrite, assign) long score;
 @property (copy) NSString *name;
 @property (strong) NSMutableArray *friends;
 @property (strong) NSMutableArray *friendsScores;
