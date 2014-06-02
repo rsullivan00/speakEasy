@@ -146,7 +146,7 @@
         [scoreFirebase removeObserverWithHandle:handle];
         if(snapshot.value == [NSNull null]) {
             NSLog(@"this user has no score");
-            scoreLabel.text = @"Your sober! B.A.C. = 0";
+            scoreLabel.text = @"You're sober! B.A.C. = 0";
         } else {
             NSDictionary* data = snapshot.value;
             

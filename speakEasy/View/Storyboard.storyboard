@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovR-aV-HhG">
-                                <rect key="frame" x="90" y="317" width="140" height="21"/>
+                                <rect key="frame" x="20" y="317" width="280" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -254,7 +254,7 @@
                             </textField>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="foc-0b-WJL" colorLabel="IBBuiltInLabel-Orange">
+                    <navigationItem key="navigationItem" title="speakEasy" id="foc-0b-WJL" colorLabel="IBBuiltInLabel-Orange">
                         <barButtonItem key="backBarButtonItem" title="back" id="G16-Kb-Ic1"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="At8-a4-9RM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3H2-yJ-qwy">

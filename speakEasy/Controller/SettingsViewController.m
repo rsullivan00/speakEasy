@@ -11,6 +11,7 @@
 #include <Firebase/Firebase.h>
 
 @implementation SettingsViewController
+
 {
     NSArray *friendsByScore;
 }
@@ -57,14 +58,16 @@
     }];
 }
 
--(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
+-(void) swipeRight:(UISwipeGestureRecognizer *) recognizer
+{
     if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
         NSLog(@"swipe right");
     [self.tabBarController setSelectedIndex:1];
     
 }
 
--(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer {
+-(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer
+{
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
         NSLog(@"swipe left");
 }
@@ -97,7 +100,11 @@
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     User *friend = [friendsByScore objectAtIndex:indexPath.item];
-    cell.textLabel.text = friend.name;
+    if ([friend.name length] > 15) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@...", [friend.name substringToIndex:15]];
+    } else {
+        cell.textLabel.text = friend.name;
+    }
     cell.textLabel.textColor = [UIColor lightTextColor];
 
     /* Add thumbnail image to cell */
