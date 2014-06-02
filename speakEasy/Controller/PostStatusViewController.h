@@ -16,5 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet MPTextView *messageTextView;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UILabel *score;
+- (void)reloadData;
 
 @end

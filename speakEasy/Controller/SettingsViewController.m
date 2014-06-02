@@ -10,7 +10,6 @@
 #include <Firebase/Firebase.h>
 
 @implementation SettingsViewController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -60,18 +59,14 @@
     cell.backgroundColor = [UIColor clearColor];
     User *friend = [[[User currentUser] friends] objectAtIndex:indexPath.item];
     cell.textLabel.text = friend.name;
-    
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/score",FIREBASE_PREFIX, [[User currentUser].friends objectAtIndex:indexPath.item]];
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/score",FIREBASE_PREFIX, [[[User currentUser] friends] objectAtIndex:indexPath.item]];
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
     [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         if(snapshot.value == [NSNull null]) {
             NSLog(@"this friend has no score");
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, 10, 10)];
-            textField.text = [NSString stringWithFormat:@"HELLO"];
+            
         } else {
-            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, 10, 10)];
-            textField.text = [NSString stringWithFormat:@"%@", snapshot.value];
         }
     }];
 

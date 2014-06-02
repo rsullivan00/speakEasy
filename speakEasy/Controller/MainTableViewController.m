@@ -145,7 +145,6 @@
         [scoreFirebase removeObserverWithHandle:handle];
         if(snapshot.value == [NSNull null]) {
             NSLog(@"this user has no score");
-            [scoreFirebase setValue:@(.05)];
         } else {
             NSDictionary* data = snapshot.value;
             
