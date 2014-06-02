@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface PostStatusViewController : UIViewController
+@interface PostStatusViewController : UIViewController <UIGestureRecognizerDelegate>
 
 - (IBAction)addMessage:(id)sender;
 - (IBAction) screenTouch;

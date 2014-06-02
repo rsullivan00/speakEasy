@@ -22,6 +22,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /*gesture control */
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    swipeLeft.delegate = self;
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
+    swipeRight.delegate = self;
+
+    
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.rowHeight = 80;
@@ -29,6 +42,19 @@
 
     // Do any additional setup after loading the view.
 }
+
+-(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+        NSLog(@"swipe right");
+    [self.tabBarController setSelectedIndex:1];
+    
+}
+
+-(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer {
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
+        NSLog(@"swipe left");
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -13,7 +13,7 @@
 
 @end
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 
 @property id<FriendTableDelegate> delegate;

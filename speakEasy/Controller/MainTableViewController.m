@@ -28,6 +28,20 @@
 
 - (void)viewDidLoad
 {
+    /*gesture control */
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    swipeLeft.delegate = self;
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
+    swipeRight.delegate = self;
+    
+    
+    
+    
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
 
@@ -40,6 +54,19 @@
     [_spinner setHidesWhenStopped:YES];
     [_spinner startAnimating];
 }
+
+
+-(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+        NSLog(@"swipe right");
+}
+
+-(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer {
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
+        NSLog(@"swipe left");
+    [self.tabBarController setSelectedIndex:1];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {

@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import <Firebase/Firebase.h>
 
-@interface MainTableViewController : UITableViewController
+@interface MainTableViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 - (void)goToFriendPickerView:(id)sender;
 - (void)likeMessage:(id)sender;
