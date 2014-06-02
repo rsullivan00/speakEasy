@@ -7,6 +7,7 @@
 #import "SettingsViewController.h"
 #import "User.h"
 #import "Constants.h"
+#import "MessageTableViewCell.h"
 #include <Firebase/Firebase.h>
 
 @implementation SettingsViewController
@@ -93,15 +94,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
+    MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     User *friend = [friendsByScore objectAtIndex:indexPath.item];
     cell.textLabel.text = friend.name;
+    cell.textLabel.textColor = [UIColor lightTextColor];
 
     /* Add thumbnail image to cell */
     NSURL *url = [NSURL URLWithString:friend.imageURL];
     NSData *data = [NSData dataWithContentsOfURL:url];
     cell.imageView.image = [[UIImage alloc] initWithData:data];
+    
+    /* Configure score label */
+    if (cell.scoreLabel == nil) {
+        cell.scoreLabel = [[UILabel alloc] init];
+        cell.scoreLabel.frame = CGRectMake(cell.contentView.frame.origin.x + 220, cell.contentView.frame.origin.y + 25, 100, 30);
+        cell.scoreLabel.textColor = [UIColor lightTextColor];
+        cell.scoreLabel.textAlignment = NSTextAlignmentCenter;
+        [cell.contentView addSubview:cell.scoreLabel];
+    }
+    cell.scoreLabel.text = [NSString stringWithFormat:@"%0.02f", friend.score];
     
     return cell;
 }
