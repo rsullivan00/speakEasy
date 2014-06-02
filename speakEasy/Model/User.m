@@ -103,10 +103,10 @@ static User *currentUser;
     return [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=square", self.userID];
 }
 
-/* Populates the friends array with Friend objects using the data on Firebase */
-- (void) populateFriendsFromFirebase
+/* Retrieves the value for the User's score on Firebase */
+- (void) getScoreFromFirebase
 {
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/friends", FIREBASE_PREFIX, self.userID];
+    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/", FIREBASE_PREFIX, _userID];
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
     [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -115,10 +115,7 @@ static User *currentUser;
             NSLog(@"this user has no friends with the app");
         } else {
             NSDictionary* data = snapshot.value;
-            for (NSString *friendID in data) {
-                User *friend = [[User alloc] initWithId:friendID];
-                [self.friends addObject:friend];
-            }
+            _score = [[data objectForKey:@"score"] doubleValue];
         }
     }];
 }

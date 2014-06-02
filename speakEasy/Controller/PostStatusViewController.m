@@ -10,7 +10,7 @@
 
 @implementation PostStatusViewController
 
-@synthesize messageTextView, submitButton,score;
+@synthesize messageTextView, submitButton,scoreLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     if(!([User currentUser].score == 0))
-        score.text = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
+        scoreLabel.text = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
     [self reloadData];
     
 }
@@ -146,7 +146,7 @@
         [scoreFirebase removeObserverWithHandle:handle];
         if(snapshot.value == [NSNull null]) {
             NSLog(@"this user has no score");
-            score.text = @"Your sober! B.A.C. = 0";
+            scoreLabel.text = @"Your sober! B.A.C. = 0";
         } else {
             NSDictionary* data = snapshot.value;
             
@@ -154,7 +154,7 @@
                 if([key isEqualToString:@"score"]){
                     
                     [User currentUser].score = [[data valueForKey:key] doubleValue];
-                    score.text = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
+                    scoreLabel.text = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
                 }
                 
             }

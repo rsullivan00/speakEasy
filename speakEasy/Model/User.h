@@ -37,7 +37,7 @@
 - (void) getMyMessages;
 - (void) getLikes;
 - (void) getGuesses;
-- (void) populateFriendsFromFirebase;
+- (void) getScoreFromFirebase;
 - (void) updateFireBaseFriends:(NSArray *) friendIDs;
 
 @end

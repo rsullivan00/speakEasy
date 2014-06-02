@@ -55,7 +55,6 @@
     [_spinner startAnimating];
 }
 
-
 -(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
         NSLog(@"swipe right");
@@ -67,13 +66,11 @@
     [self.tabBarController setSelectedIndex:1];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
     if(!([User currentUser].score == 0))
         self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
     [self reloadTableData];
-
 }
 
 - (void)didReceiveMemoryWarning

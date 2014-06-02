@@ -83,9 +83,6 @@
         
     } else {
         NSLog(@"Wrong");
-   
-        
-
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];

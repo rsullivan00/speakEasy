@@ -56,11 +56,10 @@
             [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSArray *data = [result objectForKey:@"data"];
-                    NSMutableArray *idArray = [[NSMutableArray alloc] init];
                     for (FBGraphObject<FBGraphUser> *friend in data) {
                         
                         User *newFriend = [[User alloc] initWithId:friend.id name:friend.name];
-                        [idArray addObject:friend.id];
+                        [newFriend getScoreFromFirebase];
 
                         [currentUser getFriendMessages:newFriend];
                         [currentUser.friends addObject:newFriend];
@@ -69,8 +68,6 @@
                     [currentUser getMyMessages];
                     [currentUser getLikes];
                     [currentUser getGuesses];
-                    /* Update friends on firebase */
-                    //[currentUser updateFireBaseFriends: idArray];
                 } else {
                     NSLog(@"Some other error: %@", error);
                 }

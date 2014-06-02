@@ -10,6 +10,10 @@
 #include <Firebase/Firebase.h>
 
 @implementation SettingsViewController
+{
+    NSArray *friendsByScore;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,8 +43,17 @@
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.rowHeight = 80;
     
-
-    // Do any additional setup after loading the view.
+    friendsByScore = [[User currentUser].friends sortedArrayUsingComparator: ^(id a, id b) {
+        User *first = a;
+        User *second = b;
+        if (first.score > second.score) {
+            return NSOrderedDescending;
+        } else if (first.score < second.score) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
 }
 
 -(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
@@ -80,24 +93,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
-    User *friend = [[[User currentUser] friends] objectAtIndex:indexPath.item];
+    User *friend = [friendsByScore objectAtIndex:indexPath.item];
     cell.textLabel.text = friend.name;
-    NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/score",FIREBASE_PREFIX, [[[User currentUser] friends] objectAtIndex:indexPath.item]];
-    Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-    
-    [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        if(snapshot.value == [NSNull null]) {
-            NSLog(@"this friend has no score");
-            
-        } else {
-        }
-    }];
 
-    
-    
     /* Add thumbnail image to cell */
     NSURL *url = [NSURL URLWithString:friend.imageURL];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -105,12 +105,5 @@
     
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    User *friend = [[[User currentUser] friends] objectAtIndex:indexPath.row];
-    [self.delegate handleFriendSelection:friend];
-}
-
 
 @end

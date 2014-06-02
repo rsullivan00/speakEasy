@@ -55,7 +55,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="messageTextView" destination="uH0-wt-xmz" id="5N5-cT-aNJ"/>
-                        <outlet property="score" destination="ovR-aV-HhG" id="8S0-90-T6t"/>
+                        <outlet property="scoreLabel" destination="ovR-aV-HhG" id="hDb-fh-9Nm"/>
                         <outlet property="submitButton" destination="rKP-DU-Xbw" id="97e-ku-oDU"/>
                     </connections>
                 </viewController>
