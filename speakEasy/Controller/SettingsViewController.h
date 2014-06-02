@@ -19,5 +19,5 @@
 @property id<FriendTableDelegate> delegate;
 
 @end
-
+    
 
