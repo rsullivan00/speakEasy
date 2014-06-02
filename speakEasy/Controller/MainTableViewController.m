@@ -43,11 +43,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if([User currentUser].score == 0){
-        self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"Your sober! 0 BAC"];
-    }else{
-        self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %ld", [User currentUser].score];
-    }
+    if(!([User currentUser].score == 0))
+        self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
     [self reloadTableData];
 
 }
@@ -141,6 +138,28 @@
     if ([self.tableView numberOfRowsInSection:0] > 0) {
         [_spinner stopAnimating];
     }
+    NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/", FIREBASE_PREFIX, [[User currentUser] userID]];
+    Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
+    
+    __block FirebaseHandle handle = [scoreFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        [scoreFirebase removeObserverWithHandle:handle];
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no score");
+            [scoreFirebase setValue:@(.05)];
+        } else {
+            NSDictionary* data = snapshot.value;
+            
+            for (NSString *key in data) {
+                if([key isEqualToString:@"score"]){
+                    
+                    [User currentUser].score = [[data valueForKey:key] doubleValue];
+                    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
+                }
+                
+            }
+        }
+    }];
+
 }
 
 -(void)likeMessage:(id)sender

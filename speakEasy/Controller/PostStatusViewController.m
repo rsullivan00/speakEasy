@@ -83,26 +83,19 @@
     messageTextView.text = @"";
     [messageTextView resignFirstResponder];
     
-        NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/", FIREBASE_PREFIX, [[User currentUser] userID]];
-        Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
-        
-        __block FirebaseHandle handle = [scoreFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            [scoreFirebase removeObserverWithHandle:handle];
-            if(snapshot.value == [NSNull null]) {
-                NSLog(@"this user has no score");
-                [scoreFirebase setValue:@(.05)];
-            } else {
-                NSDictionary* data = snapshot.value;
-
-                for (NSString *key in data) {
-                    if([key isEqualToString:@"score"]){
-                        [User currentUser].score = [[data valueForKey:key] longValue];
-                        self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %ld", [User currentUser].score];
-                    }
-                    
-                }
-            }
-        }];    
+    NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
+    Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
+    
+    __block FirebaseHandle handle = [scoreFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        [scoreFirebase removeObserverWithHandle:handle];
+        if(snapshot.value == [NSNull null]) {
+            NSLog(@"this user has no score");
+            [scoreFirebase setValue:@(0.02)];
+        } else {
+            NSNumber* data = snapshot.value;
+            [scoreFirebase setValue:@(data.doubleValue + 0.02)];
+        }
+    }];
 
     
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
