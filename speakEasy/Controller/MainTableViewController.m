@@ -30,8 +30,13 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
-    
+    if([User currentUser].score == 0){
+        self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"Your sober! 0 BAC"];
+    }else{
+        self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %d", [User currentUser].score];
+    }
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:USER_INFO_UPDATE object:nil];
+
     
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.rowHeight = 80;

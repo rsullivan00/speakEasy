@@ -46,6 +46,22 @@
     [[User currentUser].guesses addObject:guess];
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");
+      
+        UIImageView *imageToMove =
+        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
+        UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
+        secondImageToMove.frame = CGRectMake(40,40,100,100);
+        
+        imageToMove.frame = CGRectMake(10, 10, 100, 100);
+        [self.view addSubview:imageToMove];
+        [self.view addSubview:secondImageToMove];
+        
+        // Move the image
+        [self moveImage:imageToMove duration:3.0
+                  curve:UIViewAnimationCurveLinear x:100.0 y:700.00];
+        [self moveImage:secondImageToMove duration:3.0
+                  curve:UIViewAnimationCurveLinear x:0 y:700.00];
+        
         NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
         Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
         
@@ -67,13 +83,33 @@
         
     } else {
         NSLog(@"Wrong");
-        /* Tell them they were wrong */
+   
+        
+
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)moveImage:(UIImageView *)image duration:(NSTimeInterval)duration
+            curve:(int)curve x:(CGFloat)x y:(CGFloat)y
+{
+    // Setup the animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:duration];
+    [UIView setAnimationCurve:curve];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    
+    // The transform matrix
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(x, y);
+    image.transform = transform;
+    
+    // Commit the changes
+    [UIView commitAnimations];
+    
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     /* Set delegate of FriendTableViewController when it is embedded in this VC */

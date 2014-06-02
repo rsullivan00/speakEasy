@@ -29,16 +29,21 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     submitButton.layer.cornerRadius = 8.0f;
-    submitButton.layer.borderWidth = 1;
+//    submitButton.layer.borderWidth = 1;
     submitButton.layer.borderColor = [UIColor grayColor].CGColor;
-    submitButton.layer.backgroundColor=[[UIColor grayColor] CGColor];
+    submitButton.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.1] CGColor];
+    submitButton.layer.borderWidth= 0.01f;
 
     messageTextView.layer.cornerRadius=8.0f;
     messageTextView.layer.masksToBounds=YES;
     messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
-    messageTextView.layer.borderWidth= 0.1f;
-    messageTextView.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.5] CGColor];
+    messageTextView.layer.borderWidth= 0.01f;
+    messageTextView.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.1] CGColor];
     messageTextView.placeholderText = TEXTVIEW_PLACEHOLDER;
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,5 +82,29 @@
     /* Clear the text field and close the keyboard */
     messageTextView.text = @"";
     [messageTextView resignFirstResponder];
+    
+        NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
+        Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
+        
+        __block FirebaseHandle handle = [scoreFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            [scoreFirebase removeObserverWithHandle:handle];
+            if(snapshot.value == [NSNull null]) {
+                NSLog(@"this user has no score");
+                [scoreFirebase setValue:@(1)];
+            } else {
+                NSDictionary* data = snapshot.value;
+                
+                [User currentUser].score = (int)snapshot.value;
+                self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"B.A.C. = %d", [User currentUser].score];
+            }
+        }];
+
+
+    
+    
+
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
+    
 }
 @end

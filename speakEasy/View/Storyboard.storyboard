@@ -29,6 +29,7 @@
                                 <rect key="frame" x="81" y="209" width="158" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="speakEasy">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -42,7 +43,9 @@
                             <action selector="screenTouch" destination="GzR-My-tba" eventType="touchUpInside" id="S2f-P0-vZs"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Post" id="hjN-cz-evu"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Post" image="1401699140_Jack_Daniels_New copy.png" id="hjN-cz-evu">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="1" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="messageTextView" destination="uH0-wt-xmz" id="5N5-cT-aNJ"/>
                         <outlet property="submitButton" destination="rKP-DU-Xbw" id="97e-ku-oDU"/>
@@ -139,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="-567" y="835"/>
         </scene>
-        <!--Settings View Controller - Settings-->
+        <!--Settings View Controller - Leader Board-->
         <scene sceneID="I15-CW-mu3">
             <objects>
                 <tableViewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9O3-zo-SQC" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -162,7 +165,7 @@
                             <outlet property="delegate" destination="9O3-zo-SQC" id="3sv-Tv-1MS"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="C2I-QR-oar"/>
+                    <tabBarItem key="tabBarItem" title="Leader Board" image="1401698851_beer copy.png" id="C2I-QR-oar"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFg-JZ-EuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,7 +175,7 @@
         <scene sceneID="aDn-ji-n7V">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Ein-7A-YEw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" id="JNa-JC-NRc"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="beer_glass.png" id="JNa-JC-NRc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lVJ-2j-nCj">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -224,7 +227,17 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Messages" id="DG8-iS-wQA"/>
-                    <navigationItem key="navigationItem" title="speakEasy" id="foc-0b-WJL" colorLabel="IBBuiltInLabel-Orange">
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="RnG-5w-01L">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Score:" minimumFontSize="17" id="re1-SH-D96">
+                                <rect key="frame" x="16" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="foc-0b-WJL" colorLabel="IBBuiltInLabel-Orange">
                         <barButtonItem key="backBarButtonItem" title="back" id="G16-Kb-Ic1"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="At8-a4-9RM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3H2-yJ-qwy">
@@ -240,13 +253,14 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="spinner" destination="O5N-HO-YSe" id="YQN-Cf-rMU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMD-Ms-mJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="-234"/>
+            <point key="canvasLocation" x="398" y="-234"/>
         </scene>
         <!--Friend Picker View Controller - speakEasy-->
         <scene sceneID="pNn-X7-3QQ">
@@ -324,6 +338,11 @@
             <point key="canvasLocation" x="1149" y="-52"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1401698851_beer copy.png" width="32" height="32"/>
+        <image name="1401699140_Jack_Daniels_New copy.png" width="32" height="32"/>
+        <image name="beer_glass.png" width="40" height="40"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

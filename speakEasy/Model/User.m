@@ -244,9 +244,6 @@ static User *currentUser;
     }];
 }
 
--(void) addOneToScore{
-    _score = _score + 1;
-}
 
 @end
 

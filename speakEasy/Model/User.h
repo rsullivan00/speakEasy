@@ -19,6 +19,8 @@
 @property (readwrite, assign) int score;
 @property (copy) NSString *name;
 @property (strong) NSMutableArray *friends;
+@property (strong) NSMutableArray *friendsScores;
+
 @property (strong) NSMutableArray *messagesBy;
 @property (strong) NSMutableArray *messagesTo;
 @property (strong) NSMutableArray *guesses;
@@ -37,6 +39,5 @@
 - (void) getGuesses;
 - (void) populateFriendsFromFirebase;
 - (void) updateFireBaseFriends:(NSArray *) friendIDs;
--(void) addOneToScore;
 
 @end

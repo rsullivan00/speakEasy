@@ -5,7 +5,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendTableViewController.h"
+
+@protocol FriendTableDelegate <NSObject>
+
+- (void)handleFriendSelection:(User *)friend;
+
+@end
 
 @interface SettingsViewController : UITableViewController
 
+
+@property id<FriendTableDelegate> delegate;
+
 @end
+
+

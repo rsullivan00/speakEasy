@@ -46,8 +46,14 @@
 		8F188FE8192A6E6F0035281F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE7192A6E6F0035281F /* libicucore.dylib */; };
 		8F188FEA192A6E780035281F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188FE9192A6E780035281F /* libc++.dylib */; };
 		8FA4D3C7192AA2B60015F443 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4D3C6192AA2B60015F443 /* MainTableViewController.m */; };
+		8FAE22E3193BE579000BEF50 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE22E2193BE579000BEF50 /* wrong.png */; };
+		8FAE22E6193C29E5000BEF50 /* beer_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE22E4193C29E5000BEF50 /* beer_glass.png */; };
+		8FAE22E7193C29E5000BEF50 /* simple-mug-of-beer-with-foam-Download-Royalty-free-Vector-File-EPS-13590.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE22E5193C29E5000BEF50 /* simple-mug-of-beer-with-foam-Download-Royalty-free-Vector-File-EPS-13590.jpg */; };
+		8FAE22F1193C2B8A000BEF50 /* 1401698851_beer copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE22F0193C2B8A000BEF50 /* 1401698851_beer copy.png */; };
+		8FAE22F3193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE22F2193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png */; };
 		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
 		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
+		8FBE472B193BC822005405AC /* margarita3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBE472A193BC822005405AC /* margarita3.png */; };
 		C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250169161BBAE400474BCD /* StoreKit.framework */; };
 		C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C425016F161BBAEE00474BCD /* libz.dylib */; };
 		D4DA79EF14D3345A0055F672 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79EE14D3345A0055F672 /* UIKit.framework */; };
@@ -119,10 +125,16 @@
 		8F188FE9192A6E780035281F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8FA4D3C5192AA2B60015F443 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = Controller/MainTableViewController.h; sourceTree = SOURCE_ROOT; };
 		8FA4D3C6192AA2B60015F443 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = Controller/MainTableViewController.m; sourceTree = SOURCE_ROOT; };
+		8FAE22E2193BE579000BEF50 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
+		8FAE22E4193C29E5000BEF50 /* beer_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer_glass.png; sourceTree = "<group>"; };
+		8FAE22E5193C29E5000BEF50 /* simple-mug-of-beer-with-foam-Download-Royalty-free-Vector-File-EPS-13590.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "simple-mug-of-beer-with-foam-Download-Royalty-free-Vector-File-EPS-13590.jpg"; sourceTree = "<group>"; };
+		8FAE22F0193C2B8A000BEF50 /* 1401698851_beer copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1401698851_beer copy.png"; sourceTree = "<group>"; };
+		8FAE22F2193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1401699140_Jack_Daniels_New copy.png"; sourceTree = "<group>"; };
 		8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostStatusViewController.h; path = Controller/PostStatusViewController.h; sourceTree = SOURCE_ROOT; };
 		8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostStatusViewController.m; path = Controller/PostStatusViewController.m; sourceTree = SOURCE_ROOT; };
 		8FB70FDC192AEA3B00E8E18B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = SOURCE_ROOT; };
 		8FB70FDD192AEA3B00E8E18B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = SOURCE_ROOT; };
+		8FBE472A193BC822005405AC /* margarita3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = margarita3.png; sourceTree = "<group>"; };
 		C4250169161BBAE400474BCD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C425016F161BBAEE00474BCD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D4DA79EA14D3345A0055F672 /* speakEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +260,12 @@
 		1DB3FB47193441FF006D54C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8FAE22F2193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png */,
+				8FAE22F0193C2B8A000BEF50 /* 1401698851_beer copy.png */,
+				8FAE22E4193C29E5000BEF50 /* beer_glass.png */,
+				8FAE22E5193C29E5000BEF50 /* simple-mug-of-beer-with-foam-Download-Royalty-free-Vector-File-EPS-13590.jpg */,
+				8FAE22E2193BE579000BEF50 /* wrong.png */,
+				8FBE472A193BC822005405AC /* margarita3.png */,
 				1DB3BDC6193AD56A0011027F /* DarkerBackground-568h@2x.png */,
 				1DB3BDC4193AD2300011027F /* Background-568h@2x.png */,
 				1DB3FB481934422F006D54C2 /* Default-568h@2x.png */,
@@ -366,12 +384,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FAE22F3193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png in Resources */,
+				8FAE22E6193C29E5000BEF50 /* beer_glass.png in Resources */,
 				1DB2E7B8192C8AB0004BE0DB /* TableHeaderView.xib in Resources */,
 				1DB3BDC7193AD56A0011027F /* DarkerBackground-568h@2x.png in Resources */,
 				1DB3FB431934277D006D54C2 /* InfoPlist.strings in Resources */,
+				8FAE22F1193C2B8A000BEF50 /* 1401698851_beer copy.png in Resources */,
 				1DB2E7A5192C8A71004BE0DB /* Icon@2x.png in Resources */,
 				1DB3FB3D19342366006D54C2 /* LoginViewController.xib in Resources */,
 				1DB2E7A7192C8A71004BE0DB /* login-button-small-pressed@2x.png in Resources */,
+				8FAE22E7193C29E5000BEF50 /* simple-mug-of-beer-with-foam-Download-Royalty-free-Vector-File-EPS-13590.jpg in Resources */,
 				1DB2E7A9192C8A71004BE0DB /* login-button-small@2x.png in Resources */,
 				1DB2E7A4192C8A71004BE0DB /* Icon.png in Resources */,
 				1DB2E7B5192C8AB0004BE0DB /* Oceanic_Background_by_ka_chankitty.jpg in Resources */,
@@ -380,9 +402,11 @@
 				1DB2E7A6192C8A71004BE0DB /* login-button-small-pressed.png in Resources */,
 				1DB3BDC5193AD2300011027F /* Background-568h@2x.png in Resources */,
 				1DB3FB4C1934422F006D54C2 /* Default.png in Resources */,
+				8FBE472B193BC822005405AC /* margarita3.png in Resources */,
 				1DB3FB4D1934422F006D54C2 /* Default@2x.png in Resources */,
 				1DB2E7A8192C8A71004BE0DB /* login-button-small.png in Resources */,
 				1DB3FB4619342BAC006D54C2 /* Storyboard.storyboard in Resources */,
+				8FAE22E3193BE579000BEF50 /* wrong.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,9 +27,12 @@
 {
     [super viewDidLoad];
 
+
     [self.tabBarController.tabBar setTranslucent:YES];
     [self.tabBarController setSelectedIndex: 2];
-
+    
+   
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-568h@2x.png"]];
     [[self view] addSubview:imageView];
     [[self view] sendSubviewToBack:imageView];
