@@ -90,25 +90,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
 }
 
-- (int)moveImage:(UIImageView *)image duration:(NSTimeInterval)duration
-            curve:(int)curve x:(CGFloat)x y:(CGFloat)y
-{
-    // Setup the animation
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:duration];
-    [UIView setAnimationCurve:curve];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    
-    // The transform matrix
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(x, y);
-    image.transform = transform;
-    
-    // Commit the changes
-    [UIView commitAnimations];
-    return 1;
-    
-}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     /* Set delegate of FriendTableViewController when it is embedded in this VC */

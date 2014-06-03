@@ -7,7 +7,9 @@
 
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
-
+#import <Firebase/Firebase.h>
+#import "Constants.h"
+#import "User.h"
 @implementation AppDelegate
 
 
@@ -31,6 +33,17 @@
     self.window.backgroundColor = [UIColor whiteColor];
    
     [self.window makeKeyAndVisible];
+    
+    NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
+    Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
+    [date observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSLog(@"fred's first name is: %@", [NSString stringWithFormat:@"%@", snapshot.value]);
+    }];
+    
+    NSLog(@"HELLO!!!!");
+    
+
+    
     return YES;
 }
 
@@ -52,6 +65,8 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+  
+
     /*
      Called when the application is about to terminate.
      Save data if appropriate.
@@ -59,5 +74,16 @@
      */
     [[PFFacebookUtils session] close];
 }
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
+    NSDate *start = [NSDate date];
+
+    Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
+    [date setValue:[NSString stringWithFormat:@"%@", start]];
+    NSLog(@"Updating date");
+
+}
+
 
 @end
