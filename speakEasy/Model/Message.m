@@ -10,7 +10,7 @@
 
 @implementation Message
 
-@synthesize messageID = _messageID, score = _score, text = _text, authorName = _authorName, authorID = _authorID, date = _date;
+@synthesize messageID = _messageID, score = _score, text = _text, authorID = _authorID, date = _date;
 
 +(NSString *) newMessageID;
 {
@@ -28,26 +28,15 @@
     return [self initWithID:[Message newMessageID] authorID:[User currentUser].userID text:text];
 }
 
-- (id) initWithText:(NSString *)text authorName:(NSString *)authorName
-{
-    return [self initWithID:[Message newMessageID] authorName:authorName authorID:[User currentUser].userID text:text];
-}
-
 - (id) initWithID:(NSString *)messageID authorID:(NSString *)authorID text:(NSString *)text
 {
-    return [self initWithID:messageID authorName:nil authorID:authorID text:text];
+    return [self initWithID:messageID authorID:authorID text:text date:[NSDate date]];
 }
 
-- (id) initWithID:(NSString *)messageID authorName:(NSString *)authorName authorID:(NSString *)authorID text:(NSString *)text
-{
-    return [self initWithID:messageID authorName:authorName authorID:authorID text:text date:[NSDate date]];
-}
-
-- (id) initWithID:(NSString *)messageID authorName:(NSString *)authorName authorID:(NSString *)authorID text:(NSString *)text date:(NSDate *)date
+- (id) initWithID:(NSString *)messageID authorID:(NSString *)authorID text:(NSString *)text date:(NSDate *)date
 {
     if (self = [super init]) {
         self.messageID = messageID;
-        self.authorName = authorName;
         self.authorID = authorID;
         self.text = text;
         self.score = 0;
@@ -59,7 +48,7 @@
 
 - (id) initWithMessage:(Message *)message
 {
-    return [self initWithID:message.messageID authorName:message.authorName authorID:message.authorID text:message.text date:message.date];
+    return [self initWithID:message.messageID authorID:message.authorID text:message.text date:message.date];
 }
 
 

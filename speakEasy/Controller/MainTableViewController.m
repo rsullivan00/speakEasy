@@ -99,6 +99,26 @@
     return 0;
 }
 
+/* Added to set custom heights for cells */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return the number of rows in the section.
+    if ([[User currentUser] messagesTo]) {
+        NSString *messageText = [[[[User currentUser] messagesTo] objectAtIndex:indexPath.row] text];
+        UILabel *gettingSizeLabel = [[UILabel alloc] init];
+        gettingSizeLabel.font = [UIFont systemFontOfSize:17];
+        gettingSizeLabel.text = messageText;
+        gettingSizeLabel.numberOfLines = 0;
+        gettingSizeLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize maximumLabelSize = CGSizeMake(310, 9999);
+        
+        CGSize expectSize = [gettingSizeLabel sizeThatFits:maximumLabelSize];
+        return expectSize.height + 80;
+    }
+    
+    return 80;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     User *currentUser = [User currentUser];
@@ -107,7 +127,7 @@
     
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
-
+    
     /* Configure label with message text */
     Message *message = [currentUser.messagesTo objectAtIndex:indexPath.row];
     cell.textLabel.text = message.text;
@@ -118,7 +138,7 @@
     /* Configure guess button */
     if (cell.guessButton == nil) {
         cell.guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        cell.guessButton.frame = CGRectMake(cell.contentView.frame.origin.x + 20, cell.contentView.frame.origin.y + 50, 41, 30);
+        cell.guessButton.frame = CGRectMake(cell.frame.origin.x + 20, cell.frame.size.height - 30, 41, 30);
         [cell.guessButton setTitle:@"guess" forState:UIControlStateNormal];
         [cell.guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
         cell.guessButton.backgroundColor = [UIColor clearColor];
@@ -136,7 +156,7 @@
     /* Configure score label */
     if (cell.scoreLabel == nil) {
         cell.scoreLabel = [[UILabel alloc] init];
-        cell.scoreLabel.frame = CGRectMake(cell.contentView.frame.origin.x + 240, cell.contentView.frame.origin.y + 50, 41, 30);
+        cell.scoreLabel.frame = CGRectMake(cell.frame.origin.x + 240, cell.frame.size.height - 30, 41, 30);
         cell.scoreLabel.textColor = [UIColor lightTextColor];
         cell.scoreLabel.textAlignment = NSTextAlignmentCenter;
         [cell.contentView addSubview:cell.scoreLabel];
@@ -147,7 +167,7 @@
     /* Configure like button */
     if (cell.likeButton == nil) {
         cell.likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        cell.likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 270, cell.contentView.frame.origin.y + 50, 41, 30);
+        cell.likeButton.frame = CGRectMake(cell.frame.origin.x + 270, cell.frame.size.height - 30, 41, 30);
         [cell.likeButton setTitle:@"like" forState:UIControlStateNormal];
         [cell.likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
         cell.likeButton.backgroundColor = [UIColor clearColor];
