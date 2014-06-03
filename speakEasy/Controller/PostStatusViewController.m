@@ -25,6 +25,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default-568h@2x.png"]];
+    [[self view] addSubview:imageView];
+    [[self view] sendSubviewToBack:imageView];
+    [[self view] setOpaque:NO];
+    
     if(!([User currentUser].score == 0))
         scoreLabel.text = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
     [self reloadData];
@@ -34,7 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     
     /*gesture control */
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];

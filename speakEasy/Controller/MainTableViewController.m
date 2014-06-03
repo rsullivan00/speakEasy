@@ -53,6 +53,8 @@
     /* Start spinner until data is loaded */
     [_spinner setHidesWhenStopped:YES];
     [_spinner startAnimating];
+    
+    
 }
 
 -(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {

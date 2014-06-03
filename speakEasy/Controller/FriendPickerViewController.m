@@ -46,7 +46,7 @@
     [[User currentUser].guesses addObject:guess];
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");
-      
+        
         UIImageView *imageToMove =
         [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
         UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
@@ -59,8 +59,13 @@
         // Move the image
         [self moveImage:imageToMove duration:3.0
                   curve:UIViewAnimationCurveLinear x:100.0 y:700.00];
-        [self moveImage:secondImageToMove duration:3.0
-                  curve:UIViewAnimationCurveLinear x:0 y:700.00];
+        
+       [self moveImage:secondImageToMove duration:3.0
+                 curve:UIViewAnimationCurveLinear x:0 y:700.00];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+
+       
         
         NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
         Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
@@ -90,10 +95,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)moveImage:(UIImageView *)image duration:(NSTimeInterval)duration
+- (int)moveImage:(UIImageView *)image duration:(NSTimeInterval)duration
             curve:(int)curve x:(CGFloat)x y:(CGFloat)y
 {
     // Setup the animation
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:duration];
     [UIView setAnimationCurve:curve];
@@ -105,6 +111,7 @@
     
     // Commit the changes
     [UIView commitAnimations];
+    return 1;
     
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
