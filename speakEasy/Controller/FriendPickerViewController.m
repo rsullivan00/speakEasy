@@ -51,21 +51,18 @@
         [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
         UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
         secondImageToMove.frame = CGRectMake(40,40,100,100);
-        
         imageToMove.frame = CGRectMake(10, 10, 100, 100);
         [self.view addSubview:imageToMove];
         [self.view addSubview:secondImageToMove];
         
         // Move the image
-        [self moveImage:imageToMove duration:3.0
-                  curve:UIViewAnimationCurveLinear x:100.0 y:700.00];
-        
-       [self moveImage:secondImageToMove duration:3.0
-                 curve:UIViewAnimationCurveLinear x:0 y:700.00];
-        
-        [self.navigationController popViewControllerAnimated:YES];
-
-       
+        [UIView animateWithDuration:3.0 animations:^{
+            imageToMove.frame = CGRectMake(100.0, 700.0, imageToMove.frame.size.width, imageToMove.frame.size.width);
+            secondImageToMove.frame = CGRectMake(0.0, 700.0, secondImageToMove.frame.size.width, secondImageToMove.frame.size.width);
+            } completion:^(BOOL finished){
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+         ];
         
         NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
         Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
@@ -81,18 +78,16 @@
             }
         }];
         
-        /* Persist Guess to DB */
-        NSString *guessURL = [NSString stringWithFormat:@"%@/users/%@/guesses", FIREBASE_PREFIX, [[User currentUser] userID]];
-        Firebase *guessFirebase = [[Firebase alloc] initWithUrl:guessURL];
-        [[guessFirebase childByAutoId] setValue:@{@"authorID":guess.message.authorID, @"messageID":guess.message.messageID}];
-        
     } else {
         NSLog(@"Wrong");
     }
     
+    /* Persist Guess to DB */
+    NSString *guessURL = [NSString stringWithFormat:@"%@/users/%@/guesses", FIREBASE_PREFIX, [[User currentUser] userID]];
+    Firebase *guessFirebase = [[Firebase alloc] initWithUrl:guessURL];
+    [[guessFirebase childByAutoId] setValue:@{@"authorID":guess.message.authorID, @"messageID":guess.message.messageID}];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
-
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (int)moveImage:(UIImageView *)image duration:(NSTimeInterval)duration
