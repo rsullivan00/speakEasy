@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
-    [self setTitle:@"My posts"];
+    [self setTitle:@"My posts"]; 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:USER_INFO_UPDATE object:nil];
     
     self.tableView.separatorColor = [UIColor lightGrayColor];

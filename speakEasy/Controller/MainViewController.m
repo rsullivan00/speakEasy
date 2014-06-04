@@ -64,7 +64,7 @@
                         [currentUser getFriendMessages:newFriend];
                         [currentUser.friends addObject:newFriend];
                     }
-                    
+
                     [currentUser getMyMessages];
                     [currentUser getLikes];
                     [currentUser getGuesses];

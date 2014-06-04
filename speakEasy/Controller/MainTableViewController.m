@@ -39,22 +39,16 @@
     [self.view addGestureRecognizer:swipeRight];
     swipeRight.delegate = self;
     
-    
-    
-    
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:USER_INFO_UPDATE object:nil];
-
     
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.rowHeight = 80;
     /* Start spinner until data is loaded */
     [_spinner setHidesWhenStopped:YES];
     [_spinner startAnimating];
-    
-    
 }
 
 -(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
@@ -144,6 +138,11 @@
         cell.guessButton.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:cell.guessButton];
     }
+    if ([currentUser hasGuessedOnMessage:message]) {
+        cell.guessButton.titleLabel.textColor = [UIColor colorWithWhite:0 alpha:0.5];
+    } else {
+        cell.guessButton.titleLabel.textColor = [UIColor lightTextColor];
+    }
     cell.guessButton.tag = indexPath.row;
     
     if (!message.hasGuessed) {
@@ -172,6 +171,11 @@
         [cell.likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
         cell.likeButton.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:cell.likeButton];
+    }
+    if ([currentUser hasLikedMessage:message]) {
+        cell.likeButton.titleLabel.textColor = [UIColor colorWithWhite:0 alpha:0.5];
+    } else {
+        cell.likeButton.titleLabel.textColor = [UIColor lightTextColor];
     }
     cell.likeButton.tag = indexPath.row;
     

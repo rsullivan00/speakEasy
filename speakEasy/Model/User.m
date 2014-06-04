@@ -43,6 +43,7 @@ static User *currentUser;
     @synchronized (self)
     {
         currentUser = [[User alloc] initWithId:userID];
+        [[NSNotificationCenter defaultCenter]addObserver:currentUser selector:@selector(messagesUpdated) name:USER_MESSAGES_TO_UPDATE object:nil];
     }
     
     return currentUser;
@@ -160,6 +161,7 @@ static User *currentUser;
                 i++;
             }
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_MESSAGES_TO_UPDATE object:nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     }];
 }
@@ -214,6 +216,7 @@ static User *currentUser;
                 [self.guesses setObject:guess atIndexedSubscript:i];
                 i++;
             }
+            [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
         }
     }];
 }
@@ -237,10 +240,21 @@ static User *currentUser;
                 [self.likes setObject:like atIndexedSubscript:i];
                 i++;
             }
+            [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
         }
     }];
 }
 
+/* If messages have been updated, try to connect existing guesses and likes to messages */
+- (void) messagesUpdated
+{
+    for (Guess *guess in _guesses) {
+        [guess setMessageFromIDs];
+    }
+    for (Like *like in _likes) {
+        [like setMessageFromIDs];
+    }
+}
 
 @end
 
