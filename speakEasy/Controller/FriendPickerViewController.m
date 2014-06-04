@@ -56,7 +56,7 @@
         [self.view addSubview:secondImageToMove];
         
         // Move the image
-        [UIView animateWithDuration:5.0 animations:^{
+        [UIView animateWithDuration:3.0 animations:^{
             imageToMove.frame = CGRectMake(700, 700.0, imageToMove.frame.size.width, imageToMove.frame.size.width);
             secondImageToMove.frame = CGRectMake(0.0, 700.0, secondImageToMove.frame.size.width, secondImageToMove.frame.size.width);
             } completion:^(BOOL finished){
