@@ -64,7 +64,7 @@
                         [currentUser getFriendMessages:newFriend];
                         [currentUser.friends addObject:newFriend];
                     }
-                    [currentUser getTimeElapsed];
+                    [currentUser getScoreFromFirebase];
                     [currentUser getMyMessages];
                     [currentUser getLikes];
                     [currentUser getGuesses];

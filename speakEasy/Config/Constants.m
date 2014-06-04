@@ -17,5 +17,6 @@ NSString *USER_MESSAGES_TO_UPDATE = @"DidUpdateUserMessagesTo";
 NSString *BACKGROUND_IMAGE = @"Background-568h@2x.png";
 NSString *DATE_DEFAULT = @"yyyy-MM-dd HH:mm:ss";
 int MAX_MESSAGE_LENGTH = 300;
+double SCORE_LOSS_PER_HOUR = 0.5;
 
 @end

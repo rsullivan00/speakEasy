@@ -117,6 +117,15 @@ static User *currentUser;
         } else {
             NSDictionary* data = snapshot.value;
             _score = [[data objectForKey:@"score"] doubleValue];
+            /* If this User is the currentUser, subtract score accordingly */
+            if (self == [User currentUser]) {
+                NSString *dateString = [data valueForKey:@"lastTimeAppWasUsed"];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:DATE_DEFAULT];
+                NSDate *date = [dateFormatter dateFromString:dateString];
+                NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:date];
+                _score = _score - (SCORE_LOSS_PER_HOUR * (timeInterval / 3600.0));
+            }
         }
     }];
 }
@@ -257,39 +266,6 @@ static User *currentUser;
             [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
         }
     }];
-}
-
-- (void) getTimeElapsed{
-    NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
-    NSDate *start = [NSDate date];
-    
-    Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
-    [date setValue:[NSString stringWithFormat:@"%@", start]];
-    NSLog(@"Updating date");
-    
-    [date observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        if(snapshot.value == [NSNull null]) {
-            NSLog(@"this user has not used the app before, welcome!");
-        } else {
-            NSString* date = snapshot.value;
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZ"];
-            NSDate *dateFromString = [[NSDate alloc] init];
-            dateFromString = [formatter dateFromString:date];
-
-            NSLog(@"%@", date);
-            NSTimeInterval timeInterval = [dateFromString timeIntervalSinceNow];
-            NSInteger timeElapsed = timeInterval;
-            
-            NSLog(@"TIME INTERVAL: %f", timeInterval);
-            NSLog(@"TIME ELAPSED: %f", (float)timeElapsed);
-
-            
-            
-
-        }
-    }];
-
 }
 
 /* If messages have been updated, sort them and try to connect existing guesses and likes to messages */
