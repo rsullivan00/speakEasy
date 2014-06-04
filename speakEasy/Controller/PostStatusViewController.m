@@ -21,8 +21,6 @@
     return self;
 }
 
-
-
 - (void)viewWillAppear:(BOOL)animated
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default-568h@2x.png"]];
@@ -57,16 +55,15 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     submitButton.layer.cornerRadius = 8.0f;
-//    submitButton.layer.borderWidth = 1;
     submitButton.layer.borderColor = [UIColor grayColor].CGColor;
-    submitButton.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.1] CGColor];
+    submitButton.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.2] CGColor];
     submitButton.layer.borderWidth= 0.01f;
 
     messageTextView.layer.cornerRadius=8.0f;
     messageTextView.layer.masksToBounds=YES;
     messageTextView.layer.borderColor=[[UIColor blueColor]CGColor];
     messageTextView.layer.borderWidth= 0.01f;
-    messageTextView.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.1] CGColor];
+    messageTextView.layer.backgroundColor=[[UIColor colorWithWhite:0 alpha:0.2] CGColor];
     messageTextView.placeholderText = TEXTVIEW_PLACEHOLDER;
     
 }
@@ -103,11 +100,23 @@
     User *currentUser = [User currentUser];
     
     NSString *text = messageTextView.text;
+    
     if ([text isEqualToString:@""]) {
-        UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Empty message" message:@"Mr. T says \"Enter some text, foo!\"" delegate:nil cancelButtonTitle:@"OK Mr. T..." otherButtonTitles: nil];
+        UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Empty message"
+                                                   message:@"Mr. T says \"Enter some text, foo!\""
+                                                  delegate:nil cancelButtonTitle:@"OK Mr. T..."
+                                         otherButtonTitles: nil];
+        [a show];
+        return;
+    } else if ([text length] > MAX_MESSAGE_LENGTH) {
+        UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Message too long"
+                                                   message:[NSString stringWithFormat:@"Messages have a limit of %d characters. Yours has %d.", MAX_MESSAGE_LENGTH, [text length]]
+                                                  delegate:nil cancelButtonTitle:@"Back"
+                                         otherButtonTitles: nil];
         [a show];
         return;
     }
+    
     Message *message = [[Message alloc] initWithText:text];
     [currentUser.messagesBy addObject:message];
     
@@ -135,7 +144,6 @@
             [scoreFirebase setValue:@(data.doubleValue + 0.02)];
         }
     }];
-
     
     [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     [self reloadData];
@@ -165,7 +173,6 @@
             }
         }
     }];
-    
 }
 
 @end

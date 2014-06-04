@@ -33,8 +33,6 @@
     self.window.backgroundColor = [UIColor whiteColor];
    
     [self.window makeKeyAndVisible];
-        
-
     
     return YES;
 }
@@ -74,7 +72,6 @@
     Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
     [date setValue:[NSString stringWithFormat:@"%@", start]];
     NSLog(@"Updating date");
-
 }
 
 
