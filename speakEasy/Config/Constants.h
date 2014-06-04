@@ -15,6 +15,7 @@ extern NSString *TEXTVIEW_PLACEHOLDER;
 extern NSString *USER_INFO_UPDATE;
 extern NSString *USER_MESSAGES_TO_UPDATE;
 extern NSString *BACKGROUND_IMAGE;
+extern NSString *DATE_DEFAULT;
 extern int MAX_MESSAGE_LENGTH;
 
 @end

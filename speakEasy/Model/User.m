@@ -43,7 +43,7 @@ static User *currentUser;
     @synchronized (self)
     {
         currentUser = [[User alloc] initWithId:userID];
-        [[NSNotificationCenter defaultCenter]addObserver:currentUser selector:@selector(messagesUpdated) name:USER_MESSAGES_TO_UPDATE object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:currentUser selector:@selector(messagesToUpdated) name:USER_MESSAGES_TO_UPDATE object:nil];
     }
     
     return currentUser;
@@ -152,6 +152,10 @@ static User *currentUser;
                 message.score = [[messageDictionary valueForKey:@"score"] intValue];
                 message.authorID = friend.userID;
                 message.messageID = key;
+                NSString *dateString = [messageDictionary valueForKey:@"date"];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:DATE_DEFAULT];
+                message.date = [dateFormatter dateFromString:dateString];
                 
                 /* If message is new, add it to current user */
                 if ([friend.messagesBy count] <= i) {
@@ -172,7 +176,6 @@ static User *currentUser;
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages", FIREBASE_PREFIX, _userID];
     
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
-    
     [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         if(snapshot.value == [NSNull null]) {
             NSLog(@"this user has no messages");
@@ -185,13 +188,24 @@ static User *currentUser;
                 message.score = [[messageDictionary valueForKey:@"score"] intValue];
                 message.authorID = _userID;
                 message.messageID = key;
-                
+                NSString *dateString = [messageDictionary valueForKey:@"date"];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:DATE_DEFAULT];
+                message.date = [dateFormatter dateFromString:dateString];
                 /* If message is new, add it to user */
                 if ([_messagesBy count] <= i) {
                     [_messagesBy addObject:message];
                 }
                 i++;
             }
+            
+            /* Sort messages */
+            _messagesBy = [NSMutableArray arrayWithArray:[_messagesBy sortedArrayUsingComparator: ^(id a, id b) {
+                Message *first = a;
+                Message *second = b;
+                
+                return [first.date compare:second.date];
+            }]];
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
     }];
@@ -278,9 +292,16 @@ static User *currentUser;
 
 }
 
-/* If messages have been updated, try to connect existing guesses and likes to messages */
-- (void) messagesUpdated
+/* If messages have been updated, sort them and try to connect existing guesses and likes to messages */
+- (void) messagesToUpdated
 {
+    _messagesTo = [NSMutableArray arrayWithArray:[_messagesTo sortedArrayUsingComparator: ^(id a, id b) {
+        Message *first = a;
+        Message *second = b;
+
+        return [first.date compare:second.date];
+    }]];
+    
     for (Guess *guess in _guesses) {
         [guess setMessageFromIDs];
     }

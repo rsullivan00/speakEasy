@@ -118,15 +118,24 @@
     }
     
     Message *message = [[Message alloc] initWithText:text];
-    [currentUser.messagesBy addObject:message];
+    [currentUser.messagesBy insertObject:message atIndex:0];
     
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/", FIREBASE_PREFIX, [currentUser userID]];
 
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
     
     Firebase *firebaseLocation = [firebase childByAutoId];
-    [firebaseLocation setValue:@{@"text":text, @"score":[NSNumber numberWithInt:message.score]}];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:DATE_DEFAULT];
+    NSString *dateString = [dateFormatter stringFromDate:message.date];
+    [firebaseLocation setValue:@{@"text":text,
+                                 @"score":[NSNumber numberWithInt:message.score],
+                                 @"date": dateString}];
     
+    /*[NSDateFormatter localizedStringFromDate:message.date
+                                   dateStyle:NSDateFormatterShortStyle
+                                   timeStyle:NSDateFormatterFullStyle]
+     */
     /* Clear the text field and close the keyboard */
     messageTextView.text = @"";
     [messageTextView resignFirstResponder];

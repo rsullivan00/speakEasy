@@ -15,6 +15,7 @@ NSString *TEXTVIEW_PLACEHOLDER = @"speakEasy - share your unfiltered thoughts wi
 NSString *USER_INFO_UPDATE = @"DidUpdateUserInfo";
 NSString *USER_MESSAGES_TO_UPDATE = @"DidUpdateUserMessagesTo";
 NSString *BACKGROUND_IMAGE = @"Background-568h@2x.png";
+NSString *DATE_DEFAULT = @"yyyy-MM-dd HH:mm:ss";
 int MAX_MESSAGE_LENGTH = 300;
 
 @end
