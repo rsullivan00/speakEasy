@@ -52,6 +52,8 @@
      */
     
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    /* Reduce current User's score according to inactive time */
+    [[User currentUser] getScoreFromFirebase];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -68,10 +70,12 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
     NSDate *start = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:DATE_DEFAULT];
 
     Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
-    [date setValue:[NSString stringWithFormat:@"%@", start]];
-    NSLog(@"Updating date");
+    NSString *dateString = [dateFormatter stringFromDate:start];
+    [date setValue:dateString];
 }
 
 

@@ -117,6 +117,15 @@ static User *currentUser;
         } else {
             NSDictionary* data = snapshot.value;
             _score = [[data objectForKey:@"score"] doubleValue];
+            /* If this User is the currentUser, subtract score accordingly */
+            if (self == [User currentUser]) {
+                NSString *dateString = [data valueForKey:@"lastTimeAppWasUsed"];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:DATE_DEFAULT];
+                NSDate *date = [dateFormatter dateFromString:dateString];
+                NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:date];
+                _score = _score - (SCORE_LOSS_PER_HOUR * (timeInterval / 3600.0));
+            }
         }
     }];
 }
@@ -259,6 +268,7 @@ static User *currentUser;
     }];
 }
 
+<<<<<<< HEAD
 - (void) getTimeElapsed{
     NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
     NSDate *start = [NSDate date];
@@ -293,6 +303,8 @@ static User *currentUser;
 
 }
 
+=======
+>>>>>>> FETCH_HEAD
 /* If messages have been updated, sort them and try to connect existing guesses and likes to messages */
 - (void) messagesToUpdated
 {

@@ -17,5 +17,6 @@ extern NSString *USER_MESSAGES_TO_UPDATE;
 extern NSString *BACKGROUND_IMAGE;
 extern NSString *DATE_DEFAULT;
 extern int MAX_MESSAGE_LENGTH;
+extern double SCORE_LOSS_PER_HOUR;
 
 @end
