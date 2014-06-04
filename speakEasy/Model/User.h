@@ -39,5 +39,6 @@
 - (void) getGuesses;
 - (void) getScoreFromFirebase;
 - (void) updateFireBaseFriends:(NSArray *) friendIDs;
+- (void) getTimeElapsed;
 
 @end

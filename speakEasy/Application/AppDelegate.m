@@ -33,15 +33,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
    
     [self.window makeKeyAndVisible];
-    
-    NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
-    Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
-    [date observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"fred's first name is: %@", [NSString stringWithFormat:@"%@", snapshot.value]);
-    }];
-    
-    NSLog(@"HELLO!!!!");
-    
+        
 
     
     return YES;
