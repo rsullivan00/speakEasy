@@ -59,7 +59,20 @@
 -(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
         NSLog(@"swipe left");
-    [self.tabBarController setSelectedIndex:1];
+    UIView * fromView = self.tabBarController.selectedViewController.view;
+    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:1] view];
+    
+    // Transition using flip from right.
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:1
+                       options:(UIViewAnimationOptionTransitionFlipFromLeft)
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            [self.tabBarController setSelectedIndex:1];
+                        }
+                    }];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -71,14 +71,38 @@
 -(void) swipeRight:(UISwipeGestureRecognizer *) recognizer {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
         NSLog(@"swipe right");
-    [self.tabBarController setSelectedIndex:0];
+    UIView * fromView = self.tabBarController.selectedViewController.view;
+    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:0] view];
+    
+    // Transition using flip from right.
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:1
+                       options:(UIViewAnimationOptionTransitionFlipFromRight)
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            [self.tabBarController setSelectedIndex:0];
+                        }
+                    }];
 
 }
 
 -(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
         NSLog(@"swipe left");
-    [self.tabBarController setSelectedIndex:2];
+    UIView * fromView = self.tabBarController.selectedViewController.view;
+    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:2] view];
+    
+    // Transition using flip from right.
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:1
+                       options:(UIViewAnimationOptionTransitionFlipFromLeft)
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            [self.tabBarController setSelectedIndex:2];
+                        }
+                    }];
 }
 
 
