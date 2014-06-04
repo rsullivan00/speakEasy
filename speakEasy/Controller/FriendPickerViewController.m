@@ -47,18 +47,30 @@
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");
         
-        UIImageView *imageToMove =
-        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
+        UIImageView *imageToMove =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
+        UIImageView *imageView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right1.png"]];
+
         UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
+        UIImageView *correctImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right1.png"]];
+        correctImageToMove.frame = CGRectMake(0,0,100,100);
+
         secondImageToMove.frame = CGRectMake(700,700,100,100);
         imageToMove.frame = CGRectMake(0, 0, 100, 100);
+        imageView.frame = CGRectMake(0, 0, 100, 100);
+        [self.view addSubview:imageView];
+
         [self.view addSubview:imageToMove];
         [self.view addSubview:secondImageToMove];
+        [self.view addSubview:correctImageToMove];
+
         
         // Move the image
         [UIView animateWithDuration:3.0 animations:^{
             imageToMove.frame = CGRectMake(700, 700.0, imageToMove.frame.size.width, imageToMove.frame.size.width);
             secondImageToMove.frame = CGRectMake(0.0, 700.0, secondImageToMove.frame.size.width, secondImageToMove.frame.size.width);
+            imageView.frame = CGRectMake(700, 700.0, imageToMove.frame.size.width, imageView.frame.size.width);
+            correctImageToMove.frame = CGRectMake(0.0, 700.0, correctImageToMove.frame.size.width, correctImageToMove.frame.size.width);
+            
             } completion:^(BOOL finished){
                 [self.navigationController popViewControllerAnimated:YES];
             }

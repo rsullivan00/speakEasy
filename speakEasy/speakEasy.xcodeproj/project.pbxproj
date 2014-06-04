@@ -56,6 +56,7 @@
 		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
 		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
 		8FBE472B193BC822005405AC /* margarita3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBE472A193BC822005405AC /* margarita3.png */; };
+		8FF35A4B193F962100C1BADF /* right1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF35A4A193F962100C1BADF /* right1.png */; };
 		C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250169161BBAE400474BCD /* StoreKit.framework */; };
 		C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C425016F161BBAEE00474BCD /* libz.dylib */; };
 		D4DA79EF14D3345A0055F672 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA79EE14D3345A0055F672 /* UIKit.framework */; };
@@ -139,6 +140,7 @@
 		8FB70FDC192AEA3B00E8E18B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = SOURCE_ROOT; };
 		8FB70FDD192AEA3B00E8E18B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = SOURCE_ROOT; };
 		8FBE472A193BC822005405AC /* margarita3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = margarita3.png; sourceTree = "<group>"; };
+		8FF35A4A193F962100C1BADF /* right1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right1.png; sourceTree = "<group>"; };
 		C4250169161BBAE400474BCD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C425016F161BBAEE00474BCD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D4DA79EA14D3345A0055F672 /* speakEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +266,7 @@
 		1DB3FB47193441FF006D54C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8FF35A4A193F962100C1BADF /* right1.png */,
 				8F166605193ED7E20011F9E7 /* right.png */,
 				8F508843193D4F97005E0160 /* margarita3.png */,
 				8FAE22F2193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png */,
@@ -396,6 +399,7 @@
 				1DB3BDC7193AD56A0011027F /* DarkerBackground-568h@2x.png in Resources */,
 				1DB3FB431934277D006D54C2 /* InfoPlist.strings in Resources */,
 				8FAE22F1193C2B8A000BEF50 /* 1401698851_beer copy.png in Resources */,
+				8FF35A4B193F962100C1BADF /* right1.png in Resources */,
 				1DB2E7A5192C8A71004BE0DB /* Icon@2x.png in Resources */,
 				1DB3FB3D19342366006D54C2 /* LoginViewController.xib in Resources */,
 				1DB2E7A7192C8A71004BE0DB /* login-button-small-pressed@2x.png in Resources */,
