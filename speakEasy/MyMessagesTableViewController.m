@@ -27,7 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
+    self.tableView.backgroundView = imageView;
+    //self.view.backgroundColor = [UIColor clearColor];
     [self setTitle:@"My posts"]; 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadTableData) name:USER_INFO_UPDATE object:nil];
     

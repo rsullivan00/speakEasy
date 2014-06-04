@@ -33,7 +33,7 @@
     
    
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-568h@2x.png"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
     [[self view] addSubview:imageView];
     [[self view] sendSubviewToBack:imageView];
     [[self view] setOpaque:NO];
