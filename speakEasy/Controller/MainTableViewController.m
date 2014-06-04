@@ -132,7 +132,6 @@
     /* Configure guess button */
     if (cell.guessButton == nil) {
         cell.guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        cell.guessButton.frame = CGRectMake(cell.frame.origin.x + 20, cell.frame.size.height - 30, 41, 30);
         [cell.guessButton setTitle:@"guess" forState:UIControlStateNormal];
         [cell.guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
         cell.guessButton.backgroundColor = [UIColor clearColor];
@@ -143,6 +142,7 @@
     } else {
         cell.guessButton.titleLabel.textColor = [UIColor lightTextColor];
     }
+    cell.guessButton.frame = CGRectMake(cell.frame.origin.x + 20, cell.frame.size.height - 30, 41, 30);
     cell.guessButton.tag = indexPath.row;
     
     if (!message.hasGuessed) {
@@ -155,18 +155,17 @@
     /* Configure score label */
     if (cell.scoreLabel == nil) {
         cell.scoreLabel = [[UILabel alloc] init];
-        cell.scoreLabel.frame = CGRectMake(cell.frame.origin.x + 240, cell.frame.size.height - 30, 41, 30);
         cell.scoreLabel.textColor = [UIColor lightTextColor];
         cell.scoreLabel.textAlignment = NSTextAlignmentCenter;
         [cell.contentView addSubview:cell.scoreLabel];
     }
     cell.scoreLabel.tag = indexPath.row;
+    cell.scoreLabel.frame = CGRectMake(cell.frame.origin.x + 240, cell.frame.size.height - 30, 41, 30);
     cell.scoreLabel.text = [NSString stringWithFormat:@"%d", message.score];
     
     /* Configure like button */
     if (cell.likeButton == nil) {
         cell.likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        cell.likeButton.frame = CGRectMake(cell.frame.origin.x + 270, cell.frame.size.height - 30, 41, 30);
         [cell.likeButton setTitle:@"like" forState:UIControlStateNormal];
         [cell.likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
         cell.likeButton.backgroundColor = [UIColor clearColor];
@@ -177,6 +176,7 @@
     } else {
         cell.likeButton.titleLabel.textColor = [UIColor lightTextColor];
     }
+    cell.likeButton.frame = CGRectMake(cell.frame.origin.x + 270, cell.frame.size.height - 30, 41, 30);
     cell.likeButton.tag = indexPath.row;
     
     return cell;
