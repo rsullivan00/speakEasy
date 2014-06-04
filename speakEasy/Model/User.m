@@ -204,7 +204,7 @@ static User *currentUser;
                 Message *first = a;
                 Message *second = b;
                 
-                return [first.date compare:second.date];
+                return [second.date compare:first.date];
             }]];
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:USER_INFO_UPDATE object:nil];
@@ -299,7 +299,7 @@ static User *currentUser;
         Message *first = a;
         Message *second = b;
 
-        return [first.date compare:second.date];
+        return [second.date compare:first.date];
     }]];
     
     for (Guess *guess in _guesses) {
