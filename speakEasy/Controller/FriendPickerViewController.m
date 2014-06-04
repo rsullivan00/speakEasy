@@ -48,16 +48,16 @@
         NSLog(@"Correct");
         
         UIImageView *imageToMove =
-        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
-        UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
-        secondImageToMove.frame = CGRectMake(40,40,100,100);
-        imageToMove.frame = CGRectMake(10, 10, 100, 100);
+        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
+        UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
+        secondImageToMove.frame = CGRectMake(700,700,100,100);
+        imageToMove.frame = CGRectMake(0, 0, 100, 100);
         [self.view addSubview:imageToMove];
         [self.view addSubview:secondImageToMove];
         
         // Move the image
-        [UIView animateWithDuration:3.0 animations:^{
-            imageToMove.frame = CGRectMake(100.0, 700.0, imageToMove.frame.size.width, imageToMove.frame.size.width);
+        [UIView animateWithDuration:5.0 animations:^{
+            imageToMove.frame = CGRectMake(700, 700.0, imageToMove.frame.size.width, imageToMove.frame.size.width);
             secondImageToMove.frame = CGRectMake(0.0, 700.0, secondImageToMove.frame.size.width, secondImageToMove.frame.size.width);
             } completion:^(BOOL finished){
                 [self.navigationController popViewControllerAnimated:YES];
@@ -80,6 +80,24 @@
         
     } else {
         NSLog(@"Wrong");
+        
+        UIImageView *imageToMove =
+        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
+        UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
+        secondImageToMove.frame = CGRectMake(100,100,100,100);
+        imageToMove.frame = CGRectMake(0, 0, 100, 100);
+        [self.view addSubview:imageToMove];
+        [self.view addSubview:secondImageToMove];
+        
+        // Move the image
+        [UIView animateWithDuration:3.0 animations:^{
+            imageToMove.frame = CGRectMake(0, 700.0, imageToMove.frame.size.width, imageToMove.frame.size.width);
+            secondImageToMove.frame = CGRectMake(0.0, 700.0, secondImageToMove.frame.size.width, secondImageToMove.frame.size.width);
+        } completion:^(BOOL finished){
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+         ];
+
     }
     
     /* Persist Guess to DB */
