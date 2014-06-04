@@ -34,17 +34,6 @@
    
     [self.window makeKeyAndVisible];
     
-    NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
-    Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
-    [date observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSString* data = snapshot.value;
-        NSLog(@"fred's first name is: %@", [NSString stringWithFormat:@"%@", snapshot.value]);
-    }];
-    
-    NSLog(@"HELLO!!!!");
-    
-
-    
     return YES;
 }
 
@@ -81,7 +70,6 @@
     NSDate *start = [NSDate date];
 
     Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
-    NSString *dateString = [NSString stringWithFormat:@"%@", start];
     [date setValue:[NSString stringWithFormat:@"%@", start]];
     NSLog(@"Updating date");
 }
