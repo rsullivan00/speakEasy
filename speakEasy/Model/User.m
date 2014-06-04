@@ -280,7 +280,8 @@ static User *currentUser;
             NSLog(@"%@", date);
             NSTimeInterval timeInterval = [dateFromString timeIntervalSinceNow];
             NSInteger timeElapsed = timeInterval;
-            
+           
+       
             NSLog(@"TIME INTERVAL: %f", timeInterval);
             NSLog(@"TIME ELAPSED: %f", (float)timeElapsed);
 
