@@ -83,10 +83,10 @@
             [scoreFirebase removeObserverWithHandle:handle];
             if(snapshot.value == [NSNull null]) {
                 NSLog(@"this user has no score");
-                [scoreFirebase setValue:@(0.1)];
+                [scoreFirebase setValue:@(0.05)];
             } else {
                 NSNumber* data = snapshot.value;
-                [scoreFirebase setValue:@(data.doubleValue + 0.1)];
+                [scoreFirebase setValue:@(data.doubleValue + 0.05)];
             }
         }];
         
