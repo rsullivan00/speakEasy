@@ -158,13 +158,6 @@
     cell.guessButton.frame = CGRectMake(cell.frame.origin.x + 20, cell.frame.size.height - 30, 41, 30);
     cell.guessButton.tag = indexPath.row;
     
-    if (!message.hasGuessed) {
-        cell.guessButton.hidden = NO;
-    } else {
-        cell.guessButton.hidden = YES;
-    }
-
-    
     /* Configure score label */
     if (cell.scoreLabel == nil) {
         cell.scoreLabel = [[UILabel alloc] init];

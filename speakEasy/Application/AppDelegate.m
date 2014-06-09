@@ -66,6 +66,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    /* Store timestamp for user when they close the app */
     NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
     NSDate *start = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

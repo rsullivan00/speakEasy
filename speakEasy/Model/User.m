@@ -49,11 +49,6 @@ static User *currentUser;
     return currentUser;
 }
 
-+(NSString *) friendsKey
-{
-    return [NSString stringWithFormat:@"facebookFriends%@", currentUser.userID];
-}
-
 - (id) initWithId: (NSString *) userID
 {
     return [self initWithId:userID name:nil];

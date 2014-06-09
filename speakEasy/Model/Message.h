@@ -14,8 +14,6 @@
 @property NSString *authorID;
 @property NSDate *date;
 
-@property (nonatomic, readwrite) BOOL hasGuessed;
-
 -(id) init;
 - (id) initWithText:(NSString *)text;
 - (id) initWithID:(NSString *)messageID authorID:(NSString *)authorID text:(NSString *)text;

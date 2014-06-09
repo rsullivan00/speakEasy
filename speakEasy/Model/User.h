@@ -7,12 +7,9 @@
 #import "Message.h"
 
 @interface User : NSObject
-/* Singleton instance of User */
-+(User *) currentUser;
+/* Singleton instance of User that is logged in */
++ (User *) currentUser;
 + (User *) newCurrentUser: (NSString *) userID;
-
-/* Returns a key for the current User's persistent friend data */
-+(NSString *) friendsKey;
 
 /* Unique userId corresponding to our DB table */
 @property (strong) NSString *userID;
