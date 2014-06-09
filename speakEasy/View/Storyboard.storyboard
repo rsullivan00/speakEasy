@@ -98,38 +98,6 @@
             </objects>
             <point key="canvasLocation" x="398" y="429"/>
         </scene>
-        <!--Liked Messages Table View Controller-->
-        <scene sceneID="Uw2-3f-wy9">
-            <objects>
-                <tableViewController storyboardIdentifier="LikedMessagesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uvb-1U-khp" customClass="LikedMessagesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZA0-jH-7Wi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="Xvq-Lf-YY4">
-                            <rect key="frame" x="0.0" y="66" width="320" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="likedMessageCell" id="Jt2-J1-fjF">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jt2-J1-fjF" id="Bf1-Xr-N0W">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="uvb-1U-khp" id="uZd-FU-HTe"/>
-                            <outlet property="delegate" destination="uvb-1U-khp" id="g75-TA-hXk"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z9H-w8-TVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="779" y="425"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="I0p-CD-Lwh">
             <objects>

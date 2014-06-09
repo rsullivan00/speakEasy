@@ -51,5 +51,4 @@
     return [self initWithID:message.messageID authorID:message.authorID text:message.text date:message.date];
 }
 
-
 @end

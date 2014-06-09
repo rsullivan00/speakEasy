@@ -18,14 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // ****************************************************************************
-    // Fill in with your Parse credentials:
-    // ****************************************************************************
+    /* Parse credentials for FB login */
     [Parse setApplicationId:@"HBBbbNkgmmZW6RjDLkDZ3CRKhBXmHI3koMAFf2Xt" clientKey:@"0rDGYbGbL098LXg0EiUXAcnpnsUYMUot1OUu22So"];
 
-    // ****************************************************************************
-    // Your Facebook application id is configured in Info.plist.
-    // ****************************************************************************
     [PFFacebookUtils initializeFacebook];
 
     // Override point for customization after application launch.
@@ -37,9 +32,7 @@
     return YES;
 }
 
-// ****************************************************************************
-// App switching methods to support Facebook Single Sign-On.
-// ****************************************************************************
+/* App switching methods to support Facebook Single Sign-On. */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
@@ -47,10 +40,6 @@
 } 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
-    
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
     /* Reduce current User's score according to inactive time */
     [[User currentUser] getScoreFromFirebase];
