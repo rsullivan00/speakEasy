@@ -8,11 +8,11 @@
 
 @interface Message : NSObject
 
-@property NSString *messageID;
-@property int score;
-@property NSString *text;
-@property NSString *authorID;
-@property NSDate *date;
+@property (copy) NSString *messageID;
+@property (assign) int score;
+@property (copy) NSString *text;
+@property (copy) NSString *authorID;
+@property (strong) NSDate *date;
 
 -(id) init;
 - (id) initWithText:(NSString *)text;

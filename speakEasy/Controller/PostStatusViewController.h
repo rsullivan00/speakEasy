@@ -11,12 +11,16 @@
 
 @interface PostStatusViewController : UIViewController <UIGestureRecognizerDelegate>
 
-- (IBAction)addMessage:(id)sender;
+/* Adds message under the current User */
+- (IBAction) addMessage:(id)sender;
+/* Registers screen touches to close the keyboard if open */
 - (IBAction) screenTouch;
 
 @property (weak, nonatomic) IBOutlet MPTextView *messageTextView;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-- (void)reloadData;
+
+/* Reloads and displays the current User's score */
+- (void) reloadData;
 
 @end

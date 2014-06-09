@@ -68,6 +68,7 @@
     return cell;
 }
 
+/* When User selects a cell, send the handleFriendSelection message to the delegate */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     User *friend = [[[User currentUser] friends] objectAtIndex:indexPath.row];

@@ -200,7 +200,7 @@
     __block FirebaseHandle handle = [scoreFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         [scoreFirebase removeObserverWithHandle:handle];
         if(snapshot.value == [NSNull null]) {
-            NSLog(@"this user has no score");
+            /* No score found */
         } else {
             NSDictionary* data = snapshot.value;
             

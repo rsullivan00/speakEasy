@@ -40,11 +40,12 @@
     [self.view addGestureRecognizer:swipeRight];
     swipeRight.delegate = self;
 
-    
+    /* Setup table display configuration */
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.rowHeight = 80;
     
+    /* Sort friends */
     friendsByScore = [[User currentUser].friends sortedArrayUsingComparator: ^(id a, id b) {
         User *first = a;
         User *second = b;
@@ -58,6 +59,7 @@
     }];
 }
 
+/* Implementing swipe recognition for UIGestureRecognizerDelegate */
 -(void) swipeRight:(UISwipeGestureRecognizer *) recognizer
 {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
@@ -75,16 +77,14 @@
                             [self.tabBarController setSelectedIndex:1];
                         }
                     }];
-    
 }
 
+/* Implementing swipe recognition for UIGestureRecognizerDelegate */
 -(void) swipeLeft:(UISwipeGestureRecognizer *) recognizer
 {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
         NSLog(@"swipe left");
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,8 +100,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    /* Display all of the current User's friends */
     if ([[User currentUser] friends]) {
-        
         return [[User currentUser] friends].count;
     }
     
@@ -113,6 +113,7 @@
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     User *friend = [friendsByScore objectAtIndex:indexPath.item];
+    /* Truncate friend's name if too long for one line */
     if ([friend.name length] > 15) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@...", [friend.name substringToIndex:15]];
     } else {

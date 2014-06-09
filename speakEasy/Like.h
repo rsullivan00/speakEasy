@@ -12,8 +12,8 @@
 @interface Like : NSObject
 
 @property (strong) Message *message;
-@property (strong) NSString *authorID;
-@property (strong) NSString *messageID;
+@property (copy) NSString *authorID;
+@property (copy) NSString *messageID;
 
 /* Designated initializer */
 - (id) initWithMessage: (Message *)message;

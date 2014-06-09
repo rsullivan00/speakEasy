@@ -7,8 +7,8 @@
 
 @interface LoginViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-- (IBAction)loginButtonTouchHandler:(id)sender;
+- (IBAction) loginButtonTouchHandler:(id)sender;
 
 @end

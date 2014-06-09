@@ -23,11 +23,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    /* Set up view's background */
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default-568h@2x.png"]];
     [[self view] addSubview:imageView];
     [[self view] sendSubviewToBack:imageView];
     [[self view] setOpaque:NO];
     
+    /* Display User's score */
     if(!([User currentUser].score == 0))
         scoreLabel.text = [NSString stringWithFormat:@"B.A.C. = %0.02f", [User currentUser].score];
     [self reloadData];
@@ -37,7 +39,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     /*gesture control */
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
@@ -49,7 +50,6 @@
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRight];
     swipeRight.delegate = self;
-    
     
     /* Initialize UI styling */
     self.view.backgroundColor = [UIColor clearColor];
@@ -125,6 +125,7 @@
     
     NSString *text = messageTextView.text;
     
+    /* Don't allow empty string input */
     if ([text isEqualToString:@""]) {
         UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Empty message"
                                                    message:@"Mr. T says \"Enter some text, foo!\""
@@ -132,6 +133,7 @@
                                          otherButtonTitles: nil];
         [a show];
         return;
+    /* Limit input string length */
     } else if ([text length] > MAX_MESSAGE_LENGTH) {
         UIAlertView *a = [[UIAlertView alloc]initWithTitle:@"Message too long"
                                                    message:[NSString stringWithFormat:@"Messages have a limit of %d characters. Yours has %d.", MAX_MESSAGE_LENGTH, [text length]]
@@ -144,6 +146,7 @@
     Message *message = [[Message alloc] initWithText:text];
     [currentUser.messagesBy insertObject:message atIndex:0];
     
+    /* Update Firebase with new message */
     NSString *firebaseURL = [NSString stringWithFormat:@"%@/users/%@/messages/", FIREBASE_PREFIX, [currentUser userID]];
 
     Firebase *firebase = [[Firebase alloc] initWithUrl:firebaseURL];
@@ -156,10 +159,6 @@
                                  @"score":[NSNumber numberWithInt:message.score],
                                  @"date": dateString}];
     
-    /*[NSDateFormatter localizedStringFromDate:message.date
-                                   dateStyle:NSDateFormatterShortStyle
-                                   timeStyle:NSDateFormatterFullStyle]
-     */
     /* Clear the text field and close the keyboard */
     messageTextView.text = @"";
     [messageTextView resignFirstResponder];
@@ -182,7 +181,7 @@
     [self reloadData];
 }
 
-
+/* Reloads the User's score and displays it accordingly */
 - (void)reloadData
 {
     NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/", FIREBASE_PREFIX, [[User currentUser] userID]];

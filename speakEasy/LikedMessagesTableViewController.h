@@ -10,6 +10,6 @@
 
 @interface LikedMessagesTableViewController : UITableViewController
 
-@property(weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property(nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

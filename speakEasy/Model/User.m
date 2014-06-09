@@ -27,14 +27,6 @@ static User *currentUser;
 
 + (User *) currentUser
 {
-    @synchronized (self)
-    {
-        if (!currentUser)
-        {
-            NSLog(@"Error, there is no logged in user");
-            /* Go to login view */
-        }
-    }
     return currentUser;
 }
 

@@ -40,13 +40,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+/* Called when the user selects a cell in the table. Updates scores accordingly */
 - (void)handleFriendSelection:(User *)friend
 {
     Guess *guess = [[Guess alloc] initWithMessage:message];
     [[User currentUser].guesses addObject:guess];
+    
     if ([message.authorID isEqualToString:friend.userID]) {
         NSLog(@"Correct");
         
+        /* Animate to show that the User was correct */
         UIImageView *imageToMove =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
         UIImageView *imageView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right1.png"]];
 
@@ -76,6 +79,7 @@
             }
          ];
         
+        /* Update Firebase score */
         NSString *scoreURL = [NSString stringWithFormat:@"%@/users/%@/score", FIREBASE_PREFIX, [[User currentUser] userID]];
         Firebase *scoreFirebase = [[Firebase alloc] initWithUrl:scoreURL];
         
@@ -93,6 +97,7 @@
     } else {
         NSLog(@"Wrong");
         
+        /* Animate to show that the User was incorrect */
         UIImageView *imageToMove =
         [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
         UIImageView *secondImageToMove = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wrong.png"]];
@@ -129,17 +134,5 @@
         vc.delegate = self;
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
+/* FriendTableDelegate will respond to the User selecting a friendCell */
 @protocol FriendTableDelegate <NSObject>
 
 - (void)handleFriendSelection:(User *)friend;

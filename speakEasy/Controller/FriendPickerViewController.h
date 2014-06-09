@@ -12,7 +12,7 @@
 
 @interface FriendPickerViewController : UIViewController <FriendTableDelegate>
 
-@property IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property Message *message;
 
 @end
