@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "FriendTableViewController.h"
 
-@interface SettingsViewController : UITableViewController <UIGestureRecognizerDelegate>
+@interface ScoreTableViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 @end
     

@@ -35,12 +35,10 @@
     MainViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MainViewController"];
     [self.tabBarController setSelectedIndex: 2];
     UIImage *margarita =[UIImage imageNamed:@"margarita.png"];
-    UIImage *scaledImage =
     [UIImage imageWithCGImage:[margarita CGImage]
                         scale:(margarita.scale * 2.0)
                   orientation:(margarita.imageOrientation)];
     
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Post" image:scaledImage tag:1];
     [[UIApplication sharedApplication].delegate window].rootViewController = vc;
 }
 

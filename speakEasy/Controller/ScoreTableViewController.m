@@ -4,13 +4,13 @@
 //
 //
 
-#import "SettingsViewController.h"
+#import "ScoreTableViewController.h"
 #import "User.h"
 #import "Constants.h"
 #import "MessageTableViewCell.h"
 #include <Firebase/Firebase.h>
 
-@implementation SettingsViewController
+@implementation ScoreTableViewController
 
 {
     NSArray *friendsByScore;

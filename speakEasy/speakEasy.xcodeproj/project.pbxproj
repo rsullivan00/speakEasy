@@ -10,7 +10,7 @@
 		1D0ECDC31928327D00DA13A4 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC01928327D00DA13A4 /* Message.m */; };
 		1D0ECDC41928327D00DA13A4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0ECDC21928327D00DA13A4 /* User.m */; };
 		1D33C87F192B2D4100A187C4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D33C87E192B2D4100A187C4 /* Constants.m */; };
-		1D376677192D574E0063EB9E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D376676192D574E0063EB9E /* SettingsViewController.m */; };
+		1D376677192D574E0063EB9E /* ScoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D376676192D574E0063EB9E /* ScoreTableViewController.m */; };
 		1DAF6E7A1939632A004DF863 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF6E791939632A004DF863 /* MessageTableViewCell.m */; };
 		1DAF6E7D1939682C004DF863 /* Guess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF6E7C1939682C004DF863 /* Guess.m */; };
 		1DAF6E801939786D004DF863 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF6E7F1939786D004DF863 /* Like.m */; };
@@ -55,7 +55,6 @@
 		8FAE22F3193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE22F2193C2C97000BEF50 /* 1401699140_Jack_Daniels_New copy.png */; };
 		8FB70FDB192AE75300E8E18B /* PostStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */; };
 		8FB70FDE192AEA3B00E8E18B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB70FDD192AEA3B00E8E18B /* MainViewController.m */; };
-		8FBE472B193BC822005405AC /* margarita3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBE472A193BC822005405AC /* margarita3.png */; };
 		8FF35A4B193F962100C1BADF /* right1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF35A4A193F962100C1BADF /* right1.png */; };
 		C425016D161BBAE400474BCD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4250169161BBAE400474BCD /* StoreKit.framework */; };
 		C4250170161BBAEE00474BCD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C425016F161BBAEE00474BCD /* libz.dylib */; };
@@ -77,8 +76,8 @@
 		1D0ECDC21928327D00DA13A4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = SOURCE_ROOT; };
 		1D33C87D192B2D4100A187C4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Config/Constants.h; sourceTree = SOURCE_ROOT; };
 		1D33C87E192B2D4100A187C4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Config/Constants.m; sourceTree = SOURCE_ROOT; };
-		1D376675192D574E0063EB9E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Controller/SettingsViewController.h; sourceTree = SOURCE_ROOT; };
-		1D376676192D574E0063EB9E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Controller/SettingsViewController.m; sourceTree = SOURCE_ROOT; };
+		1D376675192D574E0063EB9E /* ScoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreTableViewController.h; path = Controller/ScoreTableViewController.h; sourceTree = SOURCE_ROOT; };
+		1D376676192D574E0063EB9E /* ScoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreTableViewController.m; path = Controller/ScoreTableViewController.m; sourceTree = SOURCE_ROOT; };
 		1DAF6E781939632A004DF863 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		1DAF6E791939632A004DF863 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		1DAF6E7B1939682C004DF863 /* Guess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guess.h; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		1DB2E79F192C8A70004BE0DB /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
 		1DB2E7AA192C8AB0004BE0DB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Application/main.m; sourceTree = SOURCE_ROOT; };
 		1DB2E7AB192C8AB0004BE0DB /* Oceanic_Background_by_ka_chankitty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Oceanic_Background_by_ka_chankitty.jpg; sourceTree = "<group>"; };
-		1DB2E7AC192C8AB0004BE0DB /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = riesling.ttf; path = ../../riesling.ttf; sourceTree = "<group>"; };
 		1DB2E7AD192C8AB0004BE0DB /* speakEasy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "speakEasy-Info.plist"; path = "Application/speakEasy-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1DB2E7AE192C8AB0004BE0DB /* speakEasy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "speakEasy-Prefix.pch"; path = "Application/speakEasy-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		1DB2E7AF192C8AB0004BE0DB /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
@@ -201,25 +199,25 @@
 		1D0ECDC71928349900DA13A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1DAFA8951933BA7E00256110 /* FriendPickerViewController.h */,
+				1DAFA8961933BA7E00256110 /* FriendPickerViewController.m */,
+				1DB8EA4D193308E3005A5243 /* FriendTableViewController.h */,
+				1DB8EA4E193308E3005A5243 /* FriendTableViewController.m */,
+				1DB3BDC8193AD65F0011027F /* LikedMessagesTableViewController.h */,
+				1DB3BDC9193AD65F0011027F /* LikedMessagesTableViewController.m */,
 				1DB3FB3919342366006D54C2 /* LoginViewController.h */,
 				1DB3FB3A19342366006D54C2 /* LoginViewController.m */,
 				1DB3FB3B19342366006D54C2 /* LoginViewController.xib */,
-				1D376675192D574E0063EB9E /* SettingsViewController.h */,
-				1D376676192D574E0063EB9E /* SettingsViewController.m */,
-				8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */,
-				8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */,
-				8FB70FDC192AEA3B00E8E18B /* MainViewController.h */,
-				8FB70FDD192AEA3B00E8E18B /* MainViewController.m */,
 				8FA4D3C5192AA2B60015F443 /* MainTableViewController.h */,
 				8FA4D3C6192AA2B60015F443 /* MainTableViewController.m */,
-				1DB8EA4D193308E3005A5243 /* FriendTableViewController.h */,
-				1DB8EA4E193308E3005A5243 /* FriendTableViewController.m */,
-				1DAFA8951933BA7E00256110 /* FriendPickerViewController.h */,
-				1DAFA8961933BA7E00256110 /* FriendPickerViewController.m */,
+				8FB70FDC192AEA3B00E8E18B /* MainViewController.h */,
+				8FB70FDD192AEA3B00E8E18B /* MainViewController.m */,
 				1DB3BDC1193ACC120011027F /* MyMessagesTableViewController.h */,
 				1DB3BDC2193ACC120011027F /* MyMessagesTableViewController.m */,
-				1DB3BDC8193AD65F0011027F /* LikedMessagesTableViewController.h */,
-				1DB3BDC9193AD65F0011027F /* LikedMessagesTableViewController.m */,
+				8FB70FD9192AE75300E8E18B /* PostStatusViewController.h */,
+				8FB70FDA192AE75300E8E18B /* PostStatusViewController.m */,
+				1D376675192D574E0063EB9E /* ScoreTableViewController.h */,
+				1D376676192D574E0063EB9E /* ScoreTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -241,7 +239,6 @@
 			children = (
 				1DB3FB411934277D006D54C2 /* InfoPlist.strings */,
 				1DB2E7AB192C8AB0004BE0DB /* Oceanic_Background_by_ka_chankitty.jpg */,
-				1DB2E7AC192C8AB0004BE0DB /* riesling.ttf */,
 				1DB2E7AF192C8AB0004BE0DB /* TableHeaderView.xib */,
 				1DB2E7B0192C8AB0004BE0DB /* userData.plist */,
 				1DB2E79A192C8A70004BE0DB /* Icon.png */,
@@ -252,15 +249,6 @@
 				1DB2E79F192C8A70004BE0DB /* login-button-small@2x.png */,
 			);
 			path = FacebookIntegration;
-			sourceTree = "<group>";
-		};
-		1DB3FB4419342A0B006D54C2 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				1D33C87D192B2D4100A187C4 /* Constants.h */,
-				1D33C87E192B2D4100A187C4 /* Constants.m */,
-			);
-			name = Config;
 			sourceTree = "<group>";
 		};
 		1DB3FB47193441FF006D54C2 /* Images */ = {
@@ -292,6 +280,8 @@
 				1DB2E7AE192C8AB0004BE0DB /* speakEasy-Prefix.pch */,
 				1DB3FB3E19342379006D54C2 /* AppDelegate.h */,
 				1DB3FB3F19342379006D54C2 /* AppDelegate.m */,
+				1D33C87D192B2D4100A187C4 /* Constants.h */,
+				1D33C87E192B2D4100A187C4 /* Constants.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -303,7 +293,6 @@
 				1D0ECDBE1928326400DA13A4 /* Model */,
 				1DB2E746192C7373004BE0DB /* View */,
 				1D0ECDC71928349900DA13A4 /* Controller */,
-				1DB3FB4419342A0B006D54C2 /* Config */,
 				1DB2E793192C8A46004BE0DB /* FacebookIntegration */,
 				1DB3FB47193441FF006D54C2 /* Images */,
 				D4DA79ED14D3345A0055F672 /* Frameworks */,
@@ -412,7 +401,6 @@
 				1DB2E7A6192C8A71004BE0DB /* login-button-small-pressed.png in Resources */,
 				1DB3BDC5193AD2300011027F /* Background-568h@2x.png in Resources */,
 				1DB3FB4C1934422F006D54C2 /* Default.png in Resources */,
-				8FBE472B193BC822005405AC /* margarita3.png in Resources */,
 				1DB3FB4D1934422F006D54C2 /* Default@2x.png in Resources */,
 				8F166606193ED7E20011F9E7 /* right.png in Resources */,
 				8F508844193D4F97005E0160 /* margarita3.png in Resources */,
@@ -444,7 +432,7 @@
 				1DAF6E7A1939632A004DF863 /* MessageTableViewCell.m in Sources */,
 				1DB3BDCA193AD65F0011027F /* LikedMessagesTableViewController.m in Sources */,
 				1DAFA8971933BA7E00256110 /* FriendPickerViewController.m in Sources */,
-				1D376677192D574E0063EB9E /* SettingsViewController.m in Sources */,
+				1D376677192D574E0063EB9E /* ScoreTableViewController.m in Sources */,
 				1DB3FB3C19342366006D54C2 /* LoginViewController.m in Sources */,
 				1DB3FB4019342379006D54C2 /* AppDelegate.m in Sources */,
 			);
@@ -535,7 +523,6 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Application/speakEasy-Prefix.pch";
@@ -556,7 +543,6 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Application/speakEasy-Prefix.pch";

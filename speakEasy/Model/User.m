@@ -268,43 +268,6 @@ static User *currentUser;
     }];
 }
 
-<<<<<<< HEAD
-- (void) getTimeElapsed{
-    NSString *dateURL = [NSString stringWithFormat:@"%@/users/%@/lastTimeAppWasUsed", FIREBASE_PREFIX, [[User currentUser] userID]];
-    NSDate *start = [NSDate date];
-    
-    Firebase *date = [[Firebase alloc] initWithUrl:dateURL];
-    [date setValue:[NSString stringWithFormat:@"%@", start]];
-    NSLog(@"Updating date");
-    
-    [date observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        if(snapshot.value == [NSNull null]) {
-            NSLog(@"this user has not used the app before, welcome!");
-        } else {
-            NSString* date = snapshot.value;
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZ"];
-            NSDate *dateFromString = [[NSDate alloc] init];
-            dateFromString = [formatter dateFromString:date];
-
-            NSLog(@"%@", date);
-            NSTimeInterval timeInterval = [dateFromString timeIntervalSinceNow];
-            NSInteger timeElapsed = timeInterval;
-           
-       
-            NSLog(@"TIME INTERVAL: %f", timeInterval);
-            NSLog(@"TIME ELAPSED: %f", (float)timeElapsed);
-
-            
-            
-
-        }
-    }];
-
-}
-
-=======
->>>>>>> FETCH_HEAD
 /* If messages have been updated, sort them and try to connect existing guesses and likes to messages */
 - (void) messagesToUpdated
 {

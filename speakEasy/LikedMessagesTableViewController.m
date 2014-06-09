@@ -91,7 +91,7 @@
         cell.guessButton = [UIButton buttonWithType:UIButtonTypeSystem];
         cell.guessButton.frame = CGRectMake(cell.contentView.frame.origin.x + 20, cell.contentView.frame.origin.y + 50, 41, 30);
         [cell.guessButton setTitle:@"guess" forState:UIControlStateNormal];
-        [cell.guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
+        //[cell.guessButton addTarget:self action:@selector(goToFriendPickerView:) forControlEvents:UIControlEventTouchUpInside];
         cell.guessButton.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:cell.guessButton];
     }
@@ -119,7 +119,7 @@
         cell.likeButton = [UIButton buttonWithType:UIButtonTypeSystem];
         cell.likeButton.frame = CGRectMake(cell.contentView.frame.origin.x + 270, cell.contentView.frame.origin.y + 50, 41, 30);
         [cell.likeButton setTitle:@"like" forState:UIControlStateNormal];
-        [cell.likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
+        //[cell.likeButton addTarget:self action:@selector(likeMessage:) forControlEvents:UIControlEventTouchUpInside];
         cell.likeButton.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:cell.likeButton];
     }
